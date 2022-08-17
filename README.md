@@ -29,9 +29,10 @@
 *iq fragen (kann auch multiple choise sein) (Eleni)
 \*\***Verschwundene Gegenstand (mit unicode Symbolen)---multiple choice mit der einer Sache das da war und vier die nicht da waren(Eleni) \***\*Mathe Aufgaben mit Timer\*\***
 *Rätschel (Andreas)
+*Matheaufgaben(Philipp)
 *Trivial Fragen?(Ahyam)
 *Fizz Buzz ||Würfel (Pausespiel)
-*Sterne sammeln(bei jeder Level eine ecke oder so) || Pflanze das mit jeden abgeschlossene Level Wasser Bakkomt und wächst)
+\*Sterne sammeln(bei jeder Level eine ecke oder so) || Pflanze das mit jeden abgeschlossene Level Wasser Bakkomt und wächst)
 **\*\***1-0 Spiel Elemente zählen (Amna)
 
 *Koffer packen-Ergebnisse aus vorherige Levels
