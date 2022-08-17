@@ -15,17 +15,17 @@ figlet.text(
   }
 );
 // Beispiel zu gradient string
-let coolGradient = gradient("red", "green", "blue");
-let coolString = coolGradient("This is a fancy string!");
-console.log(coolString);
+// let coolGradient = gradient("red", "green", "blue");
+// let coolString = coolGradient("This is a fancy string!");
+// console.log(coolString);
 
-let duck = gradient("orange", "yellow").multiline(
-  ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
-);
-console.log(duck);
+// let duck = gradient("orange", "yellow").multiline(
+//   ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
+// );
+// console.log(duck);
 
-// Beispiel zu chalk
-console.log(chalk.blue("Hello world!"));
+// // Beispiel zu chalk
+// console.log(chalk.blue("Hello world!"));
 
 // Beispiel zu enquire--> select between choices
 const { Select } = enquirer;
