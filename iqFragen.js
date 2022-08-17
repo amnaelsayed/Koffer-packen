@@ -125,23 +125,26 @@ const prompt = promptSync();
 //   },
 
 // ];
-const { Select } = enquirer;
-const prompt1 = new Select({
-  name: "a",
-  message:
-    "The day before two days after the day before tomorrow is Saturday. What day is it today?",
-  choices: ["Sunday", "Monday", "Tuesady", "Friday"],
-  rightAnswer: `Friday`,
-});
-const answer1 = await prompt1.run();
-// console.log(answer1);
 
-// if (answer1 !== prompt1.rightAnswer) {
-//   console.log(`Your an lost one life`);
-// } else {
-//   console.log(`You're right`);
-// }
-
+// const func1 = async () => {
+//   const { Select } = enquirer;
+//   const prompt1 = new Select({
+//     name: "a",
+//     message:
+//       "The day before two days after the day before tomorrow is Saturday. What day is it today?",
+//     choices: ["Sunday", "Monday", "Tuesady", "Friday"],
+//     rightAnswer: `Friday`,
+//   });
+//   const answer1 = await prompt1.run();
+//   if (answer1 !== prompt1.rightAnswer) {
+//     return `Your an lost one life`;
+//   } else {
+//     console.log(`You're right`);
+//   }
+// };
+// func1();
+// const antwort = func1();
+// console.log(antwort);
 // console.log(prompt1.name);
 // const antwortName = prompt("Wie heißt du? ");
 // console.log(antwortName);
@@ -158,4 +161,4 @@ const answer1 = await prompt1.run();
 //   }
 // }
 
-// console.log(frage());
+// import enquirer from "enquirer";
