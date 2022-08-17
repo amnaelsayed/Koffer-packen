@@ -4,6 +4,7 @@ import gradient from "gradient-string";
 import figlet from "figlet";
 import enquirer from "enquirer";
 import { log } from "console";
+import chalkAnimation from "chalk-animation";
 const prompt = promptSync();
 
 const tomorrow = () => {
@@ -25,3 +26,14 @@ const tomorrow = () => {
 };
 const iqOne = tomorrow();
 console.log(iqOne);
+
+// chalk-animation
+const rainbow = chalkAnimation.rainbow("Lorem ipsum"); // Animation starts
+
+setTimeout(() => {
+  rainbow.stop(); // Animation stops
+}, 1000);
+
+setTimeout(() => {
+  rainbow.start(); // Animation resumes
+}, 2000);

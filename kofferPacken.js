@@ -45,3 +45,7 @@ const answer1 = await prompt1.run();
 console.log(answer1);
 const answer2 = await prompt2.run();
 console.log(answer2);
+
+gradient("orange", "yellow").multiline(
+  ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
+);
