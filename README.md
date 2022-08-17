@@ -5,7 +5,8 @@
 \*Wir benutzen Englisch
 
 *Begrüßung (Frage nach der Name -
-*Spielregeln ()
+""
+*Spielregeln (3 Leben haben )
 *Nur gegen den Computer
 *Wie viele Levels wollen wir haben?
 ---Bei Jede n Fragen ist ein Level abgeschlossen, nach der Frage muss die Antwort zu einem Array gepushed-(Koffer Array)
@@ -27,7 +28,7 @@
 
 \****Details einer Geschiche errinern (Amna)
 *iq fragen (kann auch multiple choise sein) (Eleni)
-\*\***Verschwundene Gegenstand (mit unicode Symbolen)---multiple choice mit der einer Sache das da war und vier die nicht da waren(Eleni) \***\*Mathe Aufgaben mit Timer\*\***
+\*\***Verschwundene Gegenstand (mit unicode Symbolen)---multiple choice mit der einer Sache das da war und vier die nicht da waren(Eleni)
 *Rätschel (Andreas)
 *Matheaufgaben(Philipp)
 *Trivial Fragen?(Ahyam)
