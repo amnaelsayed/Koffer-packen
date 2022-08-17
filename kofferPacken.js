@@ -4,25 +4,27 @@ import gradient from "gradient-string";
 import figlet from "figlet";
 import enquirer from "enquirer";
 const prompt = promptSync();
+// Beispiel zu figlet
+figlet.text(
+  "test",
+  {
+    font: "Standard",
+  },
+  function (err, data) {
+    console.log(data);
+  }
+);
+// Beispiel zu gradient string
+let coolGradient = gradient("red", "green", "blue");
+let coolString = coolGradient("This is a fancy string!");
+console.log(coolString);
 
-// figlet.text(
-//   "test",
-//   {
-//     font: "Standard",
-//   },
-//   function (err, data) {
-//     console.log(data);
-//   }
-// );
-// let coolGradient = gradient("red", "green", "blue");
-// let coolString = coolGradient("This is a fancy string!");
-// console.log(coolString);
+let duck = gradient("orange", "yellow").multiline(
+  ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
+);
+console.log(duck);
 
-// let duck = gradient("orange", "yellow").multiline(
-//   ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
-// );
-// console.log(duck);
-
+// Beispiel zu chalk
 console.log(chalk.blue("Hello world!"));
 
 // Beispiel zu enquire--> select between choices
