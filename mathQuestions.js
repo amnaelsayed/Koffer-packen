@@ -1,7 +1,84 @@
 import promptSync from "prompt-sync";
-const prompt = promptSync();
 import chalk from "chalk";
+import gradient from "gradient-string";
+import figlet from "figlet";
+import enquirer from "enquirer";
+const prompt = promptSync();
 
+const { Select } = enquirer;
+
+const prompt1 = new Select({
+  name: "question1",
+  message: "What is 7*7",
+  choices: ["15", "29", "32", "49"],
+  answer: "c",
+});
+const prompt2 = new Select({
+  name: "question2",
+  message: "What is 14/2",
+  choices: ["6", "3", "7", "2"],
+  answer: "d",
+});
+const prompt3 = new Select({
+  name: "question3",
+  message: "How much is 90-19?",
+  choices: ["71", "109", "44", "90"],
+  answer: "d",
+});
+const prompt4 = new Select({
+  name: "question4",
+  message: "What is the greatest two digit number?",
+  choices: ["10", "23", "44", "90"],
+  answer: "d",
+});
+const prompt5 = new Select({
+  name: "question5",
+  message: "What is the greatest two digit number?",
+  choices: ["10", "23", "44", "90"],
+  answer: "d",
+});
+const prompt6 = new Select({
+  name: "question6",
+  message: "What is the greatest two digit number?",
+  choices: ["10", "23", "44", "90"],
+  answer: "d",
+});
+const prompt7 = new Select({
+  name: "question7",
+  message: "What is the greatest two digit number?",
+  choices: ["10", "23", "44", "90"],
+  answer: "d",
+});
+const answer1 = await prompt1.run();
+console.log(answer1);
+const answer2 = await prompt2.run();
+console.log(answer2);
+const answer3 = await prompt3.run();
+console.log(answer3);
+const answer4 = await prompt4.run();
+console.log(answer3);
+const answer5 = await prompt5.run();
+console.log(answer3);
+const answer6 = await prompt6.run();
+console.log(answer3);
+const answer7 = await prompt7.run();
+console.log(answer3);
+const answer8 = await prompt8.run();
+console.log(answer3);
+const answer9 = await prompt9.run();
+console.log(answer3);
+const answer10 = await prompt10.run();
+console.log(answer3);
+const answer11 = await prompt11.run();
+console.log(answer3);
+const answer12 = await prompt12.run();
+console.log(answer3);
+const answer13 = await prompt13.run();
+console.log(answer3);
+const answer14 = await prompt14.run();
+console.log(answer3);
+
+/*
 const mathQuestionsEasy = [
   {
     question: "What is 14/2",
@@ -211,5 +288,6 @@ const mathQuestionsHard = [
       d: "0.225",
     },
     answer: "b",
-  },
-];
+
+
+*/
