@@ -23,8 +23,9 @@ const prompt = promptSync();
 // );
 // console.log(duck);
 
-// console.log(chalk.blue("Hello world!"));
+console.log(chalk.blue("Hello world!"));
 
+// Beispiel zu enquire--> select between choices
 const { Select } = enquirer;
 
 const prompt1 = new Select({
