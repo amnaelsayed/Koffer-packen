@@ -60,7 +60,29 @@ const arrIl = [
   "l",
   "l",
 ];
-const arrbpq=["b","b","p","p","q","b","b","p","q","b","q","p","b","p","p","q","b","p","p"]
+const arrbpq = [
+  "b",
+  "b",
+  "p",
+  "p",
+  "q",
+  "b",
+  "b",
+  "p",
+  "q",
+  "b",
+  "q",
+  "p",
+  "b",
+  "p",
+  "p",
+  "q",
+  "b",
+  "p",
+  "p",
+];
+const arrBß = ["B", "ß", "ß", "ß", "B", "B", "B", "B", "ß", "ß", "❤"];
+console.log(arrBß);
 const search = (array, searchedItem) => {
   const filtered = array.filter((num) => num === searchedItem);
   return filtered.length;
@@ -74,7 +96,8 @@ const searchO0Null = search(arrO0, 0);
 const searchO0dasO = search(arrO0, "O");
 const searchIoflI = search(arrIl, "I");
 const searchLoflI = search(arrIl, "l");
-const searchbofbpq=
+const searchbpq = search(arrbpq, "b");
+
 const filterGame = (zeichen, array, funk) => {
   const { NumberPrompt } = enquirer;
 
@@ -95,7 +118,23 @@ const filterGame = (zeichen, array, funk) => {
 
         console.log(kofferArray, "gepackt");
       } else {
-        console.log(gradient.teen(`Upps, try it one more time!`));
+        console.log(
+          gradient.teen(
+            `  ______    ______   __       __  ________         ______   __     __  ________           
+ /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |          
+/$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______  
+$$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \ 
+$$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   /$$$$$$  |
+$$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$ |  $$/ 
+$$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |      
+$$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |      
+ $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/       
+                                                                                          
+                                                                                          
+                                                                                          
+`
+          )
+        );
       }
     })
 
