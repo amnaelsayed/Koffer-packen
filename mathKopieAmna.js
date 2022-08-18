@@ -198,20 +198,17 @@ const select = (obj) => {
       } else {
         console.log(`You lost one life`);
       }
-      arrayGames.obj.splice(indexOf(obj), 1);
-      console.log(arrayGames);
     })
     .catch(console.error);
 };
 
 function randomQuestion(array) {
-  let index = Math.floor(Math.random() * array.length) + 1;
-  console.log(array[index].frageWarSchon);
-  if (array[index].frageWarSchon === false) {
-    return array[index];
-  } else if (array[index].frageWarSchon === true) {
-    console.log(`you won`);
-  }
+  let filteredFalse = array.filter((elem) => elem.frageWarSchon === false);
+
+  let index = Math.floor(Math.random() * array.length);
+  console.log(filteredFalse[index].frageWarSchon);
+
+  return filteredFalse[index];
 }
 const randomMath = randomQuestion(arrayGames);
 
