@@ -13,7 +13,7 @@ const prompt1 = {
   rightAnswer: "666",
 };
 
-const tomorrow = (obj) => {
+const select = (obj) => {
   const prompt5 = enquirer.select({
     name: obj.name,
     message: obj.message,
@@ -36,5 +36,5 @@ const tomorrow = (obj) => {
     )
     .catch(console.error);
 };
-const iqOne = tomorrow(prompt1);
-console.log(iqOne);
+const multipleChoice = select(prompt1);
+console.log(multipleChoice);
