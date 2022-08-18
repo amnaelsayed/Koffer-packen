@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import promptSync from "prompt-sync";
 const prompt = promptSync();
 import chalk from "chalk";
@@ -31,3 +32,14 @@ else{
 }
 const weiter = prompt(chalk.bgBlue("möschtest du weiter?y/n?"));
 console.log(weiter);
+=======
+// const lol = `😂`;
+// console.log(lol);
+
+function play(arrayMath, arrayIq, arrayRiddle) {
+  // for (let i = 0; i < 3; i++) {
+  //   frage aus array0;
+  // }
+  // ----KofferFrage
+}
+>>>>>>> 0f9bc9dd7e9eda9b5e5fc7c139b3386a49c1402f
