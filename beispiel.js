@@ -131,3 +131,80 @@ const paradeigma = [
 
 const array1 = paradeigma.splice(-1, 1);
 console.log(array1);
+const tomorrow = (obj) => {
+  const prompt5 = enquirer.select({
+    name: obj.name,
+    message: obj.message,
+    choices: obj.choices,
+    rightAnswer: obj.rightAnswer,
+  });
+  // setInterval(function () {
+  //   console.clear();
+  // }, 10000);
+  // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
+  prompt5
+    .then((answer) =>
+      console.log(
+        prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+      )
+    )
+    .catch(console.error);
+};
+const iqOne = tomorrow(objekt);
+console.log(iqOne);
+// let countDown;
+// const timer = () => {
+//   countDown = setTimeout(function () {
+//     console.log(3);
+//   }, 300);
+// };
+
+// clearInterval(countDown);
+// const insertTimer = timer();
+// console.log(2);
+
+// const tomorrowGame = tomorrow();
+// var refreshIntervalId = setInterval(tomorrowGame, 10000);
+
+// /* later */
+// clearInterval(refreshIntervalId);
+
+2;
+3;
+4;
+5;
+6;
+7;
+8;
+9;
+10;
+11;
+console.log("\nI'm the normal output");
+console.log("\x1b[31mAnd now I'm red!");
+console.log("Shoot, why am I still red?");
+console.log("I need to \x1b[0mreset my console to get back to normal");
+console.log(
+  "Colors \x1b[32mcan \x1b[33mchange \x1b[35min \x1b[36mthe \x1b[34msame \x1b[0mlog"
+);
+console.log(
+  "\x1b[1mBRIGHT colors \x1b[32mare \x1b[33mbolded \x1b[35mand \x1b[36mbrighter \x1b[0m"
+);
+console.log("\x1b[2mDIM colors \x1b[32mare \x1b[33mdarker \x1b[0m");
+console.log(
+  "and of course, \x1b[41mwe have \x1b[30m\x1b[43mbackground colors\x1b[0m"
+);
+console.log(
+  "\x1b[7mReverse \x1b[32mswap \x1b[33mforeground \x1b[35mand \x1b[36mbackground\x1b[0m"
+);
+console.log(
+  "\x1b[8m\x1b[41mthis text \x1b[43mis hidden \x1b[42mbut the background\x1b[42m still comes \x1b[45mthrough\x1b[0m"
+);
+console.log(
+  "\x1b[4mgetting fancy with underlines \x1b[30m\x1b[3m\x1b[105mand italics\x1b[0m"
+);
+
+console.log(
+  "%cStyling is %cfun",
+  "color: #00ff33; font-size: 14px",
+  "text-transform:uppercase; font-size: 40px; color: #ff33dd"
+);
