@@ -161,7 +161,7 @@ const arrayGames = [
   prompt1,
   prompt2,
   prompt3,
-  // prompt4,
+  prompt4,
   // prompt5,
   // prompt6,
   // prompt7,
@@ -171,7 +171,7 @@ const arrayGames = [
   // prompt11,
   // prompt12,
   // prompt13,
-  // prompt14,
+  // prompt14,2500', '505
   // prompt15,
   // prompt16,
   // prompt17,
@@ -181,36 +181,55 @@ const arrayGames = [
 ];
 
 const select = (obj) => {
-  const prompt5 = enquirer.select({
-    name: obj.name,
-    message: obj.message,
-    choices: obj.choices,
-    rightAnswer: obj.rightAnswer,
-    frageWarSchon: obj.frageWarSchon,
-  });
+  console.log(obj);
+  if (obj !== undefined) {
+    const prompt5 = enquirer.select({
+      name: obj.name,
+      message: obj.message,
+      choices: obj.choices,
+      rightAnswer: obj.rightAnswer,
+      frageWarSchon: obj.frageWarSchon,
+    });
 
-  prompt5
-    .then((answer) => {
-      obj.frageWarSchon = true;
-      console.log(obj.frageWarSchon);
-      if (obj.rightAnswer === answer) {
-        console.log("You are right");
-      } else {
-        console.log(`You lost one life`);
-      }
-    })
-    .catch(console.error);
+    prompt5
+      .then((answer) => {
+        obj.frageWarSchon = true;
+        console.log(answer, `Ich binss`);
+        console.log(obj.frageWarSchon, `Die Frage War schon`);
+        if (obj.rightAnswer === answer) {
+          console.log("You are right");
+          // let random = randomQuestion(arrayGames);
+          // // console.log(arrayGames);
+
+          // while (random.frageWarSchon) {
+          //   console.log(random);
+          //   random = randomQuestion(arrayGames);
+          // }
+          select(randomQuestion(arrayGames));
+        } else {
+          console.log(`You lost one life`);
+        }
+      })
+      .catch(console.error);
+  } else {
+    console.log(`You answered all the questions`);
+  }
 };
 
 function randomQuestion(array) {
-  let index = Math.floor(Math.random() * array.length) + 1;
-  if (array[index].frageWarSchon === false) {
-    return array[index];
-  } else {
-    console.log(`you won`);
-  }
+  const filtred = array.filter(({ frageWarSchon }) => !frageWarSchon);
+  return filtred[Math.floor(Math.random() * array.length)];
+
+  // console.log(array);
+  // let index = Math.floor(Math.random() * array.length);
+  // if (!array[index].frageWarSchon) {
+  //   return array[index];
+  // } else {
+  //   randomQuestion(array);
+  // }
 }
 const randomMath = randomQuestion(arrayGames);
 
-const multipleChoice = select(randomMath);
-console.log(multipleChoice);
+select(randomMath);
+// const multipleChoice = select(randomMath);
+// console.log(multipleChoice);
