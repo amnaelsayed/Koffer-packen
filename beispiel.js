@@ -96,28 +96,35 @@ const tomorrow = (obj) => {
     name: obj.name,
     message: obj.message,
     choices: obj.choices,
-    rigthAnswer: obj.rightAnswer,
+    rightAnswer: obj.rightAnswer,
   });
-  setInterval(function () {
-    console.clear();
-  }, 10000);
+  // setInterval(function () {
+  //   console.clear();
+  // }, 10000);
   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
   prompt5
     .then((answer) =>
       console.log(
-        obj.rightAnswer === answer ? "You are right" : `You lost one life`
+        prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
       )
     )
     .catch(console.error);
 };
 const iqOne = tomorrow(objekt);
 console.log(iqOne);
-let countDown;
-const timer = () => {
-  countDown = setTimeout(function () {
-    console.log(3);
-  }, 300);
-};
+// let countDown;
+// const timer = () => {
+//   countDown = setTimeout(function () {
+//     console.log(3);
+//   }, 300);
+// };
+
 // clearInterval(countDown);
-const insertTimer = timer();
-console.log(2);
+// const insertTimer = timer();
+// console.log(2);
+
+const tomorrowGame = tomorrow();
+var refreshIntervalId = setInterval(tomorrowGame, 10000);
+
+/* later */
+clearInterval(refreshIntervalId);
