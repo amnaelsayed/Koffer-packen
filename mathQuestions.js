@@ -14,6 +14,28 @@ const prompt = promptSync();
 //   questionCounter++;
 //   displayNext();
 // }
+const arrayGames = [
+  prompt1,
+  prompt2,
+  prompt3,
+  prompt4,
+  prompt5,
+  prompt6,
+  prompt7,
+  prompt8,
+  prompt9,
+  prompt10,
+  prompt11,
+  prompt12,
+  prompt13,
+  prompt14,
+  prompt15,
+  prompt16,
+  prompt17,
+  prompt18,
+  prompt19,
+  prompt20,
+];
 
 const prompt1 = {
   name: "question1",
