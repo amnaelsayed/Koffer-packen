@@ -126,10 +126,19 @@ const tomorrow = (array) => {
   }, 3000);
   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
   prompt5
-    .then((answer) =>
-      console.log(
-        prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
-      )
+    .then(
+      (answer) => {
+        if (prompt5.rightAnswer === answer) {
+          console.log("You are right");
+        } else {
+          console.log(`You lost one life`);
+        }
+      }
+      // console.log(
+      //   gradient.summer(
+      //     prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+      //   )
+      // )
     )
     .catch(console.error);
 };
@@ -175,6 +184,7 @@ console.log(iqOne);
 // // /* later */
 // // clearInterval(refreshIntervalId);
 
+
 // 2;
 // 3;
 // 4;
@@ -208,6 +218,7 @@ console.log(iqOne);
 // console.log(
 //   "\x1b[4mgetting fancy with underlines \x1b[30m\x1b[3m\x1b[105mand italics\x1b[0m"
 // );
+
 
 // console.log(
 //   "%cStyling is %cfun",
