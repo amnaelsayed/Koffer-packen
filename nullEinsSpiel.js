@@ -310,3 +310,4 @@ $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |
 // const findClown = filterGame("🤡", arraySmileyColdHot, searchClown);
 // const findCold = filterGame("🥶", arraySmileyColdHot, searchCold);
 const findHot = filterGame("🥵", arraySmileyColdHot, searchHot);
+// const randomFragen = [find1, findHot, findClown];

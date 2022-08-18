@@ -103,10 +103,19 @@ const tomorrow = (obj) => {
   // }, 10000);
   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
   prompt5
-    .then((answer) =>
-      console.log(
-        prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
-      )
+    .then(
+      (answer) => {
+        if (prompt5.rightAnswer === answer) {
+          console.log("You are right");
+        } else {
+          console.log(`You lost one life`);
+        }
+      }
+      // console.log(
+      //   gradient.summer(
+      //     prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+      //   )
+      // )
     )
     .catch(console.error);
 };
@@ -129,16 +138,6 @@ console.log(iqOne);
 // /* later */
 // clearInterval(refreshIntervalId);
 
-2;
-3;
-4;
-5;
-6;
-7;
-8;
-9;
-10;
-11;
 console.log("\nI'm the normal output");
 console.log("\x1b[31mAnd now I'm red!");
 console.log("Shoot, why am I still red?");
