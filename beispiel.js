@@ -84,31 +84,50 @@ const prompt = promptSync();
 //   ["  __", "<(o )___", " ( ._> /", "  `---'"].join("\n")
 // );
 
-const objekt = {
-  name: `Maria`,
-  message: `Guten Morgen`,
-  choices: [`a`, `b`],
-  rightAnswer: `a`,
-};
+// const objekt = {
+//   name: `Maria`,
+//   message: `Guten Morgen`,
+//   choices: [`a`, `b`],
+//   rightAnswer: `a`,
+// };
+const paradeigma = [
+  {
+    name: `Kostas`,
+    message: `Guten Tag`,
+    choices: [`a`, `c`],
+    rightAnswer: `a`,
+  },
+  {
+    name: `Maria`,
+    message: `Guten Morgen`,
+    choices: [`a`, `b`],
+    rightAnswer: `a`,
+  },
+];
 
-const tomorrow = (obj) => {
-  const prompt5 = enquirer.select({
-    name: obj.name,
-    message: obj.message,
-    choices: obj.choices,
-    rigthAnswer: obj.rightAnswer,
-  });
-  setInterval(function () {
-    console.clear();
-  }, 10000);
-  // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
-  prompt5
-    .then((answer) =>
-      console.log(
-        obj.rightAnswer === answer ? "You are right" : `You lost one life`
-      )
-    )
-    .catch(console.error);
-};
-const iqOne = tomorrow(objekt);
-console.log(iqOne);
+// const tomorrow = (array, array2) => {
+//   array2 = array;
+//   const prompt5 = enquirer.select({
+//     name: array[0].name,
+//     message: array[0].message,
+//     choices: array[0].choices,
+//     rightAnswer: array[0].rightAnswer,
+//   });
+//   setTimeout(function () {
+//     console.log(array2);
+//     // return array2;
+//   }, 3000);
+//   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
+//   prompt5
+//     .then((answer) =>
+//       console.log(
+//         prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+//       )
+//     )
+//     .catch(console.error);
+// };
+// const iqOne = tomorrow(paradeigma);
+// console.log(iqOne);
+
+const array1 = paradeigma.splice(-1, 1);
+console.log(array1);
