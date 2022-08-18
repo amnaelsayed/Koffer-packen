@@ -5,170 +5,204 @@ import figlet from "figlet";
 import enquirer from "enquirer";
 const prompt = promptSync();
 
+let userAnswers = []; 
+let questionCounter = 0;
+
+displayNext();
+
+if (isNaN(userAnswers[questionCounter])) {
+  console.log('Please make a selection!');
+} else {
+  questionCounter++;
+  displayNext();
+};
+
+
+
 const { Select } = enquirer;
 
-const prompt1 = new Select({
+const prompt1 = {
   name: "question1",
   message: "Find the sum of 111 + 222 + 333",
   choices: ["700", "666", "10", "100"],
   answer: "666",
-});
-const prompt2 = new Select({
+};
+const prompt2 = {
   name: "question2",
   message: "Subtract 457 from 832",
   choices: ["375", "57", "376", "970"],
   answer: "375",
-});
-const prompt3 = new Select({
+};
+const prompt3 = {
   name: "question3",
   message: "50 times 5 is equal to",
   choices: ["2500", "505", "500", "None of these"],
   answer: "None of these",
-});
-const prompt4 = new Select({
+};
+const prompt4 = {
   name: "question4",
   message: "Find the product of 72 * 3",
   choices: ["216", "7230", "106", "372"],
   answer: "216",
-});
-const prompt5 = new Select({
+};
+const prompt5 = {
   name: "question5",
   message: "The smallest number of seven digits is",
   choices: ["0", "99,99,999", "10,10,100", "10,00,000"],
   answer: "10,00,000",
-});
-const prompt6 = new Select({
+};
+const prompt6 = {
   name: "question6",
   message: "What is the largest two digits prime number?",
   choices: ["96", "97", "98", "99"],
   answer: "97",
-});
-const prompt7 = new Select({
+};
+const prompt7 = {
   name: "question7",
   message: "How many factors are there in 71?",
   choices: ["1", "2", "3", "None of these"],
   answer: "2",
-});
-const prompt8 = new Select({
+};
+const prompt8 = {
   name: "question8",
   message: "What is the average value of 25, 20, 23 and 22?",
   choices: ["20", "21.5", "22.5", "24"],
   answer: "22.5",
-});
-const prompt9 = new Select({
+};
+const prompt9 = {
   name: "question9",
   message: "What is the sum of one digit prime numbers?",
   choices: ["11", "13", "15", "17"],
   answer: "17",
-});
-const prompt10 = new Select({
+};
+const prompt10 = {
   name: "question10",
   message: "How many hours in 90 minutes?",
   choices: ["1.5hours", "1.30 hours", "1 hour", "None of these"],
   answer: "1.5hours",
-});
-const prompt11 = new Select({
+};
+const prompt11 = {
   name: "question11",
   message:
     "A clock seen through a mirror shows 8 o 'clock. What is the correct time?",
   choices: ["8.00", "4.00", "12.20", "12.40"],
   answer: "4.00",
-});
-const prompt12 = new Select({
+};
+const prompt12 = {
   name: "question12",
   message:
     "Using the number line, determine how much more than or less than -2.2 is 6.8?",
   choices: ["9more", "4.6more", "4.6less", "9less"],
   answer: "9more",
-});
-const prompt13 = new Select({
+};
+const prompt13 = {
   name: "question13",
   message: "If Davids age is 27 years old in 2011. What was his age in 2003?",
   choices: ["17years", "37years", "20years", "19years"],
   answer: "19years",
-});
-const prompt14 = new Select({
+};
+const prompt14 = {
   name: "question14",
   message: "What is 121 times 11",
   choices: ["1331", "1313", "1133", "3131"],
   answer: "1331",
-});
-const prompt15 = new Select({
+};
+const prompt15 = {
   name: "question15",
   message: "10001 - 101 = ?",
   choices: ["1001", "990", "9990", "9900"],
   answer: "9900",
-});
-const prompt16 = new Select({
+};
+const prompt16 = {
   name: "question16",
   message: "Which number has the greatest absolute value?",
   choices: ["0", "-20", "-10", "10"],
   answer: "10",
-});
-const prompt17 = new Select({
+};
+const prompt17 = {
   name: "question17",
   message: "Speed of a car is 60 km/hr. Distance covered in 1 ¼ hours is",
   choices: ["60km", "65km", "70km", "75km"],
   answer: "75km",
-});
-const prompt18 = new Select({
+};
+const prompt18 = {
   name: "question18",
   message: "Which unit is used to measure length and breadth?",
   choices: ["Scale", "Meter", "Liter", "Gram"],
   answer: "Meter",
-});
-const prompt19 = new Select({
+};
+const prompt19 = {
   name: "question19",
   message: "How many sides are there in a nonagon?",
   choices: ["3", "5", "7", "9"],
   answer: "9",
-});
-const prompt20 = new Select({
+};
+const prompt20 = {
   name: "question20",
   message: "What is the square root of 64?",
   choices: ["6", "8", "21", "24"],
   answer: "8",
-});
-const answer1 = await prompt1.run();
-console.log(answer1);
-const answer2 = await prompt2.run();
-console.log(answer2);
-const answer3 = await prompt3.run();
-console.log(answer3);
-const answer4 = await prompt4.run();
-console.log(answer4);
-const answer5 = await prompt5.run();
-console.log(answer5);
-const answer6 = await prompt6.run();
-console.log(answer6);
-const answer7 = await prompt7.run();
-console.log(answer7);
-const answer8 = await prompt8.run();
-console.log(answer8);
-const answer9 = await prompt9.run();
-console.log(answer9);
-const answer10 = await prompt10.run();
-console.log(answer10);
-const answer11 = await prompt11.run();
-console.log(answer11);
-const answer12 = await prompt12.run();
-console.log(answer12);
-const answer13 = await prompt13.run();
-console.log(answer13);
-const answer14 = await prompt14.run();
-console.log(answer14);
-const answer15 = await prompt15.run();
-console.log(answer15);
-const answer16 = await prompt16.run();
-console.log(answer16);
-const answer17 = await prompt17.run();
-console.log(answer17);
-const answer18 = await prompt18.run();
-console.log(answer18);
-const answer19 = await prompt19.run();
-console.log(answer19);
-const answer20 = await prompt20.run();
-console.log(answer20);
+};
+// const answer1 = await prompt1.run();
+// console.log(answer1);
+// const answer2 = await prompt2.run();
+// console.log(answer2);
+// const answer3 = await prompt3.run();
+// console.log(answer3);
+// const answer4 = await prompt4.run();
+// console.log(answer4);
+// const answer5 = await prompt5.run();
+// console.log(answer5);
+// const answer6 = await prompt6.run();
+// console.log(answer6);
+// const answer7 = await prompt7.run();
+// console.log(answer7);
+// const answer8 = await prompt8.run();
+// console.log(answer8);
+// const answer9 = await prompt9.run();
+// console.log(answer9);
+// const answer10 = await prompt10.run();
+// console.log(answer10);
+// const answer11 = await prompt11.run();
+// console.log(answer11);
+// const answer12 = await prompt12.run();
+// console.log(answer12);
+// const answer13 = await prompt13.run();
+// console.log(answer13);
+// const answer14 = await prompt14.run();
+// console.log(answer14);
+// const answer15 = await prompt15.run();
+// console.log(answer15);
+// const answer16 = await prompt16.run();
+// console.log(answer16);
+// const answer17 = await prompt17.run();
+// console.log(answer17);
+// const answer18 = await prompt18.run();
+// console.log(answer18);
+// const answer19 = await prompt19.run();
+// console.log(answer19);
+// const answer20 = await prompt20.run();
+// console.log(answer20);
+
+// let countdown = 10;
+
+// let i = setInterval(function () {
+//   countdown = countdown - 1;
+//   if (countdown === 0) {
+//     clearInterval(i);
+//   }
+// }, 1000);
+
+
+
+
+
+
+/* function randomQuestion(min, max) {
+  return Math.floor(Math.random()) * (max-min) + min);
+}
+*/
+
 /*
 const mathQuestionsEasy = [
   {
