@@ -1,8 +1,14 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 import promptSync from "prompt-sync";
 const prompt = promptSync();
 import chalk from "chalk";
 import enquirer from 'enquirer';
+import {Howl, Howler} from 'howler';
+// import require from "require"
+
+// const {Howler1} = require('howler');
+
+
 const { Select } = enquirer;
 
 const prompt1 = new Select({
@@ -28,18 +34,21 @@ if(answer2 !== "1912"){
   console.log(`Tut mir leid,${chalk.red("Falsch")}, Du verlierst ein Leben`); 
 }
 else{
-  console.log(chalk.green("richtig")); 
+  console.log(chalk.green(`richtig`)); 
 }
 const weiter = prompt(chalk.bgBlue("möschtest du weiter?y/n?"));
 console.log(weiter);
-=======
+// =======
 // const lol = `😂`;
 // console.log(lol);
 
-function play(arrayMath, arrayIq, arrayRiddle) {
-  // for (let i = 0; i < 3; i++) {
-  //   frage aus array0;
-  // }
-  // ----KofferFrage
-}
->>>>>>> 0f9bc9dd7e9eda9b5e5fc7c139b3386a49c1402f
+// function play(arrayMath, arrayIq, arrayRiddle) {
+//   // for (let i = 0; i < 3; i++) {
+//   //   frage aus array0;
+//   // }
+//   // ----KofferFrage
+// }
+// >>>>>>> 0f9bc9dd7e9eda9b5e5fc7c139b3386a49c1402f
+
+
+
