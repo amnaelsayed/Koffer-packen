@@ -166,6 +166,50 @@ const arrAnimals = [
   "🦞",
   "🦞",
 ];
+const arrCat = [
+  "😽 ",
+  "😼",
+  "😻",
+  "😽 ",
+  "😻",
+  "😽 ",
+  "😽 ",
+  "😻",
+  "😼",
+  "😽 ",
+  "😽 ",
+  "😽 ",
+  "😼",
+  "😻",
+  "😽 ",
+  "😻",
+];
+const arraySmileyColdHot = [
+  "🥶",
+  "🥵",
+  "🤡",
+  "🥶",
+  "🥶",
+  "🥵",
+  "🥶",
+  "🥶",
+  "🥵",
+  "🥶",
+  "🥵",
+  "🥵",
+  "🤡",
+  "🥶",
+  "🤡",
+  "🥶",
+  "🥶",
+  "🥵",
+  "🤡",
+  "🥶",
+  "🥶",
+  "🥵",
+  "🥵",
+  "🥵",
+];
 
 const search = (array, searchedItem) => {
   const filtered = array.filter((num) => num === searchedItem);
@@ -187,7 +231,18 @@ const searchBofBß = search(arrBß, "B");
 const searchßofBß = search(arrBß, "ß");
 const searchNiceSmile = search(arrSmile, "😉");
 const searchBadSmile = search(arrSmile, "😡");
-
+const searchMonsterGhost = search(arrGhost, "👻");
+const searchMonsterShocked = search(arrGhost, "😱");
+const searchMermaid = search(arrMermaid, "🧞‍♀️ ");
+const searchMermaidMan = search(arrMermaid, "🧞‍♂️");
+const searchAnimalDino = search(arrAnimals, "🦖");
+const searchAnimalScorpion = search(arrAnimals, "🦞");
+const searchCatKiss = search(arrCat, "😽 ");
+const searchCatAngry = search(arrCat, "😼");
+const searchCatHeart = search(arrCat, "😻");
+const searchClown = search(arraySmileyColdHot, "🤡");
+const searchCold = search(arraySmileyColdHot, "🥶");
+const searchHot = search(arraySmileyColdHot, "🥵");
 
 const filterGame = (zeichen, array, funk) => {
   const { NumberPrompt } = enquirer;
@@ -247,5 +302,11 @@ $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |
 // const findBofBß = filterGame("B", arrBß, searchBofBß);
 // const findßofBß = filterGame("ß", arrBß, searchßofBß);
 
-const findNiceSmile = filterGame("😉", arrSmile, searchNiceSmile);
+// const findNiceSmile = filterGame("😉", arrSmile, searchNiceSmile);
 // const findBadSmile=filterGame("😡", arrSmile, searchBadSmile)
+// const findCatKiss = filterGame("😽 ", arrCat, searchCatKiss);
+// const findCatAngry = filterGame("😼", arrCat, searchCatAngry);
+// const findCatHeart = filterGame("😻", arrCat, searchCatHeart);
+// const findClown = filterGame("🤡", arraySmileyColdHot, searchClown);
+// const findCold = filterGame("🥶", arraySmileyColdHot, searchCold);
+const findHot = filterGame("🥵", arraySmileyColdHot, searchHot);
