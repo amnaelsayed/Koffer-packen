@@ -21,12 +21,8 @@
   "dependencies": {
     "chalk": "^5.0.1",
 
-<<<<<<< HEAD
     
     
-=======
-  
->>>>>>> 747509b2155a34bbcca2055a13010afe3eeef073
     "gradient": "^0.2.0",
 
     "chalk-animation": "^2.0.2",
