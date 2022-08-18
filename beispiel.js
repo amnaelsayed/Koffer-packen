@@ -103,44 +103,28 @@ const paradeigma = [
     choices: [`a`, `b`],
     rightAnswer: `a`,
   },
+  {
+    name: `Marsfsfgefgia`,
+    message: `Guteneegeg Morgen`,
+    choices: [`a`, `b`],
+    rightAnswer: `b`,
+  },
 ];
 
-// const tomorrow = (array, array2) => {
-//   array2 = array;
-//   const prompt5 = enquirer.select({
-//     name: array[0].name,
-//     message: array[0].message,
-//     choices: array[0].choices,
-//     rightAnswer: array[0].rightAnswer,
-//   });
-//   setTimeout(function () {
-//     console.log(array2);
-//     // return array2;
-//   }, 3000);
-//   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
-//   prompt5
-//     .then((answer) =>
-//       console.log(
-//         prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
-//       )
-//     )
-//     .catch(console.error);
-// };
-// const iqOne = tomorrow(paradeigma);
-// console.log(iqOne);
-
-const array1 = paradeigma.splice(-1, 1);
-console.log(array1);
-const tomorrow = (obj) => {
+const tomorrow = (array) => {
   const prompt5 = enquirer.select({
-    name: obj.name,
-    message: obj.message,
-    choices: obj.choices,
-    rightAnswer: obj.rightAnswer,
+    name: array[0].name,
+    message: array[0].message,
+    choices: array[0].choices,
+    rightAnswer: array[0].rightAnswer,
   });
-  // setInterval(function () {
-  //   console.clear();
-  // }, 10000);
+  setTimeout(function () {
+    array.splice(0, 1);
+    console.clear();
+    if (array.length === 0) {
+      console.log(`Game Over`);
+    } else return tomorrow(array);
+  }, 3000);
   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
   prompt5
     .then((answer) =>
@@ -150,61 +134,84 @@ const tomorrow = (obj) => {
     )
     .catch(console.error);
 };
-const iqOne = tomorrow(objekt);
+const iqOne = tomorrow(paradeigma);
 console.log(iqOne);
-// let countDown;
-// const timer = () => {
-//   countDown = setTimeout(function () {
-//     console.log(3);
-//   }, 300);
+
+// const array1 = paradeigma.splice(-1, 1);
+// const tomorrow = (obj) => {
+//   const prompt5 = enquirer.select({
+//     name: obj.name,
+//     message: obj.message,
+//     choices: obj.choices,
+//     rightAnswer: obj.rightAnswer,
+//   });
+//   // setInterval(function () {
+//   //   console.clear();
+//   // }, 10000);
+//   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
+//   prompt5
+//     .then((answer) =>
+//       console.log(
+//         prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+//       )
+//     )
+//     .catch(console.error);
 // };
+// const iqOne = tomorrow(objekt);
+// console.log(iqOne);
+// // let countDown;
+// // const timer = () => {
+// //   countDown = setTimeout(function () {
+// //     console.log(3);
+// //   }, 300);
+// // };
 
-// clearInterval(countDown);
-// const insertTimer = timer();
-// console.log(2);
+// // clearInterval(countDown);
+// // const insertTimer = timer();
+// // console.log(2);
 
-// const tomorrowGame = tomorrow();
-// var refreshIntervalId = setInterval(tomorrowGame, 10000);
+// // const tomorrowGame = tomorrow();
+// // var refreshIntervalId = setInterval(tomorrowGame, 10000);
 
-// /* later */
-// clearInterval(refreshIntervalId);
+// // /* later */
+// // clearInterval(refreshIntervalId);
 
-2;
-3;
-4;
-5;
-6;
-7;
-8;
-9;
-10;
-11;
-console.log("\nI'm the normal output");
-console.log("\x1b[31mAnd now I'm red!");
-console.log("Shoot, why am I still red?");
-console.log("I need to \x1b[0mreset my console to get back to normal");
-console.log(
-  "Colors \x1b[32mcan \x1b[33mchange \x1b[35min \x1b[36mthe \x1b[34msame \x1b[0mlog"
-);
-console.log(
-  "\x1b[1mBRIGHT colors \x1b[32mare \x1b[33mbolded \x1b[35mand \x1b[36mbrighter \x1b[0m"
-);
-console.log("\x1b[2mDIM colors \x1b[32mare \x1b[33mdarker \x1b[0m");
-console.log(
-  "and of course, \x1b[41mwe have \x1b[30m\x1b[43mbackground colors\x1b[0m"
-);
-console.log(
-  "\x1b[7mReverse \x1b[32mswap \x1b[33mforeground \x1b[35mand \x1b[36mbackground\x1b[0m"
-);
-console.log(
-  "\x1b[8m\x1b[41mthis text \x1b[43mis hidden \x1b[42mbut the background\x1b[42m still comes \x1b[45mthrough\x1b[0m"
-);
-console.log(
-  "\x1b[4mgetting fancy with underlines \x1b[30m\x1b[3m\x1b[105mand italics\x1b[0m"
-);
+// 2;
+// 3;
+// 4;
+// 5;
+// 6;
+// 7;
+// 8;
+// 9;
+// 10;
+// 11;
+// console.log("\nI'm the normal output");
+// console.log("\x1b[31mAnd now I'm red!");
+// console.log("Shoot, why am I still red?");
+// console.log("I need to \x1b[0mreset my console to get back to normal");
+// console.log(
+//   "Colors \x1b[32mcan \x1b[33mchange \x1b[35min \x1b[36mthe \x1b[34msame \x1b[0mlog"
+// );
+// console.log(
+//   "\x1b[1mBRIGHT colors \x1b[32mare \x1b[33mbolded \x1b[35mand \x1b[36mbrighter \x1b[0m"
+// );
+// console.log("\x1b[2mDIM colors \x1b[32mare \x1b[33mdarker \x1b[0m");
+// console.log(
+//   "and of course, \x1b[41mwe have \x1b[30m\x1b[43mbackground colors\x1b[0m"
+// );
+// console.log(
+//   "\x1b[7mReverse \x1b[32mswap \x1b[33mforeground \x1b[35mand \x1b[36mbackground\x1b[0m"
+// );
+// console.log(
+//   "\x1b[8m\x1b[41mthis text \x1b[43mis hidden \x1b[42mbut the background\x1b[42m still comes \x1b[45mthrough\x1b[0m"
+// );
+// console.log(
+//   "\x1b[4mgetting fancy with underlines \x1b[30m\x1b[3m\x1b[105mand italics\x1b[0m"
+// );
 
-console.log(
-  "%cStyling is %cfun",
-  "color: #00ff33; font-size: 14px",
-  "text-transform:uppercase; font-size: 40px; color: #ff33dd"
-);
+// console.log(
+//   "%cStyling is %cfun",
+//   "color: #00ff33; font-size: 14px",
+//   "text-transform:uppercase; font-size: 40px; color: #ff33dd"
+// );

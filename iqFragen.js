@@ -10,29 +10,30 @@ const iqFragen = [
   {
     name: `iq1`,
     message: `What starts with "e" and ends with "e" but only has one letter in it?`,
-    choices: [`envelope`,`e`, `eye`, `elite`],
-    answer:`envelope`
+    choices: [`envelope`, `e`, `eye`, `elite`],
+    answer: `envelope`,
   },
-    {
-      name:`iq2`
-      message: `Which number should come next in the pattern?
+  {
+    name: `iq2`,
+    message: `Which number should come next in the pattern?
       37, 34, 31, 28`,
-      choices:[23, 25, 17, 26 ],
-      answer:25,
-    },
-    { q: `What can be broken but never held?`, a: `promise` },
-    {
-      q: `What’s full of holes but can still hold water?`,
-      a: `sponge`,
-    },
-  //   {
-  //     q: `Book is to Reading as Fork is to:
-  //     a. drawing
-  //     b. writing
-  //     c. stirring
-  //     d. eating`,
-  //     a: `d`,
-  //   },
+    choices: [23, 25, 17, 26],
+    answer: 25,
+  },
+  // { q: `What can be broken but never held?`, a: `promise` },
+  // {
+  //   q: `What’s full of holes but can still hold water?`,
+  //   a: `sponge`,
+  // },
+  {
+    name: `iq3`,
+    message: `Book is to Reading as Fork is to:
+      a. drawing
+      b. writing
+      c. stirring
+      d. eating`,
+    a: `d`,
+  },
   //   {
   //     q: `What number best completes the analogy:
   //     8:4 as 10:
@@ -178,9 +179,8 @@ const iqFragen = [
 // }
 
 // frage();
-function greeting(){
+function greeting() {
   console.log(`Welcome to the Suitecase game`);
 }
-
 
 console.log(`👺 ❤️  🧡 💛 💚 💙 💜 🖤 🤍 🤎 💔`);
