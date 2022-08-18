@@ -5,21 +5,15 @@ import figlet from "figlet";
 import enquirer from "enquirer";
 const prompt = promptSync();
 
-let userAnswers = []; 
-let questionCounter = 0;
+// let userAnswers = [];
+// let questionCounter = 0;
 
-displayNext();
-
-if (isNaN(userAnswers[questionCounter])) {
-  console.log('Please make a selection!');
-} else {
-  questionCounter++;
-  displayNext();
-};
-
-
-
-const { Select } = enquirer;
+// if (isNaN(userAnswers[questionCounter])) {
+//   console.log("Please make a selection!");
+// } else {
+//   questionCounter++;
+//   displayNext();
+// }
 
 const prompt1 = {
   name: "question1",
@@ -143,46 +137,46 @@ const prompt20 = {
   choices: ["6", "8", "21", "24"],
   answer: "8",
 };
-// const answer1 = await prompt1.run();
-// console.log(answer1);
-// const answer2 = await prompt2.run();
-// console.log(answer2);
-// const answer3 = await prompt3.run();
-// console.log(answer3);
-// const answer4 = await prompt4.run();
-// console.log(answer4);
-// const answer5 = await prompt5.run();
-// console.log(answer5);
-// const answer6 = await prompt6.run();
-// console.log(answer6);
-// const answer7 = await prompt7.run();
-// console.log(answer7);
-// const answer8 = await prompt8.run();
-// console.log(answer8);
-// const answer9 = await prompt9.run();
-// console.log(answer9);
-// const answer10 = await prompt10.run();
-// console.log(answer10);
-// const answer11 = await prompt11.run();
-// console.log(answer11);
-// const answer12 = await prompt12.run();
-// console.log(answer12);
-// const answer13 = await prompt13.run();
-// console.log(answer13);
-// const answer14 = await prompt14.run();
-// console.log(answer14);
-// const answer15 = await prompt15.run();
-// console.log(answer15);
-// const answer16 = await prompt16.run();
-// console.log(answer16);
-// const answer17 = await prompt17.run();
-// console.log(answer17);
-// const answer18 = await prompt18.run();
-// console.log(answer18);
-// const answer19 = await prompt19.run();
-// console.log(answer19);
-// const answer20 = await prompt20.run();
-// console.log(answer20);
+const answer1 = await prompt1.run();
+console.log(answer1);
+const answer2 = await prompt2.run();
+console.log(answer2);
+const answer3 = await prompt3.run();
+console.log(answer3);
+const answer4 = await prompt4.run();
+console.log(answer4);
+const answer5 = await prompt5.run();
+console.log(answer5);
+const answer6 = await prompt6.run();
+console.log(answer6);
+const answer7 = await prompt7.run();
+console.log(answer7);
+const answer8 = await prompt8.run();
+console.log(answer8);
+const answer9 = await prompt9.run();
+console.log(answer9);
+const answer10 = await prompt10.run();
+console.log(answer10);
+const answer11 = await prompt11.run();
+console.log(answer11);
+const answer12 = await prompt12.run();
+console.log(answer12);
+const answer13 = await prompt13.run();
+console.log(answer13);
+const answer14 = await prompt14.run();
+console.log(answer14);
+const answer15 = await prompt15.run();
+console.log(answer15);
+const answer16 = await prompt16.run();
+console.log(answer16);
+const answer17 = await prompt17.run();
+console.log(answer17);
+const answer18 = await prompt18.run();
+console.log(answer18);
+const answer19 = await prompt19.run();
+console.log(answer19);
+const answer20 = await prompt20.run();
+console.log(answer20);
 
 // let countdown = 10;
 
@@ -192,11 +186,6 @@ const prompt20 = {
 //     clearInterval(i);
 //   }
 // }, 1000);
-
-
-
-
-
 
 /* function randomQuestion(min, max) {
   return Math.floor(Math.random()) * (max-min) + min);
