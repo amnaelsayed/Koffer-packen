@@ -2,7 +2,6 @@ import promptSync from "prompt-sync";
 const prompt = promptSync();
 import chalk from "chalk";
 import enquirer from 'enquirer';
-// import gradient from  "gradient-string" ;
 const { Select } = enquirer;
 
 const prompt1 = new Select({
