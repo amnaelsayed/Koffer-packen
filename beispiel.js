@@ -112,3 +112,12 @@ const tomorrow = (obj) => {
 };
 const iqOne = tomorrow(objekt);
 console.log(iqOne);
+let countDown;
+const timer = () => {
+  countDown = setTimeout(function () {
+    console.log(3);
+  }, 300);
+};
+// clearInterval(countDown);
+const insertTimer = timer();
+console.log(2);
