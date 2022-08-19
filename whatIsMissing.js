@@ -66,6 +66,7 @@ function whatIsMissing(array, array2) {
 
     console.log();
     console.log(array2);
+    console.log(array2.pop());
     // console.log(array);
   }, 6000);
 
