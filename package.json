@@ -20,14 +20,6 @@
   "homepage": "https://github.com/amnaelsayed/Koffer-packen#readme",
   "dependencies": {
     "chalk": "^5.0.1",
-<<<<<<< HEAD
-=======
-
-    
-    
-    "gradient": "^0.2.0",
-
->>>>>>> 1ce4065bfda03460dd3dd47008f7a1122ce0b4cf
     "chalk-animation": "^2.0.2",
     "enquirer": "^2.3.6",
     "figlet": "^1.5.2",
@@ -35,12 +27,7 @@
     "gradient-string": "^2.0.1",
     "howler": "^2.2.3",
     "inquirer": "^9.1.0",
-<<<<<<< HEAD
     "prompt-sync": "^4.2.0",
     "require": "^2.4.20"
-=======
-
-    "prompt-sync": "^4.2.0"
->>>>>>> 1ce4065bfda03460dd3dd47008f7a1122ce0b4cf
   }
 }

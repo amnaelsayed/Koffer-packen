@@ -12,21 +12,21 @@ const wim1 = [
   "🪗",
   "🎳",
   "🪘",
-  "🎷",
-  "🚴‍♂️",
-  "🧘‍♂️",
-  "🎻",
-  "🎯",
-  "🎪",
-  "🏂",
-  "🥎",
-  "🛼",
-  "🪀",
-  "🥊",
-  "🎺",
-  "🚲",
-  "🎠",
-  "💵",
+  // "🎷",
+  // "🚴‍♂️",
+  // "🧘‍♂️",
+  // "🎻",
+  // "🎯",
+  // "🎪",
+  // "🏂",
+  // "🥎",
+  // "🛼",
+  // "🪀",
+  // "🥊",
+  // "🎺",
+  // "🚲",
+  // "🎠",
+  // "💵",
 ];
 
 const wim2 = [
@@ -34,39 +34,42 @@ const wim2 = [
   `💣`,
   `🪞`,
   `📸`,
-  `🎈`,
-  `📬`,
-  `🧽`,
-  `🩺`,
-  `📚`,
-  `📖`,
-  `🔖`,
-  `🧷`,
-  `🪟`,
-  `🎁`,
-  `🩹`,
-  `📐`,
-  `📏`,
-  `🧮`,
-  `📌`,
-  `🔭`,
+  // `🎈`,
+  // `📬`,
+  // `🧽`,
+  // `🩺`,
+  // `📚`,
+  // `📖`,
+  // `🔖`,
+  // `🧷`,
+  // `🪟`,
+  // `🎁`,
+  // `🩹`,
+  // `📐`,
+  // `📏`,
+  // `🧮`,
+  // `📌`,
+  // `🔭`,
 ];
 
-const whatIsMissing = [wim1, wim2];
-// console.log(whatIsMissing);
-function missing(wim1) {
-  const { NumberPrompt } = enquirer;
+const whatIsMissingArray = [wim1, wim2];
 
-  const prompt1 = new NumberPrompt({
-    header:
-      "You have one minute to find which object is missing from the second line",
-    message: wim1,
-    footer: "************************",
-  });
+function whatIsMissing(array, array2) {
+  const i = Math.ceil(Math.random() * array.length - 1);
+  console.log(array);
+  setTimeout(function () {
+    let ii = Math.ceil(Math.random() * array.length);
 
-  prompt1
-    .run()
-    .then((answer) => console.log("String is:", answer))
-    .catch(console.error);
+    console.clear();
+    array2.push(array.splice(i, 1)[0]);
+    array2[i] = array[ii];
+
+    console.log();
+    console.log(array2);
+    // console.log(array);
+  }, 6000);
+
+  // array.splice(i, 1);
+  // console.log(array);
 }
-console.log(missing(wim1));
+whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
