@@ -160,7 +160,7 @@ const prompt20 = {
   rightAnswer: "8",
   frageWarSchon: false,
 };
-const arrayGames = [
+let arrayGames = [
   prompt1,
   prompt2,
   prompt3,
@@ -199,7 +199,7 @@ const select = (obj) => {
       "                                                   Wähle die richtige Antwort:        "
     )
   );
-  obj.frageWarSchon = true;
+  // obj.frageWarSchon = true;
   console.log(obj.frageWarSchon);
   if (frage === obj.rightAnswer) {
     console.log(
@@ -228,8 +228,34 @@ const select = (obj) => {
       )
     );
     console.log(`\n\n\n\n\n\n\n`);
+    console.log(arrayGames.length);
+    const index = arrayGames.findIndex((object) => {
+      return obj === object;
+    });
+    console.log(index);
+
+    arrayGames.splice(index, 1);
+
+    console.log(arrayGames.length);
   }
 };
+
+function randomQuestion(array) {
+  const filtred = array.filter(({ frageWarSchon }) => frageWarSchon === false);
+  return filtred[Math.floor(Math.random() * array.length)];
+
+  // console.log(array);
+  // let index = Math.floor(Math.random() * array.length);
+  // if (!array[index].frageWarSchon) {
+  //   return array[index];
+  // } else {
+  //   randomQuestion(array);
+  // }
+}
+const randomMath = randomQuestion(arrayGames);
+
+select(randomMath);
+
 // const select = (obj) => {
 //   console.log(obj);
 //   if (obj !== undefined) {
@@ -266,20 +292,5 @@ const select = (obj) => {
 //   }
 // };
 
-function randomQuestion(array) {
-  const filtred = array.filter(({ frageWarSchon }) => frageWarSchon === false);
-  return filtred[Math.floor(Math.random() * array.length)];
-
-  // console.log(array);
-  // let index = Math.floor(Math.random() * array.length);
-  // if (!array[index].frageWarSchon) {
-  //   return array[index];
-  // } else {
-  //   randomQuestion(array);
-  // }
-}
-const randomMath = randomQuestion(arrayGames);
-
-select(randomMath);
 // const multipleChoice = select(randomMath);
 // console.log(multipleChoice);
