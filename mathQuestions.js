@@ -164,23 +164,23 @@ const arrayGames = [
   prompt1,
   prompt2,
   prompt3,
-  // prompt4,
-  // prompt5,
-  // prompt6,
-  // prompt7,
-  // prompt8,
-  // prompt9,
-  // prompt10,
-  // prompt11,
-  // prompt12,
-  // prompt13,
-  // prompt14,
-  // prompt15,
-  // prompt16,
-  // prompt17,
-  // prompt18,
-  // prompt19,
-  // prompt20,
+  prompt4,
+  prompt5,
+  prompt6,
+  prompt7,
+  prompt8,
+  prompt9,
+  prompt10,
+  prompt11,
+  prompt12,
+  prompt13,
+  prompt14,
+  prompt15,
+  prompt16,
+  prompt17,
+  prompt18,
+  prompt19,
+  prompt20,
 ];
 const select = (obj) => {
   // console.log(
@@ -195,9 +195,12 @@ const select = (obj) => {
   );
   console.log("");
   const frage = prompt(
-    "                                                   Wähle die richtige Antwort:        "
+    gradient.summer(
+      "                                                   Wähle die richtige Antwort:        "
+    )
   );
-  // obj.frageWarSchon = true;
+  obj.frageWarSchon = true;
+  console.log(obj.frageWarSchon);
   if (frage === obj.rightAnswer) {
     console.log(
       gradient.summer(
@@ -205,9 +208,11 @@ const select = (obj) => {
       )
     );
   } else {
+    console.clear();
+    console.log(`\n\n\n\n\n\n\n`);
     console.log(
       gradient.teen(
-        `  ______    ______   __       __  ________         ______   __     __  ________           
+        `         ______    ______   __       __  ________         ______   __     __  ________           
                  /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |          
                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______  
                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \ 
@@ -222,6 +227,7 @@ const select = (obj) => {
                  `
       )
     );
+    console.log(`\n\n\n\n\n\n\n`);
   }
 };
 // const select = (obj) => {
@@ -261,7 +267,7 @@ const select = (obj) => {
 // };
 
 function randomQuestion(array) {
-  const filtred = array.filter(({ frageWarSchon }) => !frageWarSchon);
+  const filtred = array.filter(({ frageWarSchon }) => frageWarSchon === false);
   return filtred[Math.floor(Math.random() * array.length)];
 
   // console.log(array);
