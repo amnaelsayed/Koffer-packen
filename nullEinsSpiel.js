@@ -331,3 +331,11 @@ const countGame = [
   findbofbpq,
   findbofbpq,
 ];
+
+let wievielFragenVomNutzer = 5;
+for (let i = 0; i < wievielFragenVomNutzer; i++) {
+  let zufallFrage = Math.floor(Math.random(countGame.length * 10));
+  prompt(countGame[zufallFrage]);
+  // Nutzereingabe Checken
+  // Zwischenspeichern vom Ergebnis aus Nutzereingabe
+}
