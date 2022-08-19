@@ -132,6 +132,24 @@ function whatIsMissing(array, array2) {
 
       console.log(array3);
     }
-  }, 10000);
+    if (antwort.toLowerCase() == `a`) {
+      console.clear();
+      console.log(`Amazing`);
+    } else {
+      console.log(`try one more time`);
+    }
+  }, 3000);
 }
-whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
+// whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
+
+const antwort = prompt(
+  whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1])
+);
+console.log(antwort);
+
+if (antwort.toLowerCase() == `a`) {
+  console.clear();
+  console.log(`Amazing`);
+} else {
+  console.log(`try one more time`);
+}
