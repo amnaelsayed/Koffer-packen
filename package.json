@@ -5,6 +5,7 @@
   "description": "Koffer-packen Ein Paar Organisatorische Fragen: *Begrüßung-Spielregeln *Mehrere Spieler oder nur gegen den Computer *Wie viele Levels wollen wir haben? ---Bei Jede n Fragen ist ein Level abgeschlossen, nach der Frage muss die Antwort zu einem Array gepushed-(Koffer Array) ---Zwischenergebnis im Koffer Packen z.B. console.log(Du hast in deinem Koffer die \"2\" gepackt) ----clear ---prompt(Was hast du in deinem Koffer gepackt?) ---Abfrage von Array gepushed Koffer ----Wenn richtig nächte Frage *Erstes Level hat 5 Fragen (1 Samen) *Zweites Level hat 5 schwieriegere Fragen(1 Tropfen) *Drittes Level hat 7 Fragen () *Viertes Level hat 7 schwierigere Fragen *Fünftes Level hat 10",
   "main": "kofferPacken.js",
   "scripts": {
+    "quiz": "node nullEinsSpiel.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
