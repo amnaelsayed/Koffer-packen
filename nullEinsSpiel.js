@@ -227,6 +227,13 @@ const searchClown = search(arraySmileyColdHot, "  🤡  ");
 const searchCold = search(arraySmileyColdHot, "   🥶  ");
 const searchHot = search(arraySmileyColdHot, "  🥵  ");
 
+const filterGame= (zeichen,array, funk)=>{
+  
+}
+
+
+
+
 const filterGame = (zeichen, array, funk) => {
   const { NumberPrompt } = enquirer;
 
@@ -273,60 +280,60 @@ $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |
 
     .catch(console.error);
 };
-// const findO = filterGame(0, arrO, searchO);
-// const find1 = filterGame(1, arrO, searchOne);
-// const findO0Null = filterGame(0, arrO0, searchO0Null);
-// const findO0dasO = filterGame("  O  ", arrO0, searchO0dasO);
-// const findIoflI = filterGame("  I  ", arrIl, searchIoflI);
-// const findLoflI = filterGame("  L  ", arrIl, searchLoflI);
-// const findbofbpq = filterGame("  b  ", arrbpq, searchbofbpq);
-// const findpofbpq = filterGame("  p  ", arrbpq, searchpofbpq);
-// const findqofbpq = filterGame("  q  ", arrbpq, searchqofbpq);
-// const findBofBß = filterGame("  B  ", arrBß, searchBofBß);
-// const findßofBß = filterGame("  ß  ", arrBß, searchßofBß);
-// const findNiceSmile = filterGame("  😉  ", arrSmile, searchNiceSmile);
-// const findBadSmile = filterGame("  😡  ", arrSmile, searchBadSmile);
-// const findCatKiss = filterGame("  😽  ", arrCat, searchCatKiss);
-// const findCatAngry = filterGame("  😼  ", arrCat, searchCatAngry);
-// const findCatHeart = filterGame("  😻  ", arrCat, searchCatHeart);
-// const findClown = filterGame("  🤡  ", arraySmileyColdHot, searchClown);
-// const findCold = filterGame("  🥶  ", arraySmileyColdHot, searchCold);
-// const findHot = filterGame("  🥵  ", arraySmileyColdHot, searchHot);
-// const findMonsterGhost = filterGame("  👻  ", arrGhost, searchMonsterGhost);
-// const findMonsterShocked = filterGame("  😱  ", arrGhost, searchMonsterShocked);
-// const findMermaid = filterGame("  🧞‍♀️  ", arrMermaid, searchMermaid);
-// const findMermaidMan = filterGame("  🧞‍♂️  ", arrMermaid, searchMermaidMan);
+const findO = filterGame(0, arrO, searchO);
+const find1 = filterGame(1, arrO, searchOne);
+const findO0Null = filterGame(0, arrO0, searchO0Null);
+const findO0dasO = filterGame("  O  ", arrO0, searchO0dasO);
+const findIoflI = filterGame("  I  ", arrIl, searchIoflI);
+const findLoflI = filterGame("  L  ", arrIl, searchLoflI);
+const findbofbpq = filterGame("  b  ", arrbpq, searchbofbpq);
+const findpofbpq = filterGame("  p  ", arrbpq, searchpofbpq);
+const findqofbpq = filterGame("  q  ", arrbpq, searchqofbpq);
+const findBofBß = filterGame("  B  ", arrBß, searchBofBß);
+const findßofBß = filterGame("  ß  ", arrBß, searchßofBß);
+const findNiceSmile = filterGame("  😉  ", arrSmile, searchNiceSmile);
+const findBadSmile = filterGame("  😡  ", arrSmile, searchBadSmile);
+const findCatKiss = filterGame("  😽  ", arrCat, searchCatKiss);
+const findCatAngry = filterGame("  😼  ", arrCat, searchCatAngry);
+const findCatHeart = filterGame("  😻  ", arrCat, searchCatHeart);
+const findClown = filterGame("  🤡  ", arraySmileyColdHot, searchClown);
+const findCold = filterGame("  🥶  ", arraySmileyColdHot, searchCold);
+const findHot = filterGame("  🥵  ", arraySmileyColdHot, searchHot);
+const findMonsterGhost = filterGame("  👻  ", arrGhost, searchMonsterGhost);
+const findMonsterShocked = filterGame("  😱  ", arrGhost, searchMonsterShocked);
+const findMermaid = filterGame("  🧞‍♀️  ", arrMermaid, searchMermaid);
+const findMermaidMan = filterGame("  🧞‍♂️  ", arrMermaid, searchMermaidMan);
 const findAnimalDino = filterGame("  🦖  ", arrAnimals, searchAnimalDino);
-// const findAnimalScorpion = filterGame(
-//   "  🦞  ",
-//   arrAnimals,
-//   searchAnimalScorpion
-// );
+const findAnimalScorpion = filterGame(
+  "  🦞  ",
+  arrAnimals,
+  searchAnimalScorpion
+);
 
-// const countGame = [
-//   find1,
-//   findBadSmile,
-//   findCatAngry,
-//   findCatHeart,
-//   findCatKiss,
-//   findClown,
-//   findCold,
-//   findHot,
-//   findIoflI,
-//   findLoflI,
-//   findNiceSmile,
-//   findO,
-//   findO0Null,
-//   findO0dasO,
-//   findbofbpq,
-//   findBofBß,
-//   findßofBß,
-//   findqofbpq,
-//   findpofbpq,
-//   findMermaid,
-//   findMermaidMan,
-//   findMonsterGhost,
-//   findMonsterShocked,
-//   findAnimalDino,
-//   findAnimalScorpion,
-// ];
+const countGame = [
+  find1,
+  findBadSmile,
+  findCatAngry,
+  findCatHeart,
+  findCatKiss,
+  findClown,
+  findCold,
+  findHot,
+  findIoflI,
+  findLoflI,
+  findNiceSmile,
+  findO,
+  findO0Null,
+  findO0dasO,
+  findbofbpq,
+  findBofBß,
+  findßofBß,
+  findqofbpq,
+  findpofbpq,
+  findMermaid,
+  findMermaidMan,
+  findMonsterGhost,
+  findMonsterShocked,
+  findAnimalDino,
+  findAnimalScorpion,
+];
