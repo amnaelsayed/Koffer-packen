@@ -6,7 +6,7 @@ import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
 const prompt = promptSync();
 var kofferArray = [];
-const arrO = [0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1];
+
 const arrPQ = [
   "  p  ",
   "  p  ",
@@ -24,23 +24,23 @@ const arrPQ = [
   "  q  ",
   "  p  ",
 ];
-const arrO0 = [
-  0,
+const arrOA = [
+  "  A  ",
   "  O  ",
   "  O  ",
   "  O  ",
   "  O  ",
-  0,
+  "  A  ",
   "  O  ",
   "  O  ",
-  0,
-  0,
+  "  A  ",
+  "  A  ",
   "  O  ",
-  0,
+  "  A  ",
   "  O  ",
   "  O  ",
   "  O  ",
-  0,
+  "  A  ",
 ];
 const arrIl = [
   "  I  ",
@@ -193,51 +193,31 @@ const arraySmileyColdHot = [
   "  🥵  ",
   "  🤡  ",
 ];
-
-const search = (array, searchedItem) => {
-  const filtered = array.filter((num) => num === searchedItem);
-  return filtered.length;
-};
-
-const searchO = filterGame(arrO, 0);
-const searchOne = filterGame(arrO, 1);
-const searchQ = filterGame(arrPQ, "  q  ");
-const searchP = filterGame(arrPQ, "  p  ");
-const searchO0Null = filterGame(arrO0, 0);
-const searchO0dasO = filterGame(arrO0, "  O  ");
-const searchIoflI = filterGame(arrIl, "  I  ");
-const searchLoflI = filterGame(arrIl, "  l  ");
-const searchbofbpq = filterGame(arrbpq, "  b  ");
-const searchpofbpq = filterGame(arrbpq, "  p  ");
-const searchqofbpq = filterGame(arrbpq, "  q  ");
-const searchBofBß = filterGame(arrBß, "  B  ");
-const searchßofBß = filterGame(arrBß, "  ß  ");
-const searchNiceSmile = filterGame(arrSmile, "  😉  ");
-const searchBadSmile = filterGame(arrSmile, "  😡  ");
-const searchMonsterGhost = filterGame(arrGhost, "  👻   ");
-const searchMonsterShocked = filterGame(arrGhost, "  😱  ");
-const searchMermaid = filterGame(arrMermaid, "  🧞‍♀️  ");
-const searchMermaidMan = filterGame(arrMermaid, "  🧞‍♂️  ");
-const searchAnimalDino = filterGame(arrAnimals, "  🦖  ");
-const searchAnimalScorpion = filterGame(arrAnimals, "  🦞  ");
-const searchCatKiss = filterGame(arrCat, "  😽   ");
-const searchCatAngry = filterGame(arrCat, "  😼  ");
-const searchCatHeart = filterGame(arrCat, "  😻  ");
-const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
-const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
-const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
-
+var kofferArray = [];
 const filterGame = (array, zeichen) => {
   const filtered = array.filter((num) => num === zeichen);
-  console.log(array);
-  const wievielSiehstDu = prompt(`How many ${zeichen} do you see?     `);
+
+  console.log("\n\n");
+  console.log(array.join());
+  console.log(``);
+  const wievielSiehstDu = prompt(
+    `\n\n\n\n\n\n                          How many ${zeichen} do you see?     `
+  );
 
   if (filtered.length === parseInt(wievielSiehstDu)) {
     console.log(
       gradient.summer(
-        `\n\n\nSuper! You have packed a 👜${wievielSiehstDu}👜 into your bag\n\n\n\n\n`
+        `\n\n\n\n\n\n                  Great! You have packed a 👜${wievielSiehstDu}👜 into your bag\n\n\n\n\n`
       )
     );
+    kofferArray.push(wievielSiehstDu);
+    console.log(kofferArray);
+    const abfrage = prompt("Hast du dir gemerkt was du gepackt hat");
+    if (abfrage == kofferArray) {
+      console.log("Super gemacht");
+    } else {
+      ("Du hast ein Leben verloren");
+    }
   } else {
     console.log(
       gradient.teen(
@@ -260,6 +240,33 @@ $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $
 };
 
 const findClown = filterGame(arraySmileyColdHot, "  🤡  ");
+
+const searchQ = filterGame(arrPQ, "  q  ");
+const searchP = filterGame(arrPQ, "  p  ");
+const searchO0Null = filterGame(arrOA, "  A  ");
+const searchO0dasO = filterGame(arrOA, "  O  ");
+const searchIoflI = filterGame(arrIl, "  I  ");
+const searchLoflI = filterGame(arrIl, "  l  ");
+const searchbofbpq = filterGame(arrbpq, "  b  ");
+const searchpofbpq = filterGame(arrbpq, "  p  ");
+const searchqofbpq = filterGame(arrbpq, "  q  ");
+const searchBofBß = filterGame(arrBß, "  B  ");
+const searchßofBß = filterGame(arrBß, "  ß  ");
+const searchNiceSmile = filterGame(arrSmile, "  😉  ");
+const searchBadSmile = filterGame(arrSmile, "  😡  ");
+const searchMonsterGhost = filterGame(arrGhost, "  👻   ");
+const searchMonsterShocked = filterGame(arrGhost, "  😱  ");
+const searchMermaid = filterGame(arrMermaid, "  🧞‍♀️  ");
+const searchMermaidMan = filterGame(arrMermaid, "  🧞‍♂️  ");
+const searchAnimalDino = filterGame(arrAnimals, "  🦖  ");
+const searchAnimalScorpion = filterGame(arrAnimals, "  🦞  ");
+const searchCatKiss = filterGame(arrCat, "  😽   ");
+const searchCatAngry = filterGame(arrCat, "  😼  ");
+const searchCatHeart = filterGame(arrCat, "  😻  ");
+const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
+const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
+const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
+
 // const filterGame = (zeichen, array, funk) => {
 //   const { NumberPrompt } = enquirer;
 

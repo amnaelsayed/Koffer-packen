@@ -182,10 +182,23 @@ let arrayGames = [
   prompt19,
   prompt20,
 ];
+
+function randomQuestion(array) {
+  // const filtred = array.filter(({ frageWarSchon }) => frageWarSchon === false);
+  return array[Math.floor(Math.random() * array.length)];
+
+  // console.log(array);
+  // let index = Math.floor(Math.random() * array.length);
+  // if (!array[index].frageWarSchon) {
+  //   return array[index];
+  // } else {
+  //   randomQuestion(array);
+  // }
+}
+var kofferArray = [];
+const randomMath = randomQuestion(arrayGames);
+console.log(kofferArray);
 const select = (obj) => {
-  // console.log(
-  //   `\n\n\n\n                                              ${obj.message}         \n\n\n\n\n\n                                               ${obj.choices}\n\n\n\n`
-  // );
   console.log("\n\n\n\n");
   console.log(
     `                                                    ${obj.message}\n\n\n\n`
@@ -207,6 +220,14 @@ const select = (obj) => {
         `\n\n\n                                           Great! You have packed a 👜${frage}👜 into your bag        \n\n\n`
       )
     );
+    kofferArray.push(frage);
+    console.log(kofferArray);
+    const frageKofferInhalt = prompt("Do you remember what you have packed?;)");
+    if (frageKofferInhalt == kofferArray) {
+      console.log("Well done.");
+    } else {
+      console.log("You have lost one life");
+    }
   } else {
     console.clear();
     console.log(`\n\n\n\n\n\n\n`);
@@ -239,20 +260,6 @@ const select = (obj) => {
     console.log(arrayGames.length);
   }
 };
-
-function randomQuestion(array) {
-  const filtred = array.filter(({ frageWarSchon }) => frageWarSchon === false);
-  return filtred[Math.floor(Math.random() * array.length)];
-
-  // console.log(array);
-  // let index = Math.floor(Math.random() * array.length);
-  // if (!array[index].frageWarSchon) {
-  //   return array[index];
-  // } else {
-  //   randomQuestion(array);
-  // }
-}
-const randomMath = randomQuestion(arrayGames);
 
 select(randomMath);
 
