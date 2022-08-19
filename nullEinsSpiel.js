@@ -302,7 +302,6 @@ const findClown = filterGame(arraySmileyColdHot, "  🤡  ");
 //       }
 //     })
 
-<<<<<<< HEAD
 //     .catch(console.error);
 // };
 // const findO = filterGame(0, arrO, searchO);
@@ -362,32 +361,31 @@ const findClown = filterGame(arraySmileyColdHot, "  🤡  ");
 //   findAnimalDino,
 //   findAnimalScorpion,
 // ];
-=======
-const countGame = [
-  find1,
-  findBadSmile,
-  findBofBß,
-  findCatAngry,
-  findCatHeart,
-  findCatKiss,
-  findClown,
-  findCold,
-  findHot,
-  findIoflI,
-  findLoflI,
-  findNiceSmile,
-  findO,
-  findO0Null,
-  findO0dasO,
-  findbofbpq,
-  findbofbpq,
-];
 
-let wievielFragenVomNutzer = 5;
-for (let i = 0; i < wievielFragenVomNutzer; i++) {
-  let zufallFrage = Math.floor(Math.random(countGame.length * 10));
-  prompt(countGame[zufallFrage]);
-  // Nutzereingabe Checken
-  // Zwischenspeichern vom Ergebnis aus Nutzereingabe
-}
->>>>>>> 058d93b8782f88659ada7a5bff54d512a2bf1b92
+// const countGame = [
+//   find1,
+//   findBadSmile,
+//   findBofBß,
+//   findCatAngry,
+//   findCatHeart,
+//   findCatKiss,
+//   findClown,
+//   findCold,
+//   findHot,
+//   findIoflI,
+//   findLoflI,
+//   findNiceSmile,
+//   findO,
+//   findO0Null,
+//   findO0dasO,
+//   findbofbpq,
+//   findbofbpq,
+// ];
+
+// let wievielFragenVomNutzer = 5;
+// for (let i = 0; i < wievielFragenVomNutzer; i++) {
+//   let zufallFrage = Math.floor(Math.random(countGame.length * 10));
+//   prompt(countGame[zufallFrage]);
+// Nutzereingabe Checken
+// Zwischenspeichern vom Ergebnis aus Nutzereingabe
+// }
