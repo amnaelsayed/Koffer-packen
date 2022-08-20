@@ -9,7 +9,7 @@ const prompt = promptSync();
 const kofferArray = [];
 
 const greeting = () => {
-  function myFunction(platform) {
+  function myFunction() {
     console.log("\n\n\n\n\n\n\n\n\n\n\n");
     console.log(
       chalk.yellow(
@@ -33,4 +33,32 @@ const greeting = () => {
   let timerID = setTimeout(myFunction, 1000);
 };
 
-greeting();
+const explainTheGame = () => {
+  function myFunction() {
+    // console.clear();
+    console.log("\n\n\n\n\n\n\n\n\n");
+    console.log(
+      chalk.yellow(
+        `                                           Welcome to "Pack the SuitCase"!`
+      )
+    );
+    console.log("");
+    console.log("");
+    console.log(
+      chalk.yellow(
+        `   Try to concentrate and remember what you have packed into your Suitcase. It will bring you to the next level.`
+      )
+    );
+    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+  }
+
+  let timerID = setTimeout(myFunction, 5000);
+};
+
+const startGame = () => {
+  greeting();
+
+  explainTheGame();
+};
+
+startGame();
