@@ -16,3 +16,5 @@ Ideen für den code:
 -Koffer Frage
 -Dass die gleiche frage nicht nochmal kommt
 -Check ob der Spieler genugend Leben hat
+
+## Schriftzug Game Over => Big Money-sw
