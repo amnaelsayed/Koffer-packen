@@ -5,6 +5,7 @@ import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
 // import nullEinsSpiel from "./nullEinsSpiel.js";
+import whatIsMissing from "./whatIsMissing.js";
 
 const prompt = promptSync();
 var user = { kofferArray: [], userName: [], lifes: 3, flower: [] };
