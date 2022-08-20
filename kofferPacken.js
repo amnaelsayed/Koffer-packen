@@ -5,11 +5,11 @@ import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
 const prompt = promptSync();
-var user = { kofferArray: [], userName: [] };
+var user = { kofferArray: [], userName: [], lifes: 3 };
 
 const greeting = () => {
   function myFunction() {
-    console.log("\n\n\n\n\n\n\n\n\n\n\n");
+    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     console.log(
       chalk.yellow(
         `
@@ -26,10 +26,33 @@ const greeting = () => {
       `
       )
     );
-    console.log("\n\n\n\n\n\n\n\n\n\n\n");
+    console.log("\n\n\n\n\n\n\n\n\n\n");
   }
 
   let timerID = setTimeout(myFunction, 1000);
+};
+
+const infoUser = () => {
+  function myFunction() {
+    console.clear();
+    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    console.log(
+      chalk.yellow(
+        `                                           Before we start let us know more about you!`
+      )
+    );
+    console.log("");
+    console.log("");
+    const name = prompt(
+      chalk.yellow(
+        `                                                  Please type in your name:   `
+      )
+    );
+    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    user.userName.push(name);
+  }
+
+  let timerID = setTimeout(myFunction, 3000);
 };
 
 const explainTheGame = () => {
@@ -49,29 +72,6 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-  }
-
-  let timerID = setTimeout(myFunction, 8000);
-};
-
-const infoUser = () => {
-  function myFunction() {
-    console.clear();
-    console.log("\n\n\n\n\n\n\n\n\n");
-    console.log(
-      chalk.yellow(
-        `                                           Before we start let us know more about you!`
-      )
-    );
-    console.log("");
-    console.log("");
-    const name = prompt(
-      chalk.yellow(
-        `                                                  Please type in your name:   `
-      )
-    );
-    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    user.userName.push(name);
   }
 
   let timerID = setTimeout(myFunction, 5000);
