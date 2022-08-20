@@ -120,7 +120,7 @@ const iqFragen = [
   {
     name: `iq15`,
     message: `2. What is always coming but never arrives?`,
-    choices: [`a: train`, `b: tomorrow`, `c: money`, `d: happines`],
+    choices: [`a: the train`, `b: tomorrow`, `c: money`, `d: happines`],
     answer: `b: tomorrow`,
   },
 ];

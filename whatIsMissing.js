@@ -54,10 +54,21 @@ const wim2 = [
 
 const whatIsMissingArray = [wim1, wim2];
 
+function whatIsMissingIntro() {
+  console.log(
+    `You will have 20 seconds to memorise the following objects :`,
+    `\n`,
+    `Press enter when you are ready`
+  );
+}
+console.clear();
+
 function whatIsMissing(array, array2) {
+  console.clear();
   const i = Math.ceil(Math.random() * array.length - 1);
   const array3 = [];
-  console.log(`You have 20 seconds to memorise the objects :`, `\n`, array);
+  console.log(`Memorise the objects :`);
+  console.log(array);
   setTimeout(function () {
     // let ii = Math.ceil(Math.random() * array.length-1);
 
@@ -132,24 +143,19 @@ function whatIsMissing(array, array2) {
 
       console.log(array3);
     }
-    if (antwort.toLowerCase() == `a`) {
-      console.clear();
-      console.log(`Amazing`);
-    } else {
-      console.log(`try one more time`);
-    }
-  }, 3000);
+  }, 6000);
 }
-// whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
-
-const antwort = prompt(
-  whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1])
-);
-console.log(antwort);
-
-if (antwort.toLowerCase() == `a`) {
-  console.clear();
-  console.log(`Amazing`);
-} else {
-  console.log(`try one more time`);
+const intro = prompt(whatIsMissingIntro());
+console.log(intro);
+whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
+function wimAnswer() {
+  // console.log(`This is yur answer`);
 }
+// const theAnswer = prompt(`Choose your answer`);
+
+// if (antwort.toLowerCase() == `a`) {
+//   console.clear();
+//   console.log(`Amazing`);
+// } else {
+//   console.log(`try one more time`);
+// }
