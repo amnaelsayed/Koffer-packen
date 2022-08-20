@@ -5,6 +5,7 @@ import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
 const prompt = promptSync({ eot: true });
+// import whatIsMissingg from "./whatIsMissingg.js";
 import introGame from "./whatIsMissingg.js";
 // import nullEinsSpiel from "./nullEinsSpiel.js";
 
@@ -76,6 +77,8 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    console.clear();
+    introGame();
   }
 
   let timerID = setTimeout(myFunction, 8000);
@@ -85,10 +88,11 @@ const startGame = () => {
   greeting();
   infoUser();
   explainTheGame();
+
   // play;
-  nochEine;
+  // nochEine;
 };
-const nochEine = introGame();
+// const nochEine = introGame();
 startGame();
 
 // import whatIsMissing from "./whatIsMissing.js";
