@@ -4,6 +4,8 @@ import gradient from "gradient-string";
 import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
+import nullEinsSpiel from "./nullEinsSpiel.js";
+
 const prompt = promptSync();
 var user = { kofferArray: [], userName: [], lifes: 3, flower: [] };
 
@@ -82,6 +84,7 @@ const startGame = () => {
   greeting();
   infoUser();
   explainTheGame();
+  // countElem();
 };
 
 startGame();

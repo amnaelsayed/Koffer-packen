@@ -4,6 +4,7 @@ import gradient from "gradient-string";
 import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
+
 const prompt = promptSync();
 var kofferArray = [];
 
@@ -268,6 +269,12 @@ const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
 const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
 const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
 
+const countElem = () => {
+  const searchNiceSmile = filterGame(arrSmile, "  😉  ");
+  const searchBadSmile = filterGame(arrSmile, "  😡  ");
+  const searchMonsterGhost = filterGame(arrGhost, "  👻   ");
+};
+
 // const filterGame = (zeichen, array, funk) => {
 //   const { NumberPrompt } = enquirer;
 
@@ -397,3 +404,4 @@ const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
 // Nutzereingabe Checken
 // Zwischenspeichern vom Ergebnis aus Nutzereingabe
 // }
+export default nullEinsSpiel;
