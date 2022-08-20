@@ -5,7 +5,7 @@ import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
 const prompt = promptSync();
-var user = { kofferArray: [], userName: [], lifes: 3 };
+var user = { kofferArray: [], userName: [], lifes: 3, flower: [] };
 
 const greeting = () => {
   function myFunction() {
@@ -68,7 +68,8 @@ const explainTheGame = () => {
     console.log("");
     console.log(
       chalk.yellow(
-        `   Try to concentrate and remember what you have packed into your Suitcase. It will bring you to the next level.`
+        `   Try to concentrate and remember what you have packed into your Suitcase. It will bring you to the next level.\n\n
+                                                   You have ${user.lifes} lifes.`
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
