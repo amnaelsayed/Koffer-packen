@@ -55,13 +55,13 @@ const wim2 = [
 const whatIsMissingArray = [wim1, wim2];
 
 function whatIsMissingIntro() {
-  console.log(
-    `You will have 20 seconds to memorise the following objects :`,
-    `\n`,
-    `Press enter when you are ready`
+  const intro = prompt(
+    `You will have 20 seconds to memorise the following objects :\nPress enter when you are ready`
   );
+  // console.log(intro);
 }
-console.clear();
+
+// console.clear();
 
 function whatIsMissing(array, array2) {
   console.clear();
@@ -145,12 +145,19 @@ function whatIsMissing(array, array2) {
     }
   }, 6000);
 }
-const intro = prompt(whatIsMissingIntro());
-console.log(intro);
-whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
-function wimAnswer() {
-  // console.log(`This is yur answer`);
-}
+
+const introGame = () => {
+  whatIsMissingIntro();
+  whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
+};
+// introGame();
+// const whatIsGame = () => {
+//
+// };
+// const game={}
+// function wimAnswer() {
+//   // console.log(`This is yur answer`);
+// }
 // const theAnswer = prompt(`Choose your answer`);
 
 // if (antwort.toLowerCase() == `a`) {
@@ -159,3 +166,6 @@ function wimAnswer() {
 // } else {
 //   console.log(`try one more time`);
 // }
+
+// console.log(missing());
+export default introGame;

@@ -4,10 +4,10 @@ import gradient from "gradient-string";
 import figlet from "figlet";
 import enquirer from "enquirer";
 import chalkAnimation from "chalk-animation";
+const prompt = promptSync({ eot: true });
+import introGame from "./whatIsMissingg.js";
 // import nullEinsSpiel from "./nullEinsSpiel.js";
-import whatIsMissing from "./whatIsMissing.js";
 
-const prompt = promptSync();
 var user = { kofferArray: [], userName: [], lifes: 3, flower: [] };
 
 const greeting = () => {
@@ -78,14 +78,17 @@ const explainTheGame = () => {
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
   }
 
-  let timerID = setTimeout(myFunction, 5000);
+  let timerID = setTimeout(myFunction, 8000);
 };
 
 const startGame = () => {
   greeting();
   infoUser();
   explainTheGame();
-  // countElem();
+  // play;
+  nochEine;
 };
-
+const nochEine = introGame();
 startGame();
+
+// import whatIsMissing from "./whatIsMissing.js";
