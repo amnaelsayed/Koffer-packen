@@ -196,6 +196,7 @@ const arraySmileyColdHot = [
 ];
 var kofferArray = [];
 const filterGame = (array, zeichen) => {
+  let randomArray = array[Math.floor(Math.random)];
   const filtered = array.filter((num) => num === zeichen);
 
   console.log("\n\n");
@@ -241,33 +242,33 @@ const filterGame = (array, zeichen) => {
   }
 };
 
-const findClown = filterGame(arraySmileyColdHot, "  🤡  ");
+// const findClown = filterGame(arraySmileyColdHot, "  🤡  ");
 
-const searchQ = filterGame(arrPQ, "  q  ");
-const searchP = filterGame(arrPQ, "  p  ");
-const searchO0Null = filterGame(arrOA, "  A  ");
-const searchO0dasO = filterGame(arrOA, "  O  ");
-const searchIoflI = filterGame(arrIl, "  I  ");
-const searchLoflI = filterGame(arrIl, "  l  ");
-const searchbofbpq = filterGame(arrbpq, "  b  ");
-const searchpofbpq = filterGame(arrbpq, "  p  ");
-const searchqofbpq = filterGame(arrbpq, "  q  ");
-const searchBofBß = filterGame(arrBß, "  B  ");
-const searchßofBß = filterGame(arrBß, "  ß  ");
-const searchNiceSmile = filterGame(arrSmile, "  😉  ");
-const searchBadSmile = filterGame(arrSmile, "  😡  ");
-const searchMonsterGhost = filterGame(arrGhost, "  👻   ");
-const searchMonsterShocked = filterGame(arrGhost, "  😱  ");
-const searchMermaid = filterGame(arrMermaid, "  🧞‍♀️  ");
-const searchMermaidMan = filterGame(arrMermaid, "  🧞‍♂️  ");
-const searchAnimalDino = filterGame(arrAnimals, "  🦖  ");
-const searchAnimalScorpion = filterGame(arrAnimals, "  🦞  ");
-const searchCatKiss = filterGame(arrCat, "  😽   ");
-const searchCatAngry = filterGame(arrCat, "  😼  ");
-const searchCatHeart = filterGame(arrCat, "  😻  ");
-const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
-const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
-const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
+// const searchQ = filterGame(arrPQ, "  q  ");
+// const searchP = filterGame(arrPQ, "  p  ");
+// const searchO0Null = filterGame(arrOA, "  A  ");
+// const searchO0dasO = filterGame(arrOA, "  O  ");
+// const searchIoflI = filterGame(arrIl, "  I  ");
+// const searchLoflI = filterGame(arrIl, "  l  ");
+// const searchbofbpq = filterGame(arrbpq, "  b  ");
+// const searchpofbpq = filterGame(arrbpq, "  p  ");
+// const searchqofbpq = filterGame(arrbpq, "  q  ");
+// const searchBofBß = filterGame(arrBß, "  B  ");
+// const searchßofBß = filterGame(arrBß, "  ß  ");
+// const searchNiceSmile = filterGame(arrSmile, "  😉  ");
+// const searchBadSmile = filterGame(arrSmile, "  😡  ");
+// const searchMonsterGhost = filterGame(arrGhost, "  👻   ");
+// const searchMonsterShocked = filterGame(arrGhost, "  😱  ");
+// const searchMermaid = filterGame(arrMermaid, "  🧞‍♀️  ");
+// const searchMermaidMan = filterGame(arrMermaid, "  🧞‍♂️  ");
+// const searchAnimalDino = filterGame(arrAnimals, "  🦖  ");
+// const searchAnimalScorpion = filterGame(arrAnimals, "  🦞  ");
+// const searchCatKiss = filterGame(arrCat, "  😽   ");
+// const searchCatAngry = filterGame(arrCat, "  😼  ");
+// const searchCatHeart = filterGame(arrCat, "  😻  ");
+// const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
+// const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
+// const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
 
 const countElem = () => {
   const searchNiceSmile = filterGame(arrSmile, "  😉  ");
