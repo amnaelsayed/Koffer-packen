@@ -147,8 +147,11 @@ function whatIsMissing(array, array2) {
 }
 
 const introGame = () => {
-  whatIsMissingIntro();
-  whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
+  const myFunction = () => {
+    whatIsMissingIntro();
+    whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
+  };
+  let timerID = setTimeout(myFunction, 10000);
 };
 // introGame();
 // const whatIsGame = () => {

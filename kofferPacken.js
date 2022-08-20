@@ -77,7 +77,7 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    console.clear();
+
     introGame();
   }
 

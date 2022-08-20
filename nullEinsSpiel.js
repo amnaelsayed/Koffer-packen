@@ -212,7 +212,7 @@ const filterGame = (array, zeichen) => {
       )
     );
     kofferArray.push(wievielSiehstDu);
-    console.log(kofferArray);
+    // console.log(kofferArray);
     const abfrage = prompt("Hast du dir gemerkt was du gepackt hat");
     if (abfrage == kofferArray) {
       console.log("Super gemacht");
