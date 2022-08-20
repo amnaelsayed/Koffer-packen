@@ -1,54 +1,122 @@
-// <<<<<<< HEAD
-import promptSync from "prompt-sync";
-const prompt = promptSync();
+#!/usr/bin/env node
+
 import chalk from "chalk";
-import enquirer from 'enquirer';
-import {Howl, Howler} from 'howler';
-// import require from "require"
+import gradient from "gradient-string";
+import figlet from "figlet";
+import inquirer from "inquirer";
+import chalkAnimation from "chalk-animation";
+import { createSpinner } from "nanospinner";
 
-// const {Howler1} = require('howler');
+/* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 
+var player = {
+  kofferArray: [],
+  userName: [],
+  userAge: 0,
+  userCity: ``,
+  lifes: 3,
+  flower: [],
+};
+const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+// Change the sleep to 4000 or 5000
+const clear = () => {
+  console.clear();
+};
 
-const { Select } = enquirer;
+// console.clear();
+// it doesn't work properly-better as a callback function
 
-const prompt1 = new Select({
-  name: 'color',
-  message: 'Pick a flavor',
-  choices: ['apple', 'grape', 'watermelon', 'cherry', 'orange']
-  
-});
+async function welcome() {
+  const title = chalkAnimation.karaoke(
+    `
+  ███████ ██    ██ ██ ████████  ██████  █████  ███████ ███████ 
+  ██      ██    ██ ██    ██    ██      ██   ██ ██      ██      
+  ███████ ██    ██ ██    ██    ██      ███████ ███████ █████   
+       ██ ██    ██ ██    ██    ██      ██   ██      ██ ██      
+  ███████  ██████  ██    ██     ██████ ██   ██ ███████ ███████ `
+  );
+  await sleep();
+  title.stop(clear());
+  // will stop the animation, otherwise it runs forever
 
-const answer1 = await prompt1.run();
-console.log(answer1);
-const prompt2 = new Select({
-  name: 'Frage 1',
-  message: `${chalk.bgBlue("In what year did the Titanic sink in the Atlantic on her maiden voyage?")}`,
-  choices: ["1912",
-    "1921",
-    "1914",
-    "1916"],
-});
-const answer2 = await prompt2.run()
-console.log(answer2);
-if(answer2 !== "1912"){
-  console.log(`Tut mir leid,${chalk.red("Falsch")}, Du verlierst ein Leben`); 
+  const welcomeText = chalkAnimation.karaoke(`
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣉⣉⣉⣿⣿⣇⣰⣶⣶⣶⣶⣆⣸⣿⣿⣉⣉⣉⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠟⠉⠉⣿⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣿⠉⠉⠻⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣦⣀⣀⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿⣀⣀⣴⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+
+  Welcome to the Suitcase,
+  a game that will lead you 
+  to dreamy destinations!
+  Are you readyyyyyyyyy?`);
+  await sleep();
+  welcomeText.stop(clear());
 }
-else{
-  console.log(chalk.green(`richtig`)); 
+
+await welcome();
+
+async function introTextAndName() {
+  const getName = await inquirer.prompt({
+    name: `userName`,
+    type: `input`,
+    message: `
+    Before we start I would like to
+    know a few thing about you...
+    \n
+    What is your name?`,
+    default() {
+      return `Player`;
+      // it will show (player) in the console
+    },
+  });
+  player.userName = getName.userName;
 }
-const weiter = prompt(chalk.bgBlue("möschtest du weiter?y/n?"));
-console.log(weiter);
-// =======
-// const lol = `😂`;
-// console.log(lol);
+await introTextAndName();
 
-// function play(arrayMath, arrayIq, arrayRiddle) {
-//   // for (let i = 0; i < 3; i++) {
-//   //   frage aus array0;
-//   // }
-//   // ----KofferFrage
-// }
-// >>>>>>> 0f9bc9dd7e9eda9b5e5fc7c139b3386a49c1402f
+// console.log(player);
 
+async function getAge() {
+  const age = await inquirer.prompt({
+    name: `userAge`,
+    type: `input`,
+    message: `
+    What is your age?`,
+    default() {
+      return `Age`;
+    },
+  });
+  player.userAge = age.userAge;
+}
+await getAge();
+async function getCity() {
+  const city = await inquirer.prompt({
+    name: `userCity`,
+    type: `input`,
+    message: `
+    Where are you from?`,
+    default() {
+      return `City`;
+    },
+  });
+  player.userCity = city.userCity;
+  console.log(
+    `Nice to have you here ${player.userName} from ${player.userCity} `
+  );
+}
 
+await getCity();
+/* alle Infos gehen in das player Objet :)
+console.log(player);*/
 
+async function gameRules() {}
