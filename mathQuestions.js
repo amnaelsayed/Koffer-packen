@@ -93,7 +93,7 @@ const prompt11 = {
   message:
     "A clock seen through a mirror shows 8 o 'clock. What is the correct time?",
   choices: ["8.00", "4.00", "12.20", "12.40"],
-  rightAnswer: "4.00",
+  rightAnswer: 1,
   frageWarSchon: false,
 };
 const prompt12 = {
@@ -195,74 +195,96 @@ function randomQuestion(array) {
   //   randomQuestion(array);
   // }
 }
-var kofferArray = [];
-const randomMath = randomQuestion(arrayGames);
-console.log(kofferArray);
+// var kofferArray = [];
+// const randomMath = randomQuestion(arrayGames);
+// console.log(kofferArray);
+// const select = (obj) => {
+//   console.log("\n\n\n\n");
+//   console.log(
+//     `                                                    ${obj.message}\n\n\n\n`
+//   );
+//   console.log(
+//     `                                                       ${obj.choices}\n\n\n\n`
+//   );
+//   console.log("");
+//   const frage = prompt(
+//     gradient.summer(
+//       "                                                   Wähle die richtige Antwort:        "
+//     )
+//   );
+//   // obj.frageWarSchon = true;
+//   console.log(obj.frageWarSchon);
+//   if (frage === obj.rightAnswer) {
+//     console.log(
+//       gradient.summer(
+//         `\n\n\n                                           Great! You have packed a 👜${frage}👜 into your bag        \n\n\n`
+//       )
+//     );
+//     kofferArray.push(frage);
+//     console.log(kofferArray);
+//     const frageKofferInhalt = prompt("Do you remember what you have packed?;)");
+//     if (frageKofferInhalt == kofferArray) {
+//       console.log("Well done.");
+//     } else {
+//       console.log("You have lost one life");
+//     }
+//   } else {
+//     console.clear();
+//     console.log(`\n\n\n\n\n\n\n`);
+//     console.log(
+//       gradient.teen(
+//         `         ______    ______   __       __  ________         ______   __     __  ________
+//                  /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |
+//                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______
+//                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \
+//                  $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   /$$$$$$  |
+//                  $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$ |  $$/
+//                  $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |
+//                  $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |
+//                  $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/
+
+//                  `
+//       )
+//     );
+//     console.log(`\n\n\n\n\n\n\n`);
+//     console.log(arrayGames.length);
+//     const index = arrayGames.findIndex((object) => {
+//       return obj === object;
+//     });
+//     console.log(index);
+
+//     arrayGames.splice(index, 1);
+
+//     console.log(arrayGames.length);
+//   }
+// };
+
+// select(randomMath);
 const select = (obj) => {
-  console.log("\n\n\n\n");
-  console.log(
-    `                                                    ${obj.message}\n\n\n\n`
-  );
-  console.log(
-    `                                                       ${obj.choices}\n\n\n\n`
-  );
-  console.log("");
-  const frage = prompt(
-    gradient.summer(
-      "                                                   Wähle die richtige Antwort:        "
-    )
-  );
-  // obj.frageWarSchon = true;
-  console.log(obj.frageWarSchon);
-  if (frage === obj.rightAnswer) {
-    console.log(
-      gradient.summer(
-        `\n\n\n                                           Great! You have packed a 👜${frage}👜 into your bag        \n\n\n`
-      )
-    );
-    kofferArray.push(frage);
-    console.log(kofferArray);
-    const frageKofferInhalt = prompt("Do you remember what you have packed?;)");
-    if (frageKofferInhalt == kofferArray) {
-      console.log("Well done.");
-    } else {
-      console.log("You have lost one life");
-    }
-  } else {
-    console.clear();
-    console.log(`\n\n\n\n\n\n\n`);
-    console.log(
-      gradient.teen(
-        `         ______    ______   __       __  ________         ______   __     __  ________           
-                 /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |          
-                 /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______  
-                 $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \ 
-                 $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   /$$$$$$  |
-                 $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$ |  $$/ 
-                 $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |      
-                 $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |      
-                 $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/       
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                 `
-      )
-    );
-    console.log(`\n\n\n\n\n\n\n`);
-    console.log(arrayGames.length);
-    const index = arrayGames.findIndex((object) => {
-      return obj === object;
-    });
-    console.log(index);
+  console.log("\n\n\n\n\n\n\n\n\n\n\n");
+  const { Quiz } = enquirer;
 
-    arrayGames.splice(index, 1);
+  const prompt39 = new Quiz({
+    name: obj.name,
+    message: obj.message,
+    choices: obj.choices,
+    correctChoice: obj.rightAnswer,
+  });
 
-    console.log(arrayGames.length);
-  }
+  prompt39
+    .run()
+    .then((answer) => {
+      if (answer.correct) {
+        console.log(chalk.yellow("Correct!"));
+      } else {
+        console.log(
+          chalk.yellow(`Wrong! Correct answer is ${answer.correctAnswer}`)
+        );
+      }
+    })
+    .catch(console.error);
 };
-
-select(randomMath);
-
+select(prompt11);
 // const select = (obj) => {
 //   console.log(obj);
 //   if (obj !== undefined) {
