@@ -77,8 +77,11 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    console.clear();
-    introGame();
+    // <<<<<<< HEAD
+    // =======
+    //     console.clear();
+    //     introGame();
+    // >>>>>>> fe5ddeb47b340d9b0b987d8367a61192481b06e3
   }
 
   let timerID = setTimeout(myFunction, 8000);
@@ -88,6 +91,19 @@ const startGame = () => {
   greeting();
   infoUser();
   explainTheGame();
+  // <<<<<<< HEAD
+  introGame();
+  // nullseinspiel 1* 2gepackt
+  // mathespiel1*       2gepackt
+  // missingSpiel1*      2gepackt
+  // trivial1*              2gepackt
+  // iq fragen1*               2gepackt
+  // (geschichte)1*                2gepackt
+  // (rückwärts)1*          2gepackt
+  // bist du bereit ins nächste level zu reisen? arrayabfrage
+  //
+  // =======
+  // >>>>>>> fe5ddeb47b340d9b0b987d8367a61192481b06e3
 
   // play;
   // nochEine;
