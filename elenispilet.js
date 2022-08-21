@@ -213,6 +213,7 @@ async function handleAnswer(isCorrect, item, answers) {
       );
       player.alife = false;
       console.log(player.alife);
+      process.exit(1);
     }
 
     process.exit(1);
@@ -287,6 +288,7 @@ async function kofferAbfrage() {
 
   `)
     );
+    process.exit(0);
     player.alife = false;
     console.log(player.alife);
   }
@@ -483,7 +485,8 @@ await question2();
 await question3();
 await question4();
 await question5();
-
+await question3();
+await question4();
 // ------------------------------------------------------
 // die funktionen rufen sich wieder automatisch auf.
 // nach gameover sollte es doch eigentöich nicht weitergehen...oder vlt nur noch eine abfrage ob man weiterspilen möchte
