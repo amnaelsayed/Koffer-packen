@@ -11,7 +11,7 @@ const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
-var kofferArray = "hallo";
+
 var player = {
   kofferArray: [],
   userName: [],
@@ -19,6 +19,7 @@ var player = {
   userCity: ``,
   lives: 3,
   currentBalance: 0,
+  alife: true,
 };
 
 //iq fragen sind hier nur zum testen
@@ -210,27 +211,69 @@ async function handleAnswer(isCorrect, item, answers) {
                 
       `)
       );
+      player.alife = false;
+      console.log(player.alife);
     }
 
     process.exit(1);
   }
 }
 
-await question1();
+// const kofferAbfrage = () => {
+//   inquirer
+//     .prompt([
+//       {
+//         name: "faveReptile",
+//         message: `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`,
+//       },
+//     ])
+//     .then((answers) => {
+//       console.info(
+//         answers.faveReptile == player.kofferArray.join(`, `)
+//           ? `👊🏼 Well done ${player.userName}. You just reached the next level.`
+//           : gradient.teen(`
 
-const kofferAbfrage = () => {
-  inquirer
-    .prompt([
-      {
-        name: "faveReptile",
-        message: `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`,
-      },
-    ])
-    .then((answers) => {
-      console.info(
-        answers.faveReptile == player.kofferArray.join(`, `)
-          ? `👊🏼 Well done ${player.userName}. You just reached the next level.`
-          : gradient.teen(`
+//               ______    ______   __       __  ________         ______   __     __  ________  _______
+//              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
+//             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+//             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+//             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
+//             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+//             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+//             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+//              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
+
+//   `)
+//       );
+//       player.alife = false;
+//       console.log(player.alife);
+//     });
+// };
+
+async function kofferAbfrage() {
+  const answers = await inquirer.prompt({
+    name: `levelUp`,
+    type: `input`,
+    message: chalkAnimation.karaoke(
+      `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+    ),
+    default() {
+      return `abfrage`;
+    },
+  });
+  playerRemembers = answers.levelUp;
+  console.log(player.kofferArray);
+  console.log(playerRemembers);
+  const umwandlung = player.kofferArray.map((elem) => String(elem));
+  console.log(umwandlung);
+  let right = umwandlung.includes(playerRemembers);
+  if (player.kofferArray.join(`, `) == playerRemembers) {
+    console.log(
+      `👊🏼 Well done ${player.userName}. You just reached the next level.`
+    );
+  } else {
+    console.log(
+      gradient.teen(`
 
              ______    ______   __       __  ________         ______   __     __  ________  _______
              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
@@ -243,49 +286,11 @@ const kofferAbfrage = () => {
              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
 
   `)
-      );
-    });
-};
-
-// async function kofferAbfrage() {
-//   const answers = await inquirer.prompt({
-//     name: `levelUp`,
-//     type: `input`,
-//     message: chalkAnimation.karaoke(
-//       `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-//     ),
-//     default() {
-//       return `abfrage`;
-//     },
-//   });
-//   playerRemembers = answers.levelUp;
-//   console.log(player.kofferArray);
-//   console.log(playerRemembers);
-//   const umwandlung = player.kofferArray.map((elem) => String(elem));
-//   console.log(umwandlung);
-//   let right = umwandlung.includes(playerRemembers);
-//   if (umwandlung == playerRemembers) {
-//     console.log(
-//       `👊🏼 Well done ${player.userName}. You just reached the next level.`
-//     );
-//   } else {
-//     console.log(
-//       gradient.teen(`
-
-//              ______    ______   __       __  ________         ______   __     __  ________  _______
-//              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
-//             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-//             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-//             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
-//             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-//             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-//             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-//              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
-
-//   `)
-//     );
-//   }
-// }
+    );
+    player.alife = false;
+    console.log(player.alife);
+  }
+}
 
 // console.log(player);
 //==============Fragen-Funktionen========================
@@ -473,7 +478,23 @@ async function question5() {
 //   return handleAnswer(answers.iq_ === );
 // }
 
+await question1();
 await question2();
 await question3();
 await question4();
 await question5();
+
+// ------------------------------------------------------
+// die funktionen rufen sich wieder automatisch auf.
+// nach gameover sollte es doch eigentöich nicht weitergehen...oder vlt nur noch eine abfrage ob man weiterspilen möchte
+// ich habe versucht es mit einer if abfrage zu unterbrechen und den player.alife auf false zzu setzen wenn game over ist, es hat aber leider auch nicht funktioniert...
+// -----------------------------------------------------------------------
+
+// if (player.alife == true) {
+//   // level2.forEach((funk) => funk);
+//   await question5(),
+//     await question1(),
+//     await question2(),
+//     await question3(),
+//     await question4();
+// }
