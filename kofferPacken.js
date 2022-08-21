@@ -82,8 +82,6 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-
-    introGame();
   }
 
   let timerID = setTimeout(myFunction, 8000);
@@ -93,6 +91,7 @@ const startGame = () => {
   greeting();
   infoUser();
   explainTheGame();
+  introGame();
   // nullseinspiel 1* 2gepackt
   // mathespiel1*       2gepackt
   // missingSpiel1*      2gepackt
