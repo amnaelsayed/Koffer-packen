@@ -14,8 +14,8 @@ var player = {
   userName: [],
   userAge: 0,
   userCity: ``,
-  lives: 3,
-  flower: [],
+  lives: 1,
+  currentBalance: 0,
 };
 
 //iq fragen sind hier nur zum testen
@@ -37,10 +37,10 @@ const iqFragen = [
 
 //=======================================================
 
-const sleepMedium = (ms = 4000) => new Promise((r) => setTimeout(r, ms));
+const sleepMedium = (ms = 1100) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 10000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -121,6 +121,7 @@ async function getAge() {
   player.userAge = age.userAge;
 }
 await getAge();
+
 async function getCity() {
   const city = await inquirer.prompt({
     name: `userCity`,
@@ -139,7 +140,7 @@ console.log(player);*/
 
 async function gameRules() {
   const explanation =
-    chalkAnimation.pulse(`Great to have you here ${player.userName} from ${player.userCity} \n\n
+    chalkAnimation.karaoke(`Great to have you here ${player.userName} from ${player.userCity} \n\n
   Before you begin with the game, give me a second to explain the rules\n\n
   The $uitcase is fun & challenging (!only) memory game.\n
   Questions of different topics are combined with the classical\n
@@ -149,61 +150,249 @@ async function gameRules() {
   you will be asked to say what is inside your suitcase. If your answer is right\n
   you will collect $money$ and level up. If you complete all levels you win\n
   tickes to magic destinations\n\n
-  You have 3 lives to complete all the tasks`);
-  await sleepLong;
+  You have 3 lives to complete all the tasks\n\n`);
+  // max.Gewicht 25Kg und bei jeder level kriegt 5 plus
+  //  auch in den handleAnswer()
+  await sleepLong();
   explanation.stop();
-  // const rules = await inquirer.prompt({
-  //   name: `rules`,
-  //   type: `input`,
-  //   message: `press enter when you are ready`,
-  //   default() {
-  //     return `...`;
-  //   },
 }
 
 await gameRules();
 
-async function askQuestion() {
-  //we need to gfve the array of every which game
-  // let index = Math.ceil(Math.random() * array.length - 1);
-
-  const answer = await inquirer.prompt({
-    name: `ìsTheOne`,
-    type: `list`,
-    message: `What starts with "e" and ends with "e" but only has one letter in it?`,
-    choices: [`envelope`, `e`, `eye`, `elite`],
-    // rightAnswer: array[index].rightAnswer,
-    // frageWarSchon: false,
-  });
-  return handleAnswer(answer.isTheOne === `envelope`);
-}
-
-async function handleAnswer(isCorrect) {
+async function handleAnswer(isCorrect, item, answers) {
   const spinner = createSpinner("Checking answer...").start();
   await sleepShort();
-
   if (isCorrect) {
+    player.currentBalance += 200;
     spinner.success({
-      text: `Nice work ${player.userName}. That's a legit answer`,
+      text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
+    player.kofferArray.push(item);
+    if ((player.currentBalance === 200 % 200) === 0) {
+      const kofferFrage = prompt(
+        `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+      );
+      if (kofferFrage == player.kofferArray) {
+        console.log(
+          `👊🏼 Well done ${player.userName}. You just reached the next level.`
+        );
+      } else {
+        console.log(
+          gradient.teen(`
+                                                   
+                   ______    ______   __       __  ________         ______   __     __  ________  _______  
+                   /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
+                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+                  $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
+                  $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+                  $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+                  $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+                   $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                  
+        `)
+        );
+      }
+    }
   } else {
-    spinner.error({ text: `💀💀💀 Game over, you lose ${player.userName}!` });
+    player.lives--;
+    spinner.error({
+      text: `😬  UUppssss that was wrong, you now have ${player.lives} 💔 !`,
+    });
+
+    if (player.lives === 0) {
+      console.log(
+        gradient.teen(`
+                                                 
+                 ______    ______   __       __  ________         ______   __     __  ________  _______  
+                 /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
+                /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+                $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+                $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
+                $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+                $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+                $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+                 $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                
+      `)
+      );
+    }
     process.exit(1);
   }
 }
-// async function rightOrWrong(isCorrect) {
-//   const spinner = createSpinner(`Cheching your answer...`).start();
-//   await sleepShort();
-//   if (isCorrect) {
-//     spinner.success({
-//       text: `Great work ${player.name}!\n
-//     You just packed a ${answer.isTheOne} in your $uitca$e`,
-//     });
-//   } else {
-//     spinner.error({ text: `Oh noooo, that was wrong, you just lost 1 life` });
 
-//     process.exit(1);
-//   }
-// }
+await question1();
+console.log(player);
+//==============Fragen-Funktionen========================
 
-askQuestion(iqFragen);
+// //  =====IQ-Fragen
+async function question1() {
+  let item;
+  var answers = await inquirer.prompt({
+    name: `iq_1`,
+    type: `list`,
+    message: `What starts with "e" and ends with "e" but only has one letter in it?`,
+    choices: [`envelope`, `e`, `eye`, `elite`],
+    rightAnswer: `envelope`,
+  });
+  if (answers.iq_1 === `envelope`) {
+    item = answers.iq_1;
+  }
+  return handleAnswer(answers.iq_1 === `envelope`, item, answers);
+
+  // async function question2() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_2`,
+  //     type: `list`,
+  //     message: `Which number should come next in the pattern?
+  //       37, 34, 31, 28`,
+  //     choices: [23, 25, 17, 26],
+  //   });
+  //   return handleAnswer(answers.iq_2 === 25);
+  // }
+  // async function question3() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_3`,
+  //     type: `list`,
+  //     message: `Book is to Reading as Fork is to:`,
+  //     choices: [`a. drawing`, `b. writing`, `c. stirring`, `d. eating`],
+  //   });
+  //   return handleAnswer(answers.iq_3 === `d.eating`);
+  // }
+  // async function question4() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_4`,
+  //     type: `list`,
+  //     message: `What number best completes the analogy:
+  //     8:4 as 10:`,
+  //     choices: [`a.3`, `b.7`, `c.24`, `d.5`],
+  //   });
+  //   return handleAnswer(answers.iq_4 === `d.5`);
+  // }
+  // async function question5() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_5`,
+  //     type: `list`,
+  //     message: ` 12593 is to 35291
+  //       and 29684 is to 46982
+  //       therefore 72936 is to ?`,
+  //     choices: [69237, 62397, 32796, 39762],
+  //   });
+  //   return handleAnswer(answers.iq_5 === 69237);
+  // }
+  // async function question6() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_6`,
+  //     type: `list`,
+  //     message: ` How many cases do you need if you have to pack 112 pairs
+  //     of shoes into cases that each hold 28 shoes?`,
+  //     choices: [16, 8, 24, 12],
+  //   });
+  //   return handleAnswer(answers.iq_1 === 8);
+  // }
+  // async function question7() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_7`,
+  //     type: `list`,
+  //     message: `Which number should come next in the pattern?
+  //     -2 , 5, -4, 3, -6:`,
+  //     choices: [`a. 0`, `b. 1`, `c. -3`, `d. -4`],
+  //   });
+  //   return handleAnswer(answers.iq_7 === `b. 1`);
+  // }
+  // async function question8() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_8`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_8 === );
+  // }
+
+  // async function question9() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_9`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_9 === );
+  // }
+
+  // async function question10() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_10`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_10 === );
+  // }
+  // async function question11() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_11`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_11 === );
+  // }
+  // async function question12() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_12`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_12 === );
+  // }
+  // async function question13() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_13`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_13 === );
+  // }
+  // async function question14() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_14`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_14 === );
+  // }
+  // async function question15() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_15`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_15 === );
+  // }
+  // async function question16() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_16`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_16 === );
+  // }
+  // async function question17() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_17`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_17 === );
+  // }
+  // async function question() {
+  //   const answers = await inquirer.prompt({
+  //     name: `iq_`,
+  //     type: `list`,
+
+  //   });
+  //   return handleAnswer(answers.iq_ === );
+}
