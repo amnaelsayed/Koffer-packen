@@ -18,7 +18,7 @@ var player = {
   flower: [],
 };
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
-// Change the sleep to 4000 or 5000
+// Change the ms to 4000 or 5000
 const clear = () => {
   console.clear();
 };
@@ -72,7 +72,7 @@ async function introTextAndName() {
     type: `input`,
     message: `
     Before we start I would like to
-    know a few thing about you...
+    know a few things about you...
     \n
     What is your name?`,
     default() {
@@ -110,13 +110,31 @@ async function getCity() {
     },
   });
   player.userCity = city.userCity;
-  console.log(
-    `Nice to have you here ${player.userName} from ${player.userCity} `
-  );
 }
-
 await getCity();
 /* alle Infos gehen in das player Objet :)
 console.log(player);*/
 
-async function gameRules() {}
+async function gameRules() {
+  const explanation =
+    chalkAnimation.karaoke(`Great to have you here ${player.userName} from ${player.userCity} \n\n
+  Before you begin with the game, give me a second to explain the rules\n\n
+  The $uitcase is fun & challenging (!only) memory game.\n
+  Questions of different topics are combined with the classical\n
+  "Packing the suitcase" game. \n
+  You have to answer the questions correclty and remember all the items\n
+  that you pack in your suitcase. Every time that you give 5 right answers\n
+  you will be asked to say what is inside your suitcase. If your answer is right\n
+  you will collect $money$ and level up. If you complete all levels you win\n
+  tickes to magic destinations\n\n
+  You have 3 lives to complete all the tasks`);
+  const rules = await inquirer.prompt({
+    name: `rules`,
+    type: `input`,
+    message: `press enter when you are ready`,
+    default() {
+      return `...`;
+    },
+  });
+}
+await gameRules();
