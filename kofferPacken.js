@@ -9,12 +9,7 @@ const prompt = promptSync({ eot: true });
 import introGame from "./whatIsMissingg.js";
 // import nullEinsSpiel from "./nullEinsSpiel.js";
 
-var user = {
-  kofferArray: [],
-  userName: [],
-  lifes: 3,
-  money: { currentBalance: 0, flugzeug: [] },
-};
+var user = { kofferArray: [], userName: [], lifes: 3, flower: [] };
 
 const greeting = () => {
   function myFunction() {
@@ -82,6 +77,11 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    // <<<<<<< HEAD
+    // =======
+    //     console.clear();
+    //     introGame();
+    // >>>>>>> fe5ddeb47b340d9b0b987d8367a61192481b06e3
   }
 
   let timerID = setTimeout(myFunction, 8000);
@@ -91,6 +91,7 @@ const startGame = () => {
   greeting();
   infoUser();
   explainTheGame();
+  // <<<<<<< HEAD
   introGame();
   // nullseinspiel 1* 2gepackt
   // mathespiel1*       2gepackt
@@ -101,6 +102,8 @@ const startGame = () => {
   // (rückwärts)1*          2gepackt
   // bist du bereit ins nächste level zu reisen? arrayabfrage
   //
+  // =======
+  // >>>>>>> fe5ddeb47b340d9b0b987d8367a61192481b06e3
 
   // play;
   // nochEine;
