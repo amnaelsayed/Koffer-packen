@@ -11,6 +11,7 @@ const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
+var kofferArray = "hallo";
 var player = {
   kofferArray: [],
   userName: [],
@@ -170,53 +171,20 @@ async function handleAnswer(isCorrect, item, answers) {
       text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
     player.kofferArray.push(item);
+    console.log(player.currentBalance);
     if (player.currentBalance === 200) {
-      const kofferFrage = await inquirer.prompt({
-        name: `levelUp `,
-        type: `input`,
-        message: chalkAnimation.karaoke(
-          `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-        ),
-      });
-      async function answer() {
-        const kofferFrage = await inquirer.prompt({
-          name: `levelUp `,
-          type: `input`,
-          message: chalkAnimation.karaoke(
-            `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-          ),
-          default() {
-            return `Tall me all the items in the Suitcase`;
-          },
-        });
-        playerRemembers = kofferFrage.levelUp;
-      }
-      console.log(player);
-      if (kofferFrage.levelUp == player.kofferArray) {
-        console.log(
-          `👊🏼 Well done ${player.userName}. You just reached the next level.`
-        );
-      } else {
-        console.log(
-          gradient.teen(`
-                                                   
-                   ______    ______   __       __  ________         ______   __     __  ________  _______  
-                   /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
-                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-                  $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
-                  $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-                  $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-                  $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-                   $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
-                                                                                                            
-                                                                                                            
-                                                                                                            
-                  
-        `)
-        );
-      }
+      console.log("hallo");
+      kofferAbfrage();
     }
+    // if (player.currentBalance === 200) {
+    //   arrayAbfrage();
+    // const kofferFrage = await inquirer.prompt({
+    //   name: `levelUp `,
+    //   type: `input`,
+    //   message: chalkAnimation.karaoke(
+    //     `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+    //   ),
+    // });
   } else {
     player.lives--;
     spinner.error({
@@ -243,11 +211,82 @@ async function handleAnswer(isCorrect, item, answers) {
       `)
       );
     }
+
     process.exit(1);
   }
 }
 
 await question1();
+
+const kofferAbfrage = () => {
+  const umwandlung = player.kofferArray.map((elem) => String(elem));
+  const prompt9 = inquirer
+    .prompt([
+      {
+        name: "faveReptile",
+        message: `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`,
+      },
+    ])
+    .then((answers) => {
+      console.info(
+        answers.faveReptile == player.kofferArray.join(`, `)
+          ? `👊🏼 Well done ${player.userName}. You just reached the next level.`
+          : gradient.teen(`
+
+             ______    ______   __       __  ________         ______   __     __  ________  _______
+             /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
+            /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+            $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+            $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
+            $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+            $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+            $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+             $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
+
+  `)
+      );
+    });
+};
+
+// async function kofferAbfrage() {
+//   const answers = await inquirer.prompt({
+//     name: `levelUp`,
+//     type: `input`,
+//     message: chalkAnimation.karaoke(
+//       `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+//     ),
+//     default() {
+//       return `abfrage`;
+//     },
+//   });
+//   playerRemembers = answers.levelUp;
+//   console.log(player.kofferArray);
+//   console.log(playerRemembers);
+//   const umwandlung = player.kofferArray.map((elem) => String(elem));
+//   console.log(umwandlung);
+//   let right = umwandlung.includes(playerRemembers);
+//   if (umwandlung == playerRemembers) {
+//     console.log(
+//       `👊🏼 Well done ${player.userName}. You just reached the next level.`
+//     );
+//   } else {
+//     console.log(
+//       gradient.teen(`
+
+//              ______    ______   __       __  ________         ______   __     __  ________  _______
+//              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
+//             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+//             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+//             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
+//             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+//             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+//             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+//              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
+
+//   `)
+//     );
+//   }
+// }
 
 // console.log(player);
 //==============Fragen-Funktionen========================
