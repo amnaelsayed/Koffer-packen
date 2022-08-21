@@ -219,8 +219,7 @@ async function handleAnswer(isCorrect, item, answers) {
 await question1();
 
 const kofferAbfrage = () => {
-  const umwandlung = player.kofferArray.map((elem) => String(elem));
-  const prompt9 = inquirer
+  inquirer
     .prompt([
       {
         name: "faveReptile",
