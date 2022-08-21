@@ -77,11 +77,6 @@ const explainTheGame = () => {
       )
     );
     console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    // <<<<<<< HEAD
-    // =======
-    //     console.clear();
-    //     introGame();
-    // >>>>>>> fe5ddeb47b340d9b0b987d8367a61192481b06e3
   }
 
   let timerID = setTimeout(myFunction, 8000);
@@ -104,9 +99,6 @@ const startGame = () => {
   //
   // =======
   // >>>>>>> fe5ddeb47b340d9b0b987d8367a61192481b06e3
-
-  // play;
-  // nochEine;
 };
 // const nochEine = introGame();
 startGame();

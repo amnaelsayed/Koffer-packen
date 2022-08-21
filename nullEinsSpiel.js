@@ -195,52 +195,49 @@ const arraySmileyColdHot = [
   "  🤡  ",
 ];
 var kofferArray = [];
-const filterGame = (array, zeichen) => {
-  let randomArray = array[Math.floor(Math.random)];
-  const filtered = array.filter((num) => num === zeichen);
+// const filterGame = (array, zeichen) => {
+//   // let randomArray = array[Math.floor(Math.random)];
+//   const filtered = array.filter((num) => num === zeichen);
 
-  console.log("\n\n");
-  console.log(array.join());
-  console.log(``);
-  const wievielSiehstDu = prompt(
-    `\n\n\n\n\n\n                          How many ${zeichen} do you see?     `
-  );
+//   console.log("\n\n");
+//   console.log(array.join());
+//   console.log(``);
+//   const wievielSiehstDu = prompt(
+//     `\n\n\n\n\n\n                          How many ${zeichen} do you see?     `
+//   );
 
-  if (filtered.length === parseInt(wievielSiehstDu)) {
-    console.log(
-      gradient.summer(
-        `\n\n\n\n\n\n                  Great! You have packed a 👜${wievielSiehstDu}👜 into your bag\n\n\n\n\n`
-      )
-    );
-    kofferArray.push(wievielSiehstDu);
-    // console.log(kofferArray);
-    const abfrage = prompt("Hast du dir gemerkt was du gepackt hat");
-    if (abfrage == kofferArray) {
-      console.log("Super gemacht");
-    } else {
-      ("Du hast ein Leben verloren");
-    }
-  } else {
-    console.log(
-      gradient.teen(`
-                                               
-               ______    ______   __       __  ________         ______   __     __  ________  _______  
-               /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
-              /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-              $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-              $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
-              $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-              $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-              $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-               $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
-                                                                                                        
-                                                                                                        
-                                                                                                        
-              
-    `)
-    );
-  }
-};
+//   if (filtered.length === parseInt(wievielSiehstDu)) {
+//     console.log(
+//       gradient.summer(
+//         `\n\n\n\n\n\n                  Great! You have packed a 👜${wievielSiehstDu}👜 into your bag\n\n\n\n\n`
+//       )
+//     );
+//     kofferArray.push(wievielSiehstDu);
+//     // console.log(kofferArray);
+//     const abfrage = prompt("Hast du dir gemerkt was du gepackt hat");
+//     if (abfrage == kofferArray) {
+//       console.log("Super gemacht");
+//     } else {
+//       ("Du hast ein Leben verloren");
+//     }
+//   } else {
+//     console.log(
+//       gradient.teen(`
+
+//                ______    ______   __       __  ________         ______   __     __  ________  _______
+//                /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
+//               /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+//               $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+//               $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
+//               $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+//               $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+//               $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+//                $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
+
+//     `)
+//     );
+//   }
+// };
 
 // const findClown = filterGame(arraySmileyColdHot, "  🤡  ");
 
@@ -266,9 +263,6 @@ const filterGame = (array, zeichen) => {
 // const searchCatKiss = filterGame(arrCat, "  😽   ");
 // const searchCatAngry = filterGame(arrCat, "  😼  ");
 // const searchCatHeart = filterGame(arrCat, "  😻  ");
-// const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
-// const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
-// const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
 
 const countElem = () => {
   const searchNiceSmile = filterGame(arrSmile, "  😉  ");
@@ -276,50 +270,56 @@ const countElem = () => {
   const searchMonsterGhost = filterGame(arrGhost, "  👻   ");
 };
 
-// const filterGame = (zeichen, array, funk) => {
-//   const { NumberPrompt } = enquirer;
+const filterGame = (array, zeichen) => {
+  const filtered = array.filter((num) => num === zeichen);
+  const { NumberPrompt } = enquirer;
 
-//   const prompt8 = new NumberPrompt({
-//     header: gradient.cristal(
-//       `   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCount the ${zeichen}!\n\n\n`
-//     ),
-//     message: gradient.retro(
-//       `\n\n\n\n\n\n\n\n\n${array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`
-//     ),
-//     footer: "",
-//   });
+  const prompt8 = new NumberPrompt({
+    header: gradient.cristal(
+      `   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCount the ${zeichen}!\n\n\n`
+    ),
+    message: gradient.retro(
+      `\n\n\n\n\n\n\n\n\n${array}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`
+    ),
+    footer: "",
+  });
 
-//   prompt8
-//     .run()
-//     .then((answer) => {
-//       if (answer === funk) {
-//         kofferArray.push(answer);
-//         console.log(
-//           gradient.summer(
-//             `Super! You have packed a 👜${funk}👜 into your bag\n\n\n\n\n`
-//           )
-//         );
-//       } else {
-//         console.log(
-//           gradient.teen(
-//             `  ______    ______   __       __  ________         ______   __     __  ________
-//  /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |
-// /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______
-// $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \
-// $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   /$$$$$$  |
-// $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$ |  $$/
-// $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |
-// $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |
-//  $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/
+  prompt8
+    .run()
+    .then((answer) => {
+      if (answer === filtered) {
+        kofferArray.push(answer);
+        console.log(
+          gradient.summer(
+            `Super! You have packed a 👜${filtered}👜 into your bag\n\n\n\n\n`
+          )
+        );
+      } else {
+        console.log(
+          gradient.teen(
+            `  ______    ______   __       __  ________         ______   __     __  ________
+ /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |
+/$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______
+$$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \
+$$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   /$$$$$$  |
+$$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$ |  $$/
+$$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |
+$$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |
+ $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/
 
-// `
-//           )
-//         );
-//       }
-//     })
+`
+          )
+        );
+      }
+    })
 
-//     .catch(console.error);
-// };
+    .catch(console.error);
+};
+
+// const searchClown = filterGame(arraySmileyColdHot, "  🤡  ");
+// const searchCold = filterGame(arraySmileyColdHot, "   🥶  ");
+// const searchHot = filterGame(arraySmileyColdHot, "  🥵  ");
+
 // const findO = filterGame(0, arrO, searchO);
 // const find1 = filterGame(1, arrO, searchOne);
 // const findO0Null = filterGame(0, arrO0, searchO0Null);
@@ -349,7 +349,17 @@ const countElem = () => {
 //   arrAnimals,
 //   searchAnimalScorpion
 // );
+const { Confirm } = enquirer;
 
+const prompt1 = new Confirm({
+  name: "\n\n\n                                        question\n\n\n\n\n",
+  message:
+    "\n\n\n\n\n                                      Did you like enquirer?\n\n\n\n",
+});
+console.log("\n\n\n\n");
+prompt1.run().then((answer) => console.log("Answer:", answer));
+
+chalkAnimation.rainbow("Lorem ipsum dolor sit amet");
 // const countGame = [
 //   find1,
 //   findBadSmile,
@@ -405,4 +415,4 @@ const countElem = () => {
 // Nutzereingabe Checken
 // Zwischenspeichern vom Ergebnis aus Nutzereingabe
 // }
-export default nullEinsSpiel;
+// export default nullEinsSpiel;
