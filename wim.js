@@ -11,8 +11,8 @@
 //   }
 // });
 
-Promise.resolve("some")
-  .then(function (string) {
+Promise.resolve(answer)
+  .then(function (newQuestion) {
     // <-- This will happen after the above Promise resolves (returning the value 'some')
     return new Promise(function (resolve, reject) {
       setTimeout(function () {

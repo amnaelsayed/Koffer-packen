@@ -34,7 +34,7 @@ const wim2 = [
   `💣`,
   `🪞`,
   `📸`,
-  // `🎈`,
+  `🎈`,
   // `📬`,
   // `🧽`,
   // `🩺`,
@@ -52,11 +52,12 @@ const wim2 = [
   // `🔭`,
 ];
 
-const whatIsMissingArray = [wim1, wim2];
+const whatIsMissingArrayTop = [wim1];
 
+const whatIsMissingArrayBottom = [wim2];
 function whatIsMissingIntro() {
   const intro = prompt(
-    `You will have 20 seconds to memorise the following objects :\nPress enter when you are ready`
+    `You have 10 seconds to memorise the following objects :\nPress enter when you are ready`
   );
   // console.log(intro);
 }
@@ -77,19 +78,16 @@ function whatIsMissing(array, array2) {
     const missingOne = array;
 
     let seconds = new Date().getSeconds();
-    if (seconds <= 7 || seconds >= 56) {
+    if (seconds <= 10) {
       array3.push(`a:` + array2.shift());
       array3.push(`b:` + array2.shift());
       array3.push(`c:` + array2.pop());
       array3.push(`d:` + array2.shift());
       array3.push(`e:` + array2[0]);
       console.log(array);
-      console.log(`Choose the one that is missing from the top`);
+      console.log(`Which item of the bottom array is missing from the top one`);
       console.log(array3);
-    } else if (
-      (seconds > 7 && seconds <= 12) ||
-      (seconds > 48 && seconds < 56)
-    ) {
+    } else if (seconds > 10 && seconds <= 20) {
       array3.push(`a:` + array2.pop());
       array3.push(`b:` + array2.pop());
       array3.push(`c:` + array2.pop());
@@ -97,12 +95,9 @@ function whatIsMissing(array, array2) {
       array3.push(`e:` + array2[0]);
 
       console.log(array);
-      console.log(`Choose the one that is missing from the top`);
+      console.log(`Which item of the bottom array is missing from the top one`);
       console.log(array3);
-    } else if (
-      (seconds > 12 && seconds <= 20) ||
-      (seconds > 39 && seconds < 48)
-    ) {
+    } else if (seconds > 20 && seconds <= 30) {
       array3.push(`a:` + array2.shift());
       array3.push(`b:` + array2.shift());
       array3.push(`c:` + array2.pop());
@@ -110,12 +105,9 @@ function whatIsMissing(array, array2) {
       array3.push(`e:` + array2[0]);
 
       console.log(array);
-      console.log(`Choose the one that is missing from the top:`);
+      console.log(`Which item of the bottom array is missing from the top one`);
       console.log(array3);
-    } else if (
-      (seconds > 20 && seconds <= 23) ||
-      (seconds > 33 && seconds < 39)
-    ) {
+    } else if (seconds > 30 && seconds <= 40) {
       array3.push(`a:` + array2.shift());
       array3.push(`b:` + array2.pop());
       array3.push(`c:` + array2.pop());
@@ -123,12 +115,9 @@ function whatIsMissing(array, array2) {
       array3.push(`e:` + array2[0]);
 
       console.log(array);
-      console.log(`Choose the one that is missing from the top`);
+      console.log(`Which item of the bottom array is missing from the top one`);
       console.log(array3);
-    } else if (
-      (seconds > 23 && seconds <= 30) ||
-      (seconds > 31 && seconds < 33)
-    ) {
+    } else if (seconds > 40 && seconds <= 50) {
       array3.push(`a:` + array2.shift());
       array3.push(`b:` + array2.shift());
       array3.push(`c:` + array2.shift());
@@ -136,7 +125,7 @@ function whatIsMissing(array, array2) {
       array3.push(`e:` + array2[0]);
 
       console.log(array);
-      console.log(`Choose the one that is missing from the top`);
+      console.log(`Which item of the bottom array is missing from the top one`);
       console.log(array3);
     } else {
       array3.push(...array2);
@@ -147,13 +136,13 @@ function whatIsMissing(array, array2) {
 }
 
 const introGame = () => {
-  const myFunction = () => {
-    whatIsMissingIntro();
-    whatIsMissing(whatIsMissingArray[0], whatIsMissingArray[1]);
-  };
-  let timerID = setTimeout(myFunction, 10000);
+  // const myFunction = () => {
+  whatIsMissingIntro();
+  whatIsMissing(whatIsMissingArrayTop[0], whatIsMissingArrayBottom[0]);
 };
-// introGame();
+// let timerID = setTimeout(myFunction, 10000);
+// };
+introGame();
 // const whatIsGame = () => {
 //
 // };
