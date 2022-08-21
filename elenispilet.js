@@ -10,7 +10,7 @@ import { createSpinner } from "nanospinner";
 const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
-
+let playerRemembers;
 var player = {
   kofferArray: [],
   userName: [],
@@ -178,6 +178,19 @@ async function handleAnswer(isCorrect, item, answers) {
           `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
         ),
       });
+      async function answer() {
+        const kofferFrage = await inquirer.prompt({
+          name: `levelUp `,
+          type: `input`,
+          message: chalkAnimation.karaoke(
+            `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+          ),
+          default() {
+            return `Tall me all the items in the Suitcase`;
+          },
+        });
+        playerRemembers = kofferFrage.levelUp;
+      }
       console.log(player);
       if (kofferFrage.levelUp == player.kofferArray) {
         console.log(
