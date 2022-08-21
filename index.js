@@ -5,7 +5,9 @@ import gradient from "gradient-string";
 import figlet from "figlet";
 import inquirer from "inquirer";
 import chalkAnimation from "chalk-animation";
+import promptSync from "prompt-sync";
 import { createSpinner } from "nanospinner";
+const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 
@@ -14,7 +16,7 @@ var player = {
   userName: [],
   userAge: 0,
   userCity: ``,
-  lives: 1,
+  lives: 3,
   currentBalance: 0,
 };
 
@@ -163,16 +165,21 @@ async function handleAnswer(isCorrect, item, answers) {
   const spinner = createSpinner("Checking answer...").start();
   await sleepShort();
   if (isCorrect) {
-    player.currentBalance += 200;
+    player.currentBalance += 40;
     spinner.success({
       text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
     player.kofferArray.push(item);
-    if ((player.currentBalance === 200 % 200) === 0) {
-      const kofferFrage = prompt(
-        `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-      );
-      if (kofferFrage == player.kofferArray) {
+    if (player.currentBalance === 200) {
+      const kofferFrage = await inquirer.prompt({
+        name: `levelUp `,
+        type: `input`,
+        message: chalkAnimation.karaoke(
+          `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+        ),
+      });
+      console.log(player);
+      if (kofferFrage.levelUp == player.kofferArray) {
         console.log(
           `👊🏼 Well done ${player.userName}. You just reached the next level.`
         );
@@ -200,7 +207,7 @@ async function handleAnswer(isCorrect, item, answers) {
   } else {
     player.lives--;
     spinner.error({
-      text: `😬  UUppssss that was wrong, you now have ${player.lives} 💔 !`,
+      text: `💔  UUppssss that was wrong, you now have ${player.lives} 😬 !`,
     });
 
     if (player.lives === 0) {
@@ -228,7 +235,8 @@ async function handleAnswer(isCorrect, item, answers) {
 }
 
 await question1();
-console.log(player);
+
+// console.log(player);
 //==============Fragen-Funktionen========================
 
 // //  =====IQ-Fragen
@@ -245,154 +253,176 @@ async function question1() {
     item = answers.iq_1;
   }
   return handleAnswer(answers.iq_1 === `envelope`, item, answers);
-
-  // async function question2() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_2`,
-  //     type: `list`,
-  //     message: `Which number should come next in the pattern?
-  //       37, 34, 31, 28`,
-  //     choices: [23, 25, 17, 26],
-  //   });
-  //   return handleAnswer(answers.iq_2 === 25);
-  // }
-  // async function question3() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_3`,
-  //     type: `list`,
-  //     message: `Book is to Reading as Fork is to:`,
-  //     choices: [`a. drawing`, `b. writing`, `c. stirring`, `d. eating`],
-  //   });
-  //   return handleAnswer(answers.iq_3 === `d.eating`);
-  // }
-  // async function question4() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_4`,
-  //     type: `list`,
-  //     message: `What number best completes the analogy:
-  //     8:4 as 10:`,
-  //     choices: [`a.3`, `b.7`, `c.24`, `d.5`],
-  //   });
-  //   return handleAnswer(answers.iq_4 === `d.5`);
-  // }
-  // async function question5() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_5`,
-  //     type: `list`,
-  //     message: ` 12593 is to 35291
-  //       and 29684 is to 46982
-  //       therefore 72936 is to ?`,
-  //     choices: [69237, 62397, 32796, 39762],
-  //   });
-  //   return handleAnswer(answers.iq_5 === 69237);
-  // }
-  // async function question6() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_6`,
-  //     type: `list`,
-  //     message: ` How many cases do you need if you have to pack 112 pairs
-  //     of shoes into cases that each hold 28 shoes?`,
-  //     choices: [16, 8, 24, 12],
-  //   });
-  //   return handleAnswer(answers.iq_1 === 8);
-  // }
-  // async function question7() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_7`,
-  //     type: `list`,
-  //     message: `Which number should come next in the pattern?
-  //     -2 , 5, -4, 3, -6:`,
-  //     choices: [`a. 0`, `b. 1`, `c. -3`, `d. -4`],
-  //   });
-  //   return handleAnswer(answers.iq_7 === `b. 1`);
-  // }
-  // async function question8() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_8`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_8 === );
-  // }
-
-  // async function question9() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_9`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_9 === );
-  // }
-
-  // async function question10() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_10`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_10 === );
-  // }
-  // async function question11() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_11`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_11 === );
-  // }
-  // async function question12() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_12`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_12 === );
-  // }
-  // async function question13() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_13`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_13 === );
-  // }
-  // async function question14() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_14`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_14 === );
-  // }
-  // async function question15() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_15`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_15 === );
-  // }
-  // async function question16() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_16`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_16 === );
-  // }
-  // async function question17() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_17`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_17 === );
-  // }
-  // async function question() {
-  //   const answers = await inquirer.prompt({
-  //     name: `iq_`,
-  //     type: `list`,
-
-  //   });
-  //   return handleAnswer(answers.iq_ === );
 }
+async function question2() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_2`,
+    type: `list`,
+    message: `Which number should come next in the pattern?
+        37, 34, 31, 28`,
+    choices: [23, 25, 17, 26],
+  });
+  if (answers.iq_2 === 25) {
+    item = answers.iq_2;
+  }
+  return handleAnswer(answers.iq_2 === 25, item);
+}
+async function question3() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_3`,
+    type: `list`,
+    message: `Book is to Reading as Fork is to:`,
+    choices: [`a. drawing`, `b. writing`, `stirring`, `eating`],
+  });
+  if (answers.iq_3 === `eating`) {
+    item = answers.iq_3;
+  }
+  return handleAnswer(answers.iq_3 === `eating`, item);
+}
+async function question4() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_4`,
+    type: `list`,
+    message: `What number best completes the analogy:
+      8:4 as 10:`,
+    choices: [3, 7, 24, 5],
+  });
+  if (answers.iq_4 === 5) {
+    item = answers.iq_4;
+  }
+  return handleAnswer(answers.iq_4 === 5, item);
+}
+async function question5() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_5`,
+    type: `list`,
+    message: ` 12593 is to 35291
+        and 29684 is to 46982
+        therefore 72936 is to ?`,
+    choices: [69237, 62397, 32796, 39762],
+  });
+  if (answers.iq_5 === 69237) {
+    item = answers.iq_5;
+  }
+
+  return handleAnswer(answers.iq_5 === 69237, item);
+}
+// async function question6() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_6`,
+//     type: `list`,
+//     message: ` How many cases do you need if you have to pack 112 pairs
+//     of shoes into cases that each hold 28 shoes?`,
+//     choices: [16, 8, 24, 12],
+//   });
+//   return handleAnswer(answers.iq_1 === 8);
+// }
+// async function question7() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_7`,
+//     type: `list`,
+//     message: `Which number should come next in the pattern?
+//     -2 , 5, -4, 3, -6:`,
+//     choices: [`a. 0`, `b. 1`, `c. -3`, `d. -4`],
+//   });
+//   return handleAnswer(answers.iq_7 === `b. 1`);
+// }
+// async function question8() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_8`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_8 === );
+// }
+
+// async function question9() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_9`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_9 === );
+// }
+
+// async function question10() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_10`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_10 === );
+// }
+// async function question11() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_11`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_11 === );
+// }
+// async function question12() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_12`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_12 === );
+// }
+// async function question13() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_13`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_13 === );
+// }
+// async function question14() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_14`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_14 === );
+// }
+// async function question15() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_15`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_15 === );
+// }
+// async function question16() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_16`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_16 === );
+// }
+// async function question17() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_17`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_17 === );
+// }
+// async function question() {
+//   const answers = await inquirer.prompt({
+//     name: `iq_`,
+//     type: `list`,
+
+//   });
+//   return handleAnswer(answers.iq_ === );
+// }
+
+await question2();
+await question3();
+await question4();
+await question5();
