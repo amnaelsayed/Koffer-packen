@@ -141,7 +141,7 @@ const tomorrow = (array) => {
       // )
     )
     .catch(console.error);
-};
+
 const iqOne = tomorrow(paradeigma);
 console.log(iqOne);
 
