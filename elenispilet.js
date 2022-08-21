@@ -164,18 +164,23 @@ async function gameRules() {
 await gameRules();
 
 async function handleAnswer(isCorrect, item, answers) {
+  console.clear();
   const spinner = createSpinner("Checking answer...").start();
-  await sleepShort();
+  // await sleepShort();
   if (isCorrect) {
     player.currentBalance += 40;
+
+    await sleepShort();
     spinner.success({
       text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
+    await sleepLong();
+    await sleepLong();
     player.kofferArray.push(item);
-    console.log(player.currentBalance);
-    if (player.currentBalance === 200) {
-      console.log("hallo");
-      kofferAbfrage();
+
+    console.clear();
+    if (player.currentBalance % 200 === 0) {
+      await kofferAbfrage();
     }
     // if (player.currentBalance === 200) {
     //   arrayAbfrage();
@@ -212,11 +217,11 @@ async function handleAnswer(isCorrect, item, answers) {
       `)
       );
       player.alife = false;
-      console.log(player.alife);
+      // console.log(player.alife);
       process.exit(1);
     }
 
-    process.exit(1);
+    // process.exit(1);
   }
 }
 
@@ -263,15 +268,11 @@ async function kofferAbfrage() {
     },
   });
   playerRemembers = answers.levelUp;
-  console.log(player.kofferArray);
-  console.log(playerRemembers);
-  const umwandlung = player.kofferArray.map((elem) => String(elem));
-  console.log(umwandlung);
-  let right = umwandlung.includes(playerRemembers);
   if (player.kofferArray.join(`, `) == playerRemembers) {
     console.log(
       `👊🏼 Well done ${player.userName}. You just reached the next level.`
     );
+    console.clear();
   } else {
     console.log(
       gradient.teen(`
@@ -369,26 +370,34 @@ async function question5() {
 
   return handleAnswer(answers.iq_5 === 69237, item);
 }
-// async function question6() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_6`,
-//     type: `list`,
-//     message: ` How many cases do you need if you have to pack 112 pairs
-//     of shoes into cases that each hold 28 shoes?`,
-//     choices: [16, 8, 24, 12],
-//   });
-//   return handleAnswer(answers.iq_1 === 8);
-// }
-// async function question7() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_7`,
-//     type: `list`,
-//     message: `Which number should come next in the pattern?
-//     -2 , 5, -4, 3, -6:`,
-//     choices: [`a. 0`, `b. 1`, `c. -3`, `d. -4`],
-//   });
-//   return handleAnswer(answers.iq_7 === `b. 1`);
-// }
+async function question6() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_6`,
+    type: `list`,
+    message: ` How many cases do you need if you have to pack 112 pairs
+    of shoes into cases that each hold 28 shoes?`,
+    choices: [16, 8, 24, 12],
+  });
+  if (answers.iq_6 === 8) {
+    item = answers.iq_6;
+  }
+  return handleAnswer(answers.iq_6 === 8, item);
+}
+async function question7() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_7`,
+    type: `list`,
+    message: `Which number should come next in the pattern?
+    -2 , 5, -4, 3, -6:`,
+    choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.iq_7 === `1`) {
+    item = answers.iq_7;
+  }
+  return handleAnswer(answers.iq_7 === `1`, item);
+}
 // async function question8() {
 //   const answers = await inquirer.prompt({
 //     name: `iq_8`,
@@ -479,14 +488,20 @@ async function question5() {
 //   });
 //   return handleAnswer(answers.iq_ === );
 // }
-
+console.clear();
 await question1();
 await question2();
 await question3();
 await question4();
 await question5();
+await question6();
+await question7();
+await question1();
+await question2();
 await question3();
-await question4();
+await question1();
+await question2();
+await question3();
 // ------------------------------------------------------
 // die funktionen rufen sich wieder automatisch auf.
 // nach gameover sollte es doch eigentöich nicht weitergehen...oder vlt nur noch eine abfrage ob man weiterspilen möchte
