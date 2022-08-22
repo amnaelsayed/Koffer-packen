@@ -3,6 +3,9 @@ import chalk from "chalk";
 import gradient from "gradient-string";
 import figlet from "figlet";
 import enquirer from "enquirer";
+import center_align from "center-align";
+// var center = center_align();
+// center("hallo", 12);
 const prompt = promptSync();
 
 // let userrightAnswers = [];
@@ -90,7 +93,7 @@ const prompt11 = {
   message:
     "A clock seen through a mirror shows 8 o 'clock. What is the correct time?",
   choices: ["8.00", "4.00", "12.20", "12.40"],
-  rightAnswer: "4.00",
+  rightAnswer: 1,
   frageWarSchon: false,
 };
 const prompt12 = {
@@ -157,7 +160,7 @@ const prompt20 = {
   rightAnswer: "8",
   frageWarSchon: false,
 };
-const arrayGames = [
+let arrayGames = [
   prompt1,
   prompt2,
   prompt3,
@@ -180,45 +183,9 @@ const arrayGames = [
   prompt20,
 ];
 
-const select = (obj) => {
-  console.log(obj);
-  if (obj !== undefined) {
-    const prompt5 = enquirer.select({
-      name: obj.name,
-      message: obj.message,
-      choices: obj.choices,
-      rightAnswer: obj.rightAnswer,
-      frageWarSchon: obj.frageWarSchon,
-    });
-
-    prompt5
-      .then((answer) => {
-        obj.frageWarSchon = true;
-        console.log(answer, `Ich binss`);
-        console.log(obj.frageWarSchon, `Die Frage War schon`);
-        if (obj.rightAnswer === answer) {
-          console.log("You are right");
-          // let random = randomQuestion(arrayGames);
-          // // console.log(arrayGames);
-
-          // while (random.frageWarSchon) {
-          //   console.log(random);
-          //   random = randomQuestion(arrayGames);
-          // }
-          select(randomQuestion(arrayGames));
-        } else {
-          console.log(`You lost one life`);
-        }
-      })
-      .catch(console.error);
-  } else {
-    console.log(`You answered all the questions`);
-  }
-};
-
 function randomQuestion(array) {
-  const filtred = array.filter(({ frageWarSchon }) => !frageWarSchon);
-  return filtred[Math.floor(Math.random() * array.length)];
+  // const filtred = array.filter(({ frageWarSchon }) => frageWarSchon === false);
+  return array[Math.floor(Math.random() * array.length)];
 
   // console.log(array);
   // let index = Math.floor(Math.random() * array.length);
@@ -228,8 +195,131 @@ function randomQuestion(array) {
   //   randomQuestion(array);
   // }
 }
-const randomMath = randomQuestion(arrayGames);
+// var kofferArray = [];
+// const randomMath = randomQuestion(arrayGames);
+// console.log(kofferArray);
+// const select = (obj) => {
+//   console.log("\n\n\n\n");
+//   console.log(
+//     `                                                    ${obj.message}\n\n\n\n`
+//   );
+//   console.log(
+//     `                                                       ${obj.choices}\n\n\n\n`
+//   );
+//   console.log("");
+//   const frage = prompt(
+//     gradient.summer(
+//       "                                                   Wähle die richtige Antwort:        "
+//     )
+//   );
+//   // obj.frageWarSchon = true;
+//   console.log(obj.frageWarSchon);
+//   if (frage === obj.rightAnswer) {
+//     console.log(
+//       gradient.summer(
+//         `\n\n\n                                           Great! You have packed a 👜${frage}👜 into your bag        \n\n\n`
+//       )
+//     );
+//     kofferArray.push(frage);
+//     console.log(kofferArray);
+//     const frageKofferInhalt = prompt("Do you remember what you have packed?;)");
+//     if (frageKofferInhalt == kofferArray) {
+//       console.log("Well done.");
+//     } else {
+//       console.log("You have lost one life");
+//     }
+//   } else {
+//     console.clear();
+//     console.log(`\n\n\n\n\n\n\n`);
+//     console.log(
+//       gradient.teen(
+//         `         ______    ______   __       __  ________         ______   __     __  ________
+//                  /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |
+//                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/   ______
+//                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__     /      \
+//                  $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   /$$$$$$  |
+//                  $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$ |  $$/
+//                  $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |
+//                  $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |
+//                  $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/
 
-select(randomMath);
+//                  `
+//       )
+//     );
+//     console.log(`\n\n\n\n\n\n\n`);
+//     console.log(arrayGames.length);
+//     const index = arrayGames.findIndex((object) => {
+//       return obj === object;
+//     });
+//     console.log(index);
+
+//     arrayGames.splice(index, 1);
+
+//     console.log(arrayGames.length);
+//   }
+// };
+
+// select(randomMath);
+const select = (obj) => {
+  console.log("\n\n\n\n\n\n\n\n\n\n\n");
+  const { Quiz } = enquirer;
+
+  const prompt39 = new Quiz({
+    name: obj.name,
+    message: obj.message,
+    choices: obj.choices,
+    correctChoice: obj.rightAnswer,
+  });
+
+  prompt39
+    .run()
+    .then((answer) => {
+      if (answer.correct) {
+        console.log(chalk.yellow("Correct!"));
+      } else {
+        console.log(
+          chalk.yellow(`Wrong! Correct answer is ${answer.correctAnswer}`)
+        );
+      }
+    })
+    .catch(console.error);
+};
+select(prompt11);
+// const select = (obj) => {
+//   console.log(obj);
+//   if (obj !== undefined) {
+//     const prompt5 = enquirer.select({
+//       name: obj.name,
+//       message: obj.message,
+//       choices: obj.choices,
+//       rightAnswer: obj.rightAnswer,
+//       frageWarSchon: obj.frageWarSchon,
+//     });
+
+//     prompt5
+//       .then((answer) => {
+//         obj.frageWarSchon = true;
+//         console.log(answer, `Ich binss`);
+//         console.log(obj.frageWarSchon, `Die Frage War schon`);
+//         if (obj.rightAnswer === answer) {
+//           console.log("You are right");
+// let random = randomQuestion(arrayGames);
+// // console.log(arrayGames);
+
+// while (random.frageWarSchon) {
+//   console.log(random);
+//   random = randomQuestion(arrayGames);
+// }
+//           select(randomQuestion(arrayGames));
+//         } else {
+//           console.log(`You lost one life`);
+//         }
+//       })
+//       .catch(console.error);
+//   } else {
+//     console.log(`You answered all the questions`);
+//   }
+// };
+
 // const multipleChoice = select(randomMath);
 // console.log(multipleChoice);

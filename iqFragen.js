@@ -54,7 +54,6 @@ const iqFragen = [
     message: `Which number should come next in the pattern?
       -2 , 5, -4, 3, -6:`,
     choices: [`a. 0`, `b. 1`, `c. -3`, `d. -4`],
-    explanation: `the even numbers are decreasing by 2 and the odd numbers are decreasing by 1`,
   },
   {
     name: `iq7`,
@@ -86,7 +85,7 @@ const iqFragen = [
     answer: `a.23`,
   },
   {
-    name: `ig11`,
+    name: `iq11`,
     message: `There are two ducks in front of a duck, two ducks behind a duck and a duck in the middle. How many ducks are there?`,
     choices: [`a: 5`, `b: 6`, `c: 3`, `d: 4`],
     answer: `c: 3`,
@@ -120,7 +119,7 @@ const iqFragen = [
   {
     name: `iq15`,
     message: `2. What is always coming but never arrives?`,
-    choices: [`a: train`, `b: tomorrow`, `c: money`, `d: happines`],
+    choices: [`a: the train`, `b: tomorrow`, `c: money`, `d: happines`],
     answer: `b: tomorrow`,
   },
 ];
