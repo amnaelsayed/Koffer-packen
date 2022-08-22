@@ -8,6 +8,7 @@ import chalkAnimation from "chalk-animation";
 import promptSync from "prompt-sync";
 import { createSpinner } from "nanospinner";
 const prompt = promptSync();
+import introGame from "./whatIsMissingg.js";
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
@@ -41,10 +42,10 @@ const iqFragen = [
 
 //=======================================================
 
-const sleepMedium = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+const sleepMedium = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -508,7 +509,6 @@ async function continueGame() {
   }
 }
 console.clear();
-
 async function level1() {
   await question6();
   await question7();
