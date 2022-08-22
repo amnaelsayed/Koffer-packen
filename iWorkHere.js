@@ -250,7 +250,11 @@ const prompt = promptSync();
 // await question3();
 // await question4();
 // await question5();
+<<<<<<< HEAD
+// #!/usr/bin/env node
+=======
 const sleepMedium = (ms = 1100) => new Promise((r) => setTimeout(r, ms));
+>>>>>>> b644d582001c64e8879a9220f6f25880d993386e
 
 async function gameOver() {
   const go = chalkAnimation.karaoke(`
