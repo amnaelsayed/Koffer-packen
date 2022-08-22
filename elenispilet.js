@@ -516,15 +516,16 @@ async function level1() {
   await question2();
   await question3();
 }
-await question1();
-await question2();
-await question3();
-await question4();
-await question5();
+// level1()
+// await question1();
+// await question2();
+// await question3();
+// await question4();
+// await question5();
 
-await question1();
-await question2();
-await question3();
+// await question1();
+// await question2();
+// await question3();
 
 // ------------------------------------------------------
 // die funktionen rufen sich wieder automatisch auf.
