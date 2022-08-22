@@ -653,7 +653,7 @@ async function nextLevel() {
   title.stop(clear());
   // will stop the animation, otherwise it runs forever
 
-  const welcomeText = chalkAnimation.rainbow(`\n\n\n\n\n\n\n
+  const welcomeText = chalkAnimation.karaoke(`\n\n\n\n\n\n\n
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -704,6 +704,8 @@ async function countElemClown(array, zeichen) {
   return handleAnswer(answers.ct_Clown === `2`, item);
 }
 // await countElemClown(arraySmileyColdHot, "  🤡  ");
+
+// vlt noch eine won funktion????
 
 async function introduction() {
   console.clear();
