@@ -26,21 +26,21 @@ var player = {
 };
 
 //iq fragen sind hier nur zum testen
-const iqFragen = [
-  {
-    name: `iq1`,
-    message: `What starts with "e" and ends with "e" but only has one letter in it?`,
-    choices: [`envelope`, `e`, `eye`, `elite`],
-    rightAnswer: `envelope`,
-  },
-  {
-    name: `iq2`,
-    message: `Which number should come next in the pattern?
-      37, 34, 31, 28`,
-    choices: [23, 25, 17, 26],
-    rightAnswer: 25,
-  },
-];
+// const iqFragen = [
+//   {
+//     name: `iq1`,
+//     message: `What starts with "e" and ends with "e" but only has one letter in it?`,
+//     choices: [`envelope`, `e`, `eye`, `elite`],
+//     rightAnswer: `envelope`,
+//   },
+//   {
+//     name: `iq2`,
+//     message: `Which number should come next in the pattern?
+//       37, 34, 31, 28`,
+//     choices: [23, 25, 17, 26],
+//     rightAnswer: 25,
+//   },
+// ];
 
 //=======================================================
 
@@ -161,6 +161,38 @@ async function gameRules() {
   explanation.stop();
 }
 
+async function gameOver() {
+  const go = chalkAnimation.karaoke(`
+┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
+███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀
+██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼
+██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀
+██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼
+███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄
+┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
+███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼
+██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼
+██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼
+██┼┼┼┼┼██┼┼┼██┼┼█▀┼┼██┼┼┼┼██┼┼┼┼┼██┼
+███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄
+┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼
+┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼`);
+
+  await sleepMedium();
+  go.stop();
+}
+
 async function handleAnswer(isCorrect, item, answers) {
   console.clear();
   const spinner = createSpinner("Checking answer...").start();
@@ -186,15 +218,6 @@ async function handleAnswer(isCorrect, item, answers) {
       console.log(player.kofferArray);
       await kofferAbfrage();
     }
-    // if (player.currentBalance === 200) {
-    //   arrayAbfrage();
-    // const kofferFrage = await inquirer.prompt({
-    //   name: `levelUp `,
-    //   type: `input`,
-    //   message: chalkAnimation.karaoke(
-    //     `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-    //   ),
-    // });
   } else {
     player.lives--;
     spinner.error({
@@ -202,63 +225,16 @@ async function handleAnswer(isCorrect, item, answers) {
     });
 
     if (player.lives === 0) {
-      console.log(
-        gradient.teen(`
-                                                 
-                 ______    ______   __       __  ________         ______   __     __  ________  _______  
-                 /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
-                /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-                $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-                $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
-                $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-                $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-                $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-                 $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
-                                                                                                          
-                                                                                                          
-                                                                                                          
-                
-      `)
-      );
+      console.clear();
+      await gameOver();
+      await sleepMedium();
+      await continueGame();
       player.alife = false;
-      // console.log(player.alife);
+
       process.exit(1);
     }
-
-    // process.exit(1);
   }
 }
-
-// const kofferAbfrage = () => {
-//   inquirer
-//     .prompt([
-//       {
-//         name: "faveReptile",
-//         message: `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`,
-//       },
-//     ])
-//     .then((answers) => {
-//       console.info(
-//         answers.faveReptile == player.kofferArray.join(`, `)
-//           ? `👊🏼 Well done ${player.userName}. You just reached the next level.`
-//           : gradient.teen(`
-
-//               ______    ______   __       __  ________         ______   __     __  ________  _______
-//              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
-//             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-//             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-//             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
-//             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-//             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-//             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-//              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
-
-//   `)
-//       );
-//       player.alife = false;
-//       console.log(player.alife);
-//     });
-// };
 
 async function kofferAbfrage() {
   const answers = await inquirer.prompt({
@@ -308,7 +284,7 @@ async function kofferAbfrage() {
     player.currentBalance == 200
   ) {
     console.log(
-      `👊🏼 Well done ${player.userName}. You just reached the next level.`
+      `👊🏼 Well done ${player.userName}. You just reached the ${player.level}.`
     );
 
     // player.currentBalance = 0;
@@ -322,21 +298,8 @@ async function kofferAbfrage() {
     await level1();
   } else {
     console.clear();
-    console.log(
-      gradient.teen(`
 
-                ______    ______   __       __  ________         ______   __     __  ________  _______
-              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
-             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
-             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
-
-  `)
-    );
+    await gameOver();
     await sleepLong();
     await continueGame();
     process.exit(0);
@@ -540,7 +503,9 @@ async function question7() {
 // }
 
 async function continueGame() {
-  let weiter;
+  console.clear();
+  await sleepMedium();
+
   const answers = await inquirer.prompt({
     name: `spielen`,
     type: `list`,
@@ -604,6 +569,7 @@ async function introduction() {
   await gameRules();
 }
 async function spiele() {
+  console.clear();
   await question7();
   await question7();
   await question7();
@@ -616,6 +582,7 @@ async function spiele() {
 }
 
 async function level1() {
+  console.clear();
   await question2();
   await question2();
   await question2();
@@ -629,6 +596,7 @@ async function level1() {
   // 8spiele minimum
 }
 async function level2() {
+  console.clear();
   await question6();
   await question6();
   await question6();
