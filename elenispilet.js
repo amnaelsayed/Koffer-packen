@@ -8,6 +8,7 @@ import chalkAnimation from "chalk-animation";
 import promptSync from "prompt-sync";
 import { createSpinner } from "nanospinner";
 const prompt = promptSync();
+import introGame from "./whatIsMissingg.js";
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
@@ -41,10 +42,10 @@ const iqFragen = [
 
 //=======================================================
 
-const sleepMedium = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+const sleepMedium = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -90,8 +91,6 @@ async function welcome() {
   welcomeText.stop(clear());
 }
 
-await welcome();
-
 async function introTextAndName() {
   const getName = await inquirer.prompt({
     name: `userName`,
@@ -108,7 +107,6 @@ async function introTextAndName() {
   });
   player.userName = getName.userName;
 }
-await introTextAndName();
 
 // console.log(player);
 
@@ -124,7 +122,6 @@ async function getAge() {
   });
   player.userAge = age.userAge;
 }
-await getAge();
 
 async function getCity() {
   const city = await inquirer.prompt({
@@ -138,7 +135,7 @@ async function getCity() {
   });
   player.userCity = city.userCity;
 }
-await getCity();
+
 /* alle Infos gehen in das player Objet :)
 console.log(player);*/
 
@@ -160,8 +157,6 @@ async function gameRules() {
   await sleepLong();
   explanation.stop();
 }
-
-await gameRules();
 
 async function handleAnswer(isCorrect, item, answers) {
   console.clear();
@@ -502,20 +497,38 @@ async function continueGame() {
     choices: [`yes`, `no`],
   });
   if (answers.spielen === `yes`) {
-    await level1();
+    await spiele();
   } else {
     process.exit(1);
   }
 }
-console.clear();
 
-async function level1() {
+async function introduction() {
+  console.clear();
+  await welcome();
+  await introTextAndName();
+  await getAge();
+  await getCity();
+  await gameRules();
+}
+async function spiele() {
   await question6();
   await question7();
   await question1();
   await question2();
   await question3();
 }
+
+async function weiter() {
+  await question6();
+  await question7();
+  await question1();
+  await question2();
+  await question3();
+}
+await introduction();
+await spiele();
+
 // level1()
 // await question1();
 // await question2();
