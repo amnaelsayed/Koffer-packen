@@ -46,13 +46,9 @@ const iqFragen = [
 
 const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
-<<<<<<< HEAD
+
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
-=======
-const sleepShort = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
->>>>>>> 624a0a79309a74a8a8eef074fbbfc59a660772fd
 
 const clear = () => {
   console.clear();
