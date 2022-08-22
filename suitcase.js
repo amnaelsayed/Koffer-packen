@@ -294,9 +294,9 @@ async function handleAnswer(isCorrect, item, answers) {
         ` `
       )}                                                                         
       \n\n\n\n\n\n\n\n
-                                      💔  UUppssss that was wrong, you now have ${
+                                      😬  UUppssss that was wrong, you now have ${
                                         player.lives.length
-                                      } 😬 !`,
+                                      } 💔 !`,
     });
 
     await sleepLong();
