@@ -11,6 +11,7 @@ const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
+
 var player = {
   kofferArray: [],
   userName: [],
@@ -18,6 +19,7 @@ var player = {
   userCity: ``,
   lives: 3,
   currentBalance: 0,
+  alife: true,
 };
 
 //iq fragen sind hier nur zum testen
@@ -162,61 +164,33 @@ async function gameRules() {
 await gameRules();
 
 async function handleAnswer(isCorrect, item, answers) {
+  console.clear();
   const spinner = createSpinner("Checking answer...").start();
-  await sleepShort();
+  // await sleepShort();
   if (isCorrect) {
     player.currentBalance += 40;
+
+    await sleepShort();
     spinner.success({
       text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
+    await sleepLong();
+    await sleepLong();
     player.kofferArray.push(item);
-    if (player.currentBalance === 200) {
-      const kofferFrage = await inquirer.prompt({
-        name: `levelUp `,
-        type: `input`,
-        message: chalkAnimation.karaoke(
-          `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-        ),
-      });
-      async function answer() {
-        const kofferFrage = await inquirer.prompt({
-          name: `levelUp `,
-          type: `input`,
-          message: chalkAnimation.karaoke(
-            `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-          ),
-          default() {
-            return `Tall me all the items in the Suitcase`;
-          },
-        });
-        playerRemembers = kofferFrage.levelUp;
-      }
-      console.log(player);
-      if (kofferFrage.levelUp == player.kofferArray) {
-        console.log(
-          `👊🏼 Well done ${player.userName}. You just reached the next level.`
-        );
-      } else {
-        console.log(
-          gradient.teen(`
-                                                   
-                   ______    ______   __       __  ________         ______   __     __  ________  _______  
-                   /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
-                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-                  $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
-                  $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-                  $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-                  $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-                   $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
-                                                                                                            
-                                                                                                            
-                                                                                                            
-                  
-        `)
-        );
-      }
+
+    console.clear();
+    if (player.currentBalance % 200 === 0) {
+      await kofferAbfrage();
     }
+    // if (player.currentBalance === 200) {
+    //   arrayAbfrage();
+    // const kofferFrage = await inquirer.prompt({
+    //   name: `levelUp `,
+    //   type: `input`,
+    //   message: chalkAnimation.karaoke(
+    //     `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+    //   ),
+    // });
   } else {
     player.lives--;
     spinner.error({
@@ -242,12 +216,87 @@ async function handleAnswer(isCorrect, item, answers) {
                 
       `)
       );
+      player.alife = false;
+      // console.log(player.alife);
+      process.exit(1);
     }
-    process.exit(1);
+
+    // process.exit(1);
   }
 }
 
-await question1();
+// const kofferAbfrage = () => {
+//   inquirer
+//     .prompt([
+//       {
+//         name: "faveReptile",
+//         message: `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`,
+//       },
+//     ])
+//     .then((answers) => {
+//       console.info(
+//         answers.faveReptile == player.kofferArray.join(`, `)
+//           ? `👊🏼 Well done ${player.userName}. You just reached the next level.`
+//           : gradient.teen(`
+
+//               ______    ______   __       __  ________         ______   __     __  ________  _______
+//              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
+//             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+//             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+//             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
+//             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+//             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+//             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+//              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
+
+//   `)
+//       );
+//       player.alife = false;
+//       console.log(player.alife);
+//     });
+// };
+
+async function kofferAbfrage() {
+  const answers = await inquirer.prompt({
+    name: `levelUp`,
+    type: `input`,
+    message: chalkAnimation.karaoke(
+      `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+    ),
+    default() {
+      return `abfrage`;
+    },
+  });
+  playerRemembers = answers.levelUp;
+  if (player.kofferArray.join(`, `) == playerRemembers) {
+    console.log(
+      `👊🏼 Well done ${player.userName}. You just reached the next level.`
+    );
+    console.clear();
+  } else {
+    console.clear();
+    console.log(
+      gradient("orange", "yellow").multiline(`
+
+                ______    ______   __       __  ________         ______   __     __  ________  _______
+              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
+             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
+             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
+
+  `)
+    );
+    await sleepLong();
+
+    process.exit(0);
+    player.alife = false;
+    console.log(player.alife);
+  }
+}
 
 // console.log(player);
 //==============Fragen-Funktionen========================
@@ -324,26 +373,34 @@ async function question5() {
 
   return handleAnswer(answers.iq_5 === 69237, item);
 }
-// async function question6() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_6`,
-//     type: `list`,
-//     message: ` How many cases do you need if you have to pack 112 pairs
-//     of shoes into cases that each hold 28 shoes?`,
-//     choices: [16, 8, 24, 12],
-//   });
-//   return handleAnswer(answers.iq_1 === 8);
-// }
-// async function question7() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_7`,
-//     type: `list`,
-//     message: `Which number should come next in the pattern?
-//     -2 , 5, -4, 3, -6:`,
-//     choices: [`a. 0`, `b. 1`, `c. -3`, `d. -4`],
-//   });
-//   return handleAnswer(answers.iq_7 === `b. 1`);
-// }
+async function question6() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_6`,
+    type: `list`,
+    message: ` How many cases do you need if you have to pack 112 pairs
+    of shoes into cases that each hold 28 shoes?`,
+    choices: [16, 8, 24, 12],
+  });
+  if (answers.iq_6 === 8) {
+    item = answers.iq_6;
+  }
+  return handleAnswer(answers.iq_6 === 8, item);
+}
+async function question7() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `iq_7`,
+    type: `list`,
+    message: `Which number should come next in the pattern?
+    -2 , 5, -4, 3, -6:`,
+    choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.iq_7 === `1`) {
+    item = answers.iq_7;
+  }
+  return handleAnswer(answers.iq_7 === `1`, item);
+}
 // async function question8() {
 //   const answers = await inquirer.prompt({
 //     name: `iq_8`,
@@ -434,8 +491,31 @@ async function question5() {
 //   });
 //   return handleAnswer(answers.iq_ === );
 // }
-
+console.clear();
+await question1();
 await question2();
 await question3();
 await question4();
 await question5();
+await question6();
+await question7();
+await question1();
+await question2();
+await question3();
+await question1();
+await question2();
+await question3();
+// ------------------------------------------------------
+// die funktionen rufen sich wieder automatisch auf.
+// nach gameover sollte es doch eigentöich nicht weitergehen...oder vlt nur noch eine abfrage ob man weiterspilen möchte
+// ich habe versucht es mit einer if abfrage zu unterbrechen und den player.alife auf false zzu setzen wenn game over ist, es hat aber leider auch nicht funktioniert...
+// -----------------------------------------------------------------------
+
+// if (player.alife == true) {
+//   // level2.forEach((funk) => funk);
+//   await question5(),
+//     await question1(),
+//     await question2(),
+//     await question3(),
+//     await question4();
+// }
