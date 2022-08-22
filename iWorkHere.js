@@ -11,7 +11,6 @@ const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
-let wantToContinue;
 var player = {
   kofferArray: [],
   userName: [],
@@ -19,7 +18,6 @@ var player = {
   userCity: ``,
   lives: 3,
   currentBalance: 0,
-  alife: true,
 };
 
 //iq fragen sind hier nur zum testen
@@ -41,10 +39,10 @@ const iqFragen = [
 
 //=======================================================
 
-const sleepMedium = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+const sleepMedium = (ms = 1100) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -164,42 +162,70 @@ async function gameRules() {
 await gameRules();
 
 async function handleAnswer(isCorrect, item, answers) {
-  console.clear();
   const spinner = createSpinner("Checking answer...").start();
-  // await sleepShort();
+  await sleepShort();
   if (isCorrect) {
     player.currentBalance += 40;
-
-    await sleepShort();
     spinner.success({
-      text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
+      text: ` 👏🏼Great work ${player.userName}! You just put a / an ~ ${item} ~ in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
-    // await sleepLong();
-    await sleepShort();
     player.kofferArray.push(item);
-
-    console.clear();
-    if (player.currentBalance % 200 === 0) {
-      await kofferAbfrage();
+    if (player.currentBalance === 200) {
+      const kofferFrage = await inquirer.prompt({
+        name: `levelUp `,
+        type: `input`,
+        message: chalkAnimation.karaoke(
+          `Do you still remember what is inside your $uitca$e? \n answer correclty and travel to the next level 💫`
+        ),
+      });
+      async function answer() {
+        const kofferFrage = await inquirer.prompt({
+          name: `levelUp `,
+          type: `input`,
+          message: chalkAnimation.karaoke(
+            `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+          ),
+          default() {
+            return `Type in the correct order the items of your Suitcase`;
+          },
+        });
+        playerRemembers = kofferFrage.levelUp;
+      }
+      console.log(player);
+      if (kofferFrage.levelUp == player.kofferArray) {
+        console.log(
+          `👊🏼 Well done ${player.userName}. You just reached the next level.`
+        );
+      } else {
+        console.log(
+          gradient.teen(`
+                                                   
+                   ______    ______   __       __  ________         ______   __     __  ________  _______  
+                   /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
+                  /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
+                  $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
+                  $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$< 
+                  $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
+                  $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
+                  $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
+                   $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/ 
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                  
+        `)
+        );
+      }
     }
-    // if (player.currentBalance === 200) {
-    //   arrayAbfrage();
-    // const kofferFrage = await inquirer.prompt({
-    //   name: `levelUp `,
-    //   type: `input`,
-    //   message: chalkAnimation.karaoke(
-    //     `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-    //   ),
-    // });
   } else {
     player.lives--;
     spinner.error({
-      text: `💔  UUppssss that was wrong, you now have ${player.lives} 😬 !`,
+      text: `💔 UUppssss that was wrong, you now have ${player.lives} 😬 !`,
     });
 
     if (player.lives === 0) {
       console.log(
-        gradient.teen(`
+        chalkAnimation.karaoke(`
                                                  
                  ______    ______   __       __  ________         ______   __     __  ________  _______  
                  /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \ 
@@ -216,87 +242,12 @@ async function handleAnswer(isCorrect, item, answers) {
                 
       `)
       );
-      player.alife = false;
-      // console.log(player.alife);
-      process.exit(1);
     }
-
-    // process.exit(1);
+    process.exit(1);
   }
 }
 
-// const kofferAbfrage = () => {
-//   inquirer
-//     .prompt([
-//       {
-//         name: "faveReptile",
-//         message: `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`,
-//       },
-//     ])
-//     .then((answers) => {
-//       console.info(
-//         answers.faveReptile == player.kofferArray.join(`, `)
-//           ? `👊🏼 Well done ${player.userName}. You just reached the next level.`
-//           : gradient.teen(`
-
-//               ______    ______   __       __  ________         ______   __     __  ________  _______
-//              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
-//             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-//             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-//             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
-//             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-//             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-//             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-//              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
-
-//   `)
-//       );
-//       player.alife = false;
-//       console.log(player.alife);
-//     });
-// };
-
-async function kofferAbfrage() {
-  const answers = await inquirer.prompt({
-    name: `levelUp`,
-    type: `input`,
-    message: chalkAnimation.karaoke(
-      `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
-    ),
-    default() {
-      return `abfrage`;
-    },
-  });
-  playerRemembers = answers.levelUp;
-  if (player.kofferArray.join(`, `) == playerRemembers) {
-    console.log(
-      `👊🏼 Well done ${player.userName}. You just reached the next level.`
-    );
-    console.clear();
-  } else {
-    console.clear();
-    console.log(
-      gradient.teen(`
-
-                ______    ______   __       __  ________         ______   __     __  ________  _______
-              /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
-             /$$$$$$  |/$$$$$$  |$$  \   /$$ |$$$$$$$$/       /$$$$$$  |$$ |   $$ |$$$$$$$$/ $$$$$$$  |
-             $$ | _$$/ $$ |__$$ |$$$  \ /$$$ |$$ |__          $$ |  $$ |$$ |   $$ |$$ |__    $$ |__$$ |
-             $$ |/    |$$    $$ |$$$$  /$$$$ |$$    |         $$ |  $$ |$$  \ /$$/ $$    |   $$    $$<
-             $$ |$$$$ |$$$$$$$$ |$$ $$ $$/$$ |$$$$$/          $$ |  $$ | $$  /$$/  $$$$$/    $$$$$$$  |
-             $$ \__$$ |$$ |  $$ |$$ |$$$/ $$ |$$ |_____       $$ \__$$ |  $$ $$/   $$ |_____ $$ |  $$ |
-             $$    $$/ $$ |  $$ |$$ | $/  $$ |$$       |      $$    $$/    $$$/    $$       |$$ |  $$ |
-              $$$$$$/  $$/   $$/ $$/      $$/ $$$$$$$$/        $$$$$$/      $/     $$$$$$$$/ $$/   $$/
-
-  `)
-    );
-    await sleepLong();
-    await continueGame();
-    process.exit(0);
-    player.alife = false;
-    console.log(player.alife);
-  }
-}
+await question1();
 
 // console.log(player);
 //==============Fragen-Funktionen========================
@@ -316,6 +267,7 @@ async function question1() {
   }
   return handleAnswer(answers.iq_1 === `envelope`, item, answers);
 }
+// ==========================
 async function question2() {
   let item;
   const answers = await inquirer.prompt({
@@ -330,19 +282,21 @@ async function question2() {
   }
   return handleAnswer(answers.iq_2 === 25, item);
 }
+// ==========================
 async function question3() {
   let item;
   const answers = await inquirer.prompt({
     name: `iq_3`,
     type: `list`,
     message: `Book is to Reading as Fork is to:`,
-    choices: [`a. drawing`, `b. writing`, `stirring`, `eating`],
+    choices: [`drawing`, `writing`, `stirring`, `eating`],
   });
   if (answers.iq_3 === `eating`) {
     item = answers.iq_3;
   }
   return handleAnswer(answers.iq_3 === `eating`, item);
 }
+// ==========================
 async function question4() {
   let item;
   const answers = await inquirer.prompt({
@@ -357,6 +311,7 @@ async function question4() {
   }
   return handleAnswer(answers.iq_4 === 5, item);
 }
+// ==========================
 async function question5() {
   let item;
   const answers = await inquirer.prompt({
@@ -373,8 +328,8 @@ async function question5() {
 
   return handleAnswer(answers.iq_5 === 69237, item);
 }
+// ==========================
 async function question6() {
-  let item;
   const answers = await inquirer.prompt({
     name: `iq_6`,
     type: `list`,
@@ -382,162 +337,182 @@ async function question6() {
     of shoes into cases that each hold 28 shoes?`,
     choices: [16, 8, 24, 12],
   });
-  if (answers.iq_6 === 8) {
-    item = answers.iq_6;
+  if (answers.iq_8 === 8) {
+    item = answers.iq_;
   }
-  return handleAnswer(answers.iq_6 === 8, item);
+  return handleAnswer(answers.iq_1 === 8);
 }
+// ==========================
 async function question7() {
-  let item;
   const answers = await inquirer.prompt({
     name: `iq_7`,
     type: `list`,
     message: `Which number should come next in the pattern?
     -2 , 5, -4, 3, -6:`,
-    choices: [`0`, `1`, `-3`, `-4`],
+    choices: [0, 1, -3, -4],
   });
-  if (answers.iq_7 === `1`) {
+  if (answers.iq_7 === 1) {
     item = answers.iq_7;
   }
-  return handleAnswer(answers.iq_7 === `1`, item);
+  return handleAnswer(answers.iq_7 === 1);
 }
-// async function question8() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_8`,
-//     type: `list`,
+// ==========================
+async function question8() {
+  const answers = await inquirer.prompt({
+    name: `iq_8`,
+    type: `list`,
+    message: `Which number should come next in the pattern?
+      7,21,14,42,28:`,
+    choices: [84, 56, 64, 76],
+  });
+  if (answers.iq_8 === 84) {
+    item = answers.iq_8;
+  }
+  return handleAnswer(answers.iq_8 === 84);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_8 === );
-// }
+async function question9() {
+  const answers = await inquirer.prompt({
+    name: `iq_9`,
+    type: `list`,
+    message: `Which number should replace the questionmark?
+      1, 10, 3, 8, ?, 6, 7, 4, 9, 2:`,
+    choices: [8, 5, 9, 11],
+  });
+  if (answers.iq_9 === 5) {
+    item = answers.iq_9;
+  }
+  return handleAnswer(answers.iq_9 === 5);
+}
+// ==========================
 
-// async function question9() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_9`,
-//     type: `list`,
+async function question10() {
+  const answers = await inquirer.prompt({
+    name: `iq_10`,
+    type: `list`,
+    message: `Which number should replace the questionmark?
+    1, 3, 9, 27, ?, 243:`,
+    choices: [36, 78, 81, 112],
+  });
+  if (answers.iq_10 === 81) {
+    item = answers.iq_10;
+  }
+  return handleAnswer(answers.iq_10 === 81);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_9 === );
-// }
+async function question11() {
+  const answers = await inquirer.prompt({
+    name: `iq_11`,
+    type: `list`,
+    message: `Jack is looking at Anne. Anne is looking at George. Jack is married, George is not, and we don’t know if Anne is married. Is a married person looking at an unmarried person?`,
+    choices: [`yes`, `no`, `we cannot know`],
+  });
+  if (answers.iq_11 === `yes`) {
+    item = answers.iq_11;
+  }
+  return handleAnswer(answers.iq_11 === `yes`);
+}
+// ==========================
 
-// async function question10() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_10`,
-//     type: `list`,
+async function question12() {
+  const answers = await inquirer.prompt({
+    name: `iq_12`,
+    type: `list`,
+    message: `The day before two days after the day before tomorrow is Saturday. What day is it today?`,
+    choices: [`Sunday`, `Tuesday`, `Monday`, `Friday`],
+  });
+  if (answers.iq_12 === `Friday`) {
+    item = answers.iq_12;
+  }
+  return handleAnswer(answers.iq_12 === `Friday`);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_10 === );
-// }
-// async function question11() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_11`,
-//     type: `list`,
+async function question13() {
+  const answers = await inquirer.prompt({
+    name: `iq_13`,
+    type: `list`,
+    message: `What can be broken but never held?`,
+    choices: [`heart`, `vase`, `promise`, `none of this`],
+  });
+  if (answers.iq_13 === `promise`) {
+    item = answers.iq_13;
+  }
+  return handleAnswer(answers.iq_13 === promise);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_11 === );
-// }
-// async function question12() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_12`,
-//     type: `list`,
+async function question14() {
+  const answers = await inquirer.prompt({
+    name: `iq_14`,
+    type: `list`,
+    message: `What’s full of holes but can still hold water?`,
+    choices: [`cheese`, `rock`, `sponge`, `shocks`],
+  });
+  if (answers.iq_14 === `sponge`) {
+    item = answers.iq_14;
+  }
+  return handleAnswer(answers.iq_14 === `sponge`);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_12 === );
-// }
-// async function question13() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_13`,
-//     type: `list`,
+async function question15() {
+  const answers = await inquirer.prompt({
+    name: `iq_15`,
+    type: `list`,
+    message: `2. What is always coming but never arrives?`,
+    choices: [`train`, `tomorrow`, `money`, `happines`],
+  });
+  if (answers.iq_15 === `tomorrow`) {
+    item = answers.iq_15;
+  }
+  return handleAnswer(answers.iq_15 === `tomorrow`);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_13 === );
-// }
-// async function question14() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_14`,
-//     type: `list`,
+async function question16() {
+  const answers = await inquirer.prompt({
+    name: `iq_16`,
+    type: `list`,
+    message: `Which number should replace the questionmark?
+    2, 3, 5, 7, 11, 13, 17, 19, ?, 29:`,
+    choices: [`23`, `22`, `25`, `30`],
+  });
+  if (answers.iq_16 === 23) {
+    item = answers.iq_16;
+  }
+  return handleAnswer(answers.iq_16 === 23);
+}
+// ==========================
 
-//   });
-//   return handleAnswer(answers.iq_14 === );
-// }
-// async function question15() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_15`,
-//     type: `list`,
+async function question17() {
+  const answers = await inquirer.prompt({
+    name: `iq_17`,
+    type: `list`,
+    message: `There are two ducks in front of a duck, two ducks behind a duck and a duck in the middle. How many ducks are there?`,
+    choices: [5, 6, 3, 4],
+  });
+  if (answers.iq_17 === 3) {
+    item = answers.iq_17;
+  }
+  return handleAnswer(answers.iq_17 === 3);
+}
 
-//   });
-//   return handleAnswer(answers.iq_15 === );
-// }
-// async function question16() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_16`,
-//     type: `list`,
-
-//   });
-//   return handleAnswer(answers.iq_16 === );
-// }
-// async function question17() {
-//   const answers = await inquirer.prompt({
-//     name: `iq_17`,
-//     type: `list`,
-
-//   });
-//   return handleAnswer(answers.iq_17 === );
-// }
 // async function question() {
 //   const answers = await inquirer.prompt({
 //     name: `iq_`,
 //     type: `list`,
 
 //   });
+//   if (answers.iq_ === ) {
+//     item = answers.iq_;
+//   }
 //   return handleAnswer(answers.iq_ === );
 // }
 
-async function continueGame() {
-  let weiter;
-  const answers = await inquirer.prompt({
-    name: `spielen`,
-    type: `list`,
-    message: `Do you want to play again?`,
-
-    choices: [`yes`, `no`],
-  });
-  if (answers.spielen === `yes`) {
-    await level1();
-  } else {
-    process.exit(1);
-  }
-}
-console.clear();
-
-async function level1() {
-  await question6();
-  await question7();
-  await question1();
-  await question2();
-  await question3();
-}
-// level1()
-// await question1();
-// await question2();
-// await question3();
-// await question4();
-// await question5();
-
-// await question1();
-// await question2();
-// await question3();
-
-// ------------------------------------------------------
-// die funktionen rufen sich wieder automatisch auf.
-// nach gameover sollte es doch eigentöich nicht weitergehen...oder vlt nur noch eine abfrage ob man weiterspilen möchte
-// ich habe versucht es mit einer if abfrage zu unterbrechen und den player.alife auf false zzu setzen wenn game over ist, es hat aber leider auch nicht funktioniert...
-// -----------------------------------------------------------------------
-
-// if (player.alife == true) {
-//   // level2.forEach((funk) => funk);
-//   await question5(),
-//     await question1(),
-//     await question2(),
-//     await question3(),
-//     await question4();
-// }
+await question2();
+await question3();
+await question4();
+await question5();

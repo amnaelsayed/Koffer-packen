@@ -328,3 +328,199 @@ console.log("+".repeat(50));
 // ];
 // console.log(trivialFragen);
 
+async function trivial1() {
+  let item ;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"In what year did the Titanic sink in the Atlantic on her maiden voyage?",
+    choices:[ 
+     "1912",
+     "1921",
+     "1914",
+     "1916",
+     ],
+  });
+  if (answers.trivialFragen === "1912" ) {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === "1912");
+}
+
+async function trivial2() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"What is the smallest bird in the world?",
+    choices:[ 
+      "owl",
+      "swallow",
+      "pigeon",
+      "Bee Hummingbird",
+     ],
+
+  });
+  if (answers.trivialFragen === "Bee Hummingbird") {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === "Bee Hummingbird",);
+}
+
+async function trivial3() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"In which movie did Hugh Jackman play the rival magician of the character played by Christian Bale?",
+    choices:[ 
+      "The prestige",
+      "Lord of the Rings",
+      "Assassins",
+      "Dream",
+     ],
+
+  });
+  if (answers.trivialFragen ==="The prestige" ) {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === "The prestige");
+}
+
+async function trivial4() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"What year was The Godfather first published?",
+    choices:[ 
+      1917,
+      1972,
+      1982,
+      1983,
+     ],
+
+  });
+  if (answers.trivialFragen === 1972) {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === 1972);
+}
+
+async function trivial5() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"How many players are there on a water polo team?",
+    choices:[ 
+      9,
+      10,
+      7,
+      8,
+     ],
+
+  });
+  if (answers.trivialFragen === 8 ) {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === 8);
+}
+
+async function trivial6() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"How many hearts does an octopus have?" ,
+    choices:[ 
+      5,
+      3,
+      4,
+      7,
+     ],
+
+  });
+  if (answers.trivialFragen === 3) {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === 3);
+}
+
+async function trivial7() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"Which singer was known as The King of Pop and The Gloved One among others?" ,
+  choices: [
+    "Michael Jackson",
+    "Elton John",
+    "Ubo Jürgens",
+    "John Lennon",
+   ],
+
+  });
+  if (answers.trivialFragen === "Michael Jackson") {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen ==="Michael Jackson" );
+}
+
+async function trivial8() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"What nationality was the artist Henri Matisse?",
+    choices:[ 
+      "German",
+      "Russian",
+      "Arabian",
+      "French",
+     ],
+  });
+  if (answers.trivialFragen === "French") {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === "French");
+}
+
+async function trivial9() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"Name the land.Giza Pyramid and the Great Sphinx?",
+    choices:[ 
+      "Syria",
+      "Egypt",
+      "Italy",
+      "Greece",
+     ],
+
+  });
+  if (answers.trivialFragen === "Egypt") {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen ==="Egypt" );
+}
+async function trivial10() {
+  let item;
+  const answers = await inquirer.prompt({
+    name: `trivialFragen`,
+    type: `list`,
+    message:"What year is modern paper first used?",
+    choices:[ 
+      105,
+      109,
+      125,
+      912,
+     ], 
+
+  });
+  if (answers.trivialFragen === 105) {
+    item = answers.trivialFragen;
+  }
+  return handleAnswer(answers.trivialFragen === 105);
+}
