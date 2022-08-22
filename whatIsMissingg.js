@@ -2,31 +2,15 @@ import promptSync from "prompt-sync";
 import chalk from "chalk";
 import gradient from "gradient-string";
 import figlet from "figlet";
-import enquirer from "enquirer";
+import inquirer from "inquirer";
 import chalkAnimation from "chalk-animation";
 const prompt = promptSync();
 
 const wim1 = ["🧩", "🎮", "🪗", "🎳", "🪘", "🎷", "🚴‍♂️"];
-
 const wim11 = ["🥎", "🛼", "🪀", "🥊", "🎺", "🚲"];
+
 const wim22 = ["🧘‍♂️", "🎻", "🎯", "🎪", "🏂", "🎠"];
-
 const wim2 = [`📰`, `💣`, `🪞`, `📸`, `🎈`, `📬`, `🧽`];
-
-// `🩺`,
-// `📚`,
-// `📖`,
-// `🔖`,
-// `🧷`,
-// `🪟`,
-// `🎁`,
-// `🩹`,
-// `📐`,
-// `📏`,
-// `🧮`,
-// `📌`,
-// `🔭`,
-// ];
 
 const wim3 = ["😂", "😜", "😇", "🥰", "🤓", "😚", "😠"];
 const wim33 = ["🤣", "🤪", "🥸", "😍", "😗", "😣"];
@@ -43,21 +27,19 @@ const wim66 = ["🍹", "🍽", "🍡", "🍜", "🧁", "🥟"];
 const wim7 = ["🥎", "🏐", "🏀", "🏸", "🛹", "⛸", "🏑"];
 const wim77 = ["⚾️", "⚽️", "🏉", "🏓", "🛼", "🏒"];
 
-const wim8 = ["🎟", "🏅", "🏖", "", "", "", ""];
-const wim88 = ["🎫", "🎖", "⛱", "", "", ""];
-const wim9 = ["", "", "", "", "", "", ""];
-const wim99 = ["", "", "", "", "", ""];
-const wim10 = ["", "", "", "", "", "", ""];
-const wim1010 = ["", "", "", "", "", ""];
+const wim8 = ["🎟", "🏅", "🏖", "🏊‍♂️", "🤾‍♂️", "🤽", "🤼‍♀️"];
+const wim88 = ["🎫", "🎖", "⛱", "🤾", "🏌️‍♂️", "🤼"];
 
-const whatIsMissingArrayTop = [wim1];
+const wim9 = ["🛠", "🪚", "💣", "🔪", "🔬", "🛌", "🧽"];
+const wim99 = ["🔨", "🪛", "🔫", "🔮", "🔭", "🛏"];
 
-const whatIsMissingArrayBottom = [wim2];
+const wim10 = ["📪", "🔎", "🔐", "🔓", "📌", "🗂", "📉"];
+const wim1010 = ["📬", "🔍", "🔒", "📍", "📁", "📈"];
+
 function whatIsMissingIntro() {
   const intro = prompt(
-    `You have 10 seconds to memorise the following objects :\nPress enter when you are ready`
+    `You have 10 seconds to memorise the objects that will appear on your screen:\nPress enter when you are ready`
   );
-  // console.log(intro);
 }
 
 // console.clear();
@@ -69,97 +51,86 @@ function whatIsMissing(array, array2) {
   console.log(`Memorise the objects :`);
   console.log(array);
   setTimeout(function () {
-    // let ii = Math.ceil(Math.random() * array.length-1);
-
     console.clear();
     const missing = array2.push(array.splice(i, 1)[0]);
-    const missingOne = array;
+    // const missingOne = array;
 
-    let seconds = new Date().getSeconds();
-    if (seconds <= 10) {
-      array3.push(`a:` + array2.shift());
-      array3.push(`b:` + array2.shift());
-      array3.push(`c:` + array2.pop());
-      array3.push(`d:` + array2.shift());
-      array3.push(`e:` + array2[0]);
-      console.log(array);
-      console.log(`Which item of the bottom array is missing from the top one`);
-      console.log(array3);
-    } else if (seconds > 10 && seconds <= 20) {
-      array3.push(`a:` + array2.pop());
-      array3.push(`b:` + array2.pop());
-      array3.push(`c:` + array2.pop());
-      array3.push(`d:` + array2.pop());
-      array3.push(`e:` + array2[0]);
+    // let seconds = new Date().getSeconds();
+    // if (seconds <= 10) {
+    array3.push(array2.shift());
+    array3.push(array2.shift());
+    array3.push(array2.pop());
+    array3.push(array2.shift());
+    array3.push(array2[0]);
+    async function frage1(array3) {
+      let item;
 
-      console.log(array);
-      console.log(`Which item of the bottom array is missing from the top one`);
-      console.log(array3);
-    } else if (seconds > 20 && seconds <= 30) {
-      array3.push(`a:` + array2.shift());
-      array3.push(`b:` + array2.shift());
-      array3.push(`c:` + array2.pop());
-      array3.push(`d:` + array2.pop());
-      array3.push(`e:` + array2[0]);
-
-      console.log(array);
-      console.log(`Which item of the bottom array is missing from the top one`);
-      console.log(array3);
-    } else if (seconds > 30 && seconds <= 40) {
-      array3.push(`a:` + array2.shift());
-      array3.push(`b:` + array2.pop());
-      array3.push(`c:` + array2.pop());
-      array3.push(`d:` + array2.pop());
-      array3.push(`e:` + array2[0]);
-
-      console.log(array);
-      console.log(`Which item of the bottom array is missing from the top one`);
-      console.log(array3);
-    } else if (seconds > 40 && seconds <= 50) {
-      array3.push(`a:` + array2.shift());
-      array3.push(`b:` + array2.shift());
-      array3.push(`c:` + array2.shift());
-      array3.push(`d:` + array2.pop());
-      array3.push(`e:` + array2[0]);
-
-      console.log(array);
-      console.log(`Which item of the bottom array is missing from the top one`);
-      console.log(array3);
-    } else {
-      array3.push(...array2);
-
-      console.log(array3);
+      const answers = await inquirer.prompt({
+        name: `objekt1`,
+        type: `list`,
+        message: `Which of these items is the one that you saw before?`,
+        choices: array3,
+      });
+      if (answers.objekt1 === missing) {
+        item = answers.frage1;
+        console.log(`Amazing that was the right answer!!!`);
+      }
+      // return handleAnswer(answers.frage1 === missing );
     }
-  }, 6000);
+    frage1(array3);
+
+    // } else if (seconds > 10 && seconds <= 20) {
+    //   array3.push(`a:` + array2.pop());
+    //   array3.push(`b:` + array2.pop());
+    //   array3.push(`c:` + array2.pop());
+    //   array3.push(`d:` + array2.pop());
+    //   array3.push(`e:` + array2[0]);
+
+    //   // console.log(array);
+    //   console.log(`Which of these items is the one that you saw before?`);
+    //   console.log(array3);
+    // } else if (seconds > 20 && seconds <= 30) {
+    //   array3.push(`a:` + array2.shift());
+    //   array3.push(`b:` + array2.shift());
+    //   array3.push(`c:` + array2.pop());
+    //   array3.push(`d:` + array2.pop());
+    //   array3.push(`e:` + array2[0]);
+
+    //   // console.log(array);
+    //   console.log(`Which of these items is the one that you saw before?`);
+    //   console.log(array3);
+    // } else if (seconds > 30 && seconds <= 40) {
+    //   array3.push(`a:` + array2.shift());
+    //   array3.push(`b:` + array2.pop());
+    //   array3.push(`c:` + array2.pop());
+    //   array3.push(`d:` + array2.pop());
+    //   array3.push(`e:` + array2[0]);
+
+    //   // console.log(array);
+    //   console.log(`Which of these items is the one that you saw before?`);
+    //   console.log(array3);
+    // } else if (seconds > 40 && seconds <= 50) {
+    //   array3.push(`a:` + array2.shift());
+    //   array3.push(`b:` + array2.shift());
+    //   array3.push(`c:` + array2.shift());
+    //   array3.push(`d:` + array2.pop());
+    //   array3.push(`e:` + array2[0]);
+
+    //   // console.log(array);
+    //   console.log(`Which of these items is the one that you saw before?`);
+    //   console.log(array3);
+    // } else {
+    //   array3.push(...array2);
+
+    // console.log(array3);
+    // }
+  }, 1000);
 }
 
-const introGame = () => {
-  // const myFunction = () => {
+async function whatIsMissingGame(array, array2) {
   whatIsMissingIntro();
-  whatIsMissing(whatIsMissingArrayTop[0], whatIsMissingArrayBottom[0]);
-};
-// ========================
+  whatIsMissing(array, array2);
+}
+whatIsMissingGame(wim3, wim33);
 
-// console.log(wim1.includes(`hello`));
-
-// let timerID = setTimeout(myFunction, 10000);
-// };
-// introGame();
-// const whatIsGame = () => {
-//
-// };
-// const game={}
-// function wimAnswer() {
-//   // console.log(`This is yur answer`);
-// }
-// const theAnswer = prompt(`Choose your answer`);
-
-// if (antwort.toLowerCase() == `a`) {
-//   console.clear();
-//   console.log(`Amazing`);
-// } else {
-//   console.log(`try one more time`);
-// }
-
-// console.log(missing());
-export default introGame;
+export default whatIsMissingGame;
