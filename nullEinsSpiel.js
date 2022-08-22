@@ -502,4 +502,3 @@ arraySmileyColdHot;
 //       console.log(player.alife);
 //     });
 // };
-<script src="http://www.qqpr.com/ascii/js/1072.js"></script>;
