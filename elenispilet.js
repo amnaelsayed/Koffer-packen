@@ -11,7 +11,7 @@ const prompt = promptSync();
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
-
+let wantToContinue;
 var player = {
   kofferArray: [],
   userName: [],
@@ -41,10 +41,10 @@ const iqFragen = [
 
 //=======================================================
 
-const sleepMedium = (ms = 1100) => new Promise((r) => setTimeout(r, ms));
+const sleepMedium = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -174,8 +174,8 @@ async function handleAnswer(isCorrect, item, answers) {
     spinner.success({
       text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
-    await sleepLong();
-    await sleepLong();
+    // await sleepLong();
+    await sleepShort();
     player.kofferArray.push(item);
 
     console.clear();
@@ -276,7 +276,7 @@ async function kofferAbfrage() {
   } else {
     console.clear();
     console.log(
-      gradient("orange", "yellow").multiline(`
+      gradient.teen(`
 
                 ______    ______   __       __  ________         ______   __     __  ________  _______
               /      \  /      \ /  \     /  |/        |       /      \ /  |   /  |/        |/       \
@@ -291,7 +291,7 @@ async function kofferAbfrage() {
   `)
     );
     await sleepLong();
-
+    await continueGame();
     process.exit(0);
     player.alife = false;
     console.log(player.alife);
@@ -491,20 +491,41 @@ async function question7() {
 //   });
 //   return handleAnswer(answers.iq_ === );
 // }
+
+async function continueGame() {
+  let weiter;
+  const answers = await inquirer.prompt({
+    name: `spielen`,
+    type: `list`,
+    message: `Do you want to play again?`,
+
+    choices: [`yes`, `no`],
+  });
+  if (answers.spielen === `yes`) {
+    await level1();
+  } else {
+    process.exit(1);
+  }
+}
 console.clear();
+
+async function level1() {
+  await question6();
+  await question7();
+  await question1();
+  await question2();
+  await question3();
+}
 await question1();
 await question2();
 await question3();
 await question4();
 await question5();
-await question6();
-await question7();
+
 await question1();
 await question2();
 await question3();
-await question1();
-await question2();
-await question3();
+
 // ------------------------------------------------------
 // die funktionen rufen sich wieder automatisch auf.
 // nach gameover sollte es doch eigentöich nicht weitergehen...oder vlt nur noch eine abfrage ob man weiterspilen möchte
