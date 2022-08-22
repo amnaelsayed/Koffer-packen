@@ -531,7 +531,7 @@
 // await question3();
 // await question4();
 // await question5();
-#!/usr/bin/env node
+// #!/usr/bin/env node
 
 import chalk from "chalk";
 import gradient from "gradient-string";

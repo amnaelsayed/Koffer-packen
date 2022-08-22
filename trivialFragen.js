@@ -150,14 +150,17 @@ const { Select } = enquirer;
   // ];
 console.clear()
 const begrüsung = prompt(chalk.bgGreen("Wie heisst du? "));
+console.log();
 console.log(chalk.green(chalk.blue("Hallo", chalk.cyan(begrüsung),"🤗")));
+console.log();
 const möchteSpiel = prompt(chalk.bgGreen("Willst du spielen?😉"))
+console.log();
 console.log(chalk.bgGray(chalk.blue(möchteSpiel)));
+console.log();
 
 const spielRegeln = prompt(chalk.red("Spielregeln :"))
   console.log(spielRegeln,"\n", chalk.blue("1- Du hast 3 Versuche."),"\n","\n", chalk.blue ("2-Jede Frage hat 4 Wahlen."),"\n","\n", chalk.green("Viel Glück  😍"));
 console.log();
-
 
   const answer1 = await prompt1.run()
   console.log(answer1);
@@ -173,24 +176,34 @@ console.log();
   
 
     if(weiter === "y"){
+      console.log();
       console.log(`${chalk.green("Die nächste Frage"," 🤓")}`);
+      console.log();
       
     }else if(weiter === "n"){
-      
+      console.log();
+     
       console.log(`${chalk.red("GAME",    " 😟",      "OVER!")}`);
+      
+      console.log();
       
     }
     
-  
+    
     
     const answer2 = await prompt2.run()
  
   console.log(answer2)
+  console.log();
   if(answer2 !== prompt2.rightAnswer){
+    console.log();
     console.log(`Tut mir leid,${chalk.red("Falsch")}, Du verlierst einen Versuch!`); 
+    console.log();
   }
   else if(answer2 === prompt2.rightAnswer){
+    console.log();
     console.log(chalk.green(`richtig`)); 
+    console.log();
   }
 
   
@@ -199,12 +212,13 @@ console.log();
   console.log(weiter);
 
   if(weiter === "y"){
+    console.log();
     console.log(`${chalk.green("Die nächste Frage"," 🤓")}`);
+    console.log();
   }else if(weiter === "n"){
     console.log(`${chalk.red("GAME",    " 😟",      "OVER!")}`);
   }
-console.log("+".repeat(50));
-  
+  console.log();
 
   const answer3 = await prompt3.run()
   console.log(answer3);
@@ -218,9 +232,12 @@ console.log("+".repeat(50));
 
   if(weiter === "y"){
     console.log(`${chalk.green("Die nächste Frage"," 🤓")}`);
+    console.log();
   }else if(weiter === "n"){
+    console.log();
     console.log(`${chalk.red("GAME",    " 😟",      "OVER!")}`);
   }
+
 
 
 // const trivialFragen = [
