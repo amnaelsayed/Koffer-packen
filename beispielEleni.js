@@ -121,7 +121,7 @@ const game = (array) => {
   });
   setTimeout(function () {
     array.splice(index, 1);
-    console.clear();
+    // console.clear();
     console.log(array);
     if (array.length === 1) {
       return `Game Over`;
@@ -134,7 +134,7 @@ const game = (array) => {
         prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
       )
     )
-    .catch(console.error);
+    // .catch(console.error);
 };
 const iqOne = game(paradeigma);
 console.log(iqOne);

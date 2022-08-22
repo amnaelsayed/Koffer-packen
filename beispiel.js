@@ -118,12 +118,37 @@ const tomorrow = (array) => {
     choices: array[0].choices,
     rightAnswer: array[0].rightAnswer,
   });
+
+    array.splice(0, 1);
+    console.clear();
+    if (array.length === 0) {
+      console.log(`Game Over`);
+    } else return tomorrow(array);
+  }, 3000);
+  // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
+  prompt5
+    .then(
+      (answer) => {
+        if (prompt5.rightAnswer === answer) {
+          console.log("You are right");
+        } else {
+          console.log(`You lost one life`);
+        }
+      }
+      // console.log(
+      //   gradient.summer(
+      //     prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+      //   )
+      // )
+    )
+    .catch(console.error);
+
   array.splice(0, 1);
   console.clear();
   if (array.length === 0) {
     console.log(`Game Over`);
   } else return tomorrow(array);
-};
+
 // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
 prompt5
   .then(
@@ -141,6 +166,7 @@ prompt5
     // )
   )
   .catch(console.error);
+
 
 const iqOne = tomorrow(paradeigma);
 console.log(iqOne);
