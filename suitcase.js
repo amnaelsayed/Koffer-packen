@@ -21,6 +21,8 @@ var player = {
   lives: 3,
   currentBalance: 0,
   alife: true,
+  level: 0,
+  rightAnswer: 0,
 };
 
 //iq fragen sind hier nur zum testen
@@ -44,8 +46,9 @@ const iqFragen = [
 
 const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
-const sleepShort = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+
+const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -172,9 +175,15 @@ async function handleAnswer(isCorrect, item, answers) {
     // await sleepLong();
     await sleepShort();
     player.kofferArray.push(item);
+    player.rightAnswer += 1;
 
     console.clear();
-    if (player.currentBalance % 200 === 0) {
+    if (
+      (player.kofferArray.length == 5 && player.currentBalance == 200) ||
+      (player.kofferArray.length == 7 && player.currentBalance == 480) ||
+      (player.kofferArray.length == 10 && player.currentBalance == 880)
+    ) {
+      console.log(player.kofferArray);
       await kofferAbfrage();
     }
     // if (player.currentBalance === 200) {
@@ -263,11 +272,54 @@ async function kofferAbfrage() {
     },
   });
   playerRemembers = answers.levelUp;
-  if (player.kofferArray.join(`, `) == playerRemembers) {
+  console.log(playerRemembers);
+  console.log(player.kofferArray.join(` `));
+  if (
+    player.kofferArray.join(` `) == playerRemembers &&
+    player.kofferArray.length == 10 &&
+    player.currentBalance == 880
+  ) {
+    player.kofferArray = [];
+    player.level += 1;
+    console.log(player.currentBalance);
+
+    await sleepLong();
+    console.clear();
+    await nextLevel();
+    await level2();
+  }
+  if (
+    player.kofferArray.join(` `) == playerRemembers &&
+    player.kofferArray.length == 7 &&
+    player.currentBalance == 480
+  ) {
+    player.kofferArray = [];
+    player.level += 1;
+    console.log(player.currentBalance);
+
+    await sleepLong();
+    console.clear();
+    await nextLevel();
+    await level2();
+  }
+  if (
+    player.kofferArray.join(` `) == playerRemembers &&
+    player.kofferArray.length == 5 &&
+    player.currentBalance == 200
+  ) {
     console.log(
       `👊🏼 Well done ${player.userName}. You just reached the next level.`
     );
+
+    // player.currentBalance = 0;
+    player.kofferArray = [];
+    player.level += 1;
+    console.log(player.currentBalance);
+
+    await sleepLong();
     console.clear();
+    await nextLevel();
+    await level1();
   } else {
     console.clear();
     console.log(
@@ -502,6 +554,46 @@ async function continueGame() {
     process.exit(1);
   }
 }
+async function nextLevel() {
+  const title = chalkAnimation.karaoke(
+    `
+   ███    █████████   █████████    ██    ████████    █████████      
+   ████   ███     ██ ██   ██       ██    ██    ██    ███    ██      
+   ██ ██  ██████   ███    ██       ██    █████ ██    ██████ ██      
+   ██  ██ ███     ██ ██   ██       ██    ██     ██  ████    ██      
+   ██   ███████████   ██  ██       █████████████ ████ █████████████ 
+                                                                    
+                                                                    
+   `
+  );
+  await sleepMedium();
+  title.stop(clear());
+  // will stop the animation, otherwise it runs forever
+
+  const welcomeText = chalkAnimation.rainbow(`
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣉⣉⣉⣿⣿⣇⣰⣶⣶⣶⣶⣆⣸⣿⣿⣉⣉⣉⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠟⠉⠉⣿⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣿⠉⠉⠻⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣦⣀⣀⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿⣀⣀⣴⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+
+  Welcome to the Suitcase,
+  give the correct answer and fly to dreamy destinations!
+  Are you readyyyyyyyyy?`);
+  await sleepMedium();
+  welcomeText.stop(clear());
+  // await spieleOneUP();
+}
 
 async function introduction() {
   console.clear();
@@ -512,20 +604,55 @@ async function introduction() {
   await gameRules();
 }
 async function spiele() {
-  await question6();
   await question7();
-  await question1();
-  await question2();
-  await question3();
+  await question7();
+  await question7();
+  await question7();
+  await question7();
+  await question7();
+  await question7();
+  await question7();
+  // 8spiele minimum
 }
 
-async function weiter() {
-  await question6();
-  await question7();
-  await question1();
+async function level1() {
   await question2();
-  await question3();
+  await question2();
+  await question2();
+  await question2();
+  await question2();
+  await question2();
+  await question2();
+  await question2();
+  await question2();
+  await question2();
+  // 8spiele minimum
 }
+async function level2() {
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  await question6();
+  // 8spiele minimum
+}
+// async function spieleOneUP() {
+//   await level1();
+//   await level2();
+// }
+
+// async function weiter() {
+//   await question6();
+//   await question7();
+//   await question1();
+//   await question2();
+//   await question3();
+// }
 await introduction();
 await spiele();
 
