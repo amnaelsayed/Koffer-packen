@@ -52,6 +52,7 @@ const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
+const sleepExtraLong = (ms = 50000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -148,20 +149,20 @@ async function getCity() {
 console.log(player);*/
 
 async function gameRules() {
-  const explanation = chalkAnimation.karaoke(`\n\n
-                 Great to have you here ${player.userName} from ${player.userCity} \n\n
-               Before you begin with the game, give me a second to explain the rules\n\n
-                     The $uitcase is fun & challenging (!only) memory game.\n
-                  Questions of different topics are combined with the classical\n
-                                   "Packing the suitcase" game. \n\n\n
-      You have to answer the questions correclty and remember all the items that you pack in your suitcase. 
-      Every time that you give 5 right answers you will be asked to say what is inside your suitcase.\n\n
-                If your answer is right you will collect $money$ and level up. \n\n
-                  If you complete all levels you win tickes to magic destinations\n\n
-                             You have 3 lives to complete all the tasks\n\n`);
+  const explanation = chalkAnimation.karaoke(`\n\n\n\n
+                                  Great to have you here ${player.userName} from ${player.userCity} \n\n
+                    Before you begin with the game, give me a second to explain the rules:\n\n
+                            The $uitcase is fun & challenging (!only) memory game.\n\n
+           Questions of different topics are combined with the classical "Packing the suitcase" game. \n\n\n\n
+      You have to answer the questions correclty and remember all the items that you pack in your suitcase.\n\n 
+          Every time that you give 5 right answers you will be asked to say what is inside your suitcase.\n\n
+                         If your answer is right you will collect $money$ and level up. \n\n
+                        If you complete all levels you win tickes to magic destinations.\n\n
+                                   You have 3 lives to complete all the tasks!\n\n`);
   // max.Gewicht 25Kg und bei jeder level kriegt 5 plus
   //  auch in den handleAnswer()
-  await sleepLong();
+  await sleepExtraLong();
+
   explanation.stop();
 }
 
