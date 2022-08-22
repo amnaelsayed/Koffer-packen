@@ -310,59 +310,92 @@ var kofferArray = [];
 
 //     .catch(console.error);
 // };
-// const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
-// // Change the ms to 4000 or 5000
+const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+// Change the ms to 4000 or 5000
 
 // const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 // const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
-async function filterGame(array, zeichen) {
-  console.clear();
-  const filtered = array.filter((num) => num === zeichen);
-  console.log(
-    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-                             Try to concentrate and be fast. You only have 5 sec for every task!`
-  );
-  await sleepLong();
-  console.clear();
-  console.log(
-    `\n\n\n\n\n\n\n\n\n\n\n\n
-                                                    Count the ${zeichen}!`
-  );
-  console.log(`\n\n\n\n\n
-    ${array}\n`);
-  await sleepLong();
-  console.clear();
-  const answers = await inquirer.prompt({
-    name: `anzahl`,
-    type: `input`,
-    message: `   \n\n\n\n\n\n\n\n\n\n\n\n\n\n
-                        Your time is up player.username! How many ${zeichen} have you counted?\n\n\n\n\n
-                                                        `,
-    default() {
-      return `anzahl`;
-    },
-  });
-  console.log(answers.anzahl);
-  console.log(filtered.length);
-  console.log(filtered);
+// async function filterGame(array, zeichen) {
+//   console.clear();
+//   const filtered = array.filter((num) => num === zeichen);
+//   console.log(
+//     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+//                              Try to concentrate and be fast. You only have 5 sec for every task!`
+//   );
+//   await sleepLong();
+//   console.clear();
+//   console.log(
+//     `\n\n\n\n\n\n\n\n\n\n\n\n
+//                                                     Count the ${zeichen}!`
+//   );
+//   console.log(`\n\n\n\n\n
+//     ${array}\n`);
+//   await sleepLong();
+//   console.clear();
+//   const answers = await inquirer.prompt({
+//     name: `anzahl`,
+//     type: `input`,
+//     message: `   \n\n\n\n\n\n\n\n\n\n\n\n\n\n
+//                         Your time is up player.username! How many ${zeichen} have you counted?\n\n\n\n\n
+//                                                         `,
+//     default() {
+//       return `anzahl`;
+//     },
+//   });
+//   console.log(answers.anzahl);
+//   console.log(filtered.length);
+//   console.log(filtered);
 
-  if (answers.anzahl == filtered.length) {
-    // await spiele();
-    console.log("es laeuft");
-    await sleepMedium();
-  } else {
-    console.log("es laeuft nicht");
-    await sleepMedium();
-  }
-  // process.exit(0);
-}
+//   if (answers.anzahl == filtered.length) {
+//     // await spiele();
+//     console.log("es laeuft");
+//     await sleepMedium();
+//   } else {
+//     console.log("es laeuft nicht");
+//     await sleepMedium();
+//   }
+//   // process.exit(0);
+// }
 
-async function countElem() {
-  const searchNiceSmile = await filterGame(arrSmile, "  😉  ");
-  const searchBadSmile = await filterGame(arrSmile, "  😡  ");
-  const searchMonsterGhost = await filterGame(arrGhost, "  👻  ");
-  const searchClown = await filterGame(arraySmileyColdHot, "  🤡  ");
-}
+// async function countElem() {
+//   const searchNiceSmile = await filterGame(arrSmile, "  😉  ");
+//   const searchBadSmile = await filterGame(arrSmile, "  😡  ");
+//   const searchMonsterGhost = await filterGame(arrGhost, "  👻  ");
+//   const searchClown = await filterGame(arraySmileyColdHot, "  🤡  ");
+// }
+
+// async function countElemClown(array, zeichen) {
+//   console.log(
+//     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+//                              Try to concentrate and be fast. You only have 5 sec for every task!`
+//   );
+//   await sleepLong();
+//   console.clear();
+//   console.log(
+//     `\n\n\n\n\n\n\n\n\n\n\n\n
+//                                                     Count the ${zeichen}!`
+//   );
+//   console.log(`\n\n\n\n\n
+//                                                         ${array}\n`);
+//   await sleepLong();
+//   console.clear();
+//   let item;
+//   const answers = await inquirer.prompt({
+//     name: `ct_Clown`,
+//     type: `input`,
+//     message: `\n\n\n\n\n\n\n
+//                                     Which number should come next in the pattern?\n\n\n\n
+//                                                   -2 , 5, -4, 3, -6:\n\n\n\n`,
+//     // choices: [`0`, `1`, `-3`, `-4`],
+//   });
+//   if (answers.ct_Clown === "2") {
+//     item = answers.iq_7;
+//   }
+//   return handleAnswer(answers.ct_Clown === `2`, item);
+// }
+// const searchClown = await countElemClown(arraySmileyColdHot, "  🤡  ");
+
+// await countElem();
 export default arrSmile;
 arrGhost;
 arraySmileyColdHot;

@@ -202,8 +202,6 @@ async function gameOver() {
 }
 
 async function lostOneLife() {
-  player.lives--;
-
   console.clear();
   const go = chalkAnimation.karaoke(`
          ██       ██████  ███████ ████████      ██████  ███    ██ ███████     ██      ██ ███████ ███████ 
@@ -245,6 +243,7 @@ async function lostOneLife() {
 }
 
 async function handleAnswer(isCorrect, item, answers) {
+  await sleepMedium();
   console.clear();
   const spinner = createSpinner("Checking answer...").start();
   // await sleepShort();
@@ -253,10 +252,19 @@ async function handleAnswer(isCorrect, item, answers) {
 
     await sleepShort();
     spinner.success({
-      text: `👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
+      text: `\n\n\n\n\n\n\n\n\n\n\n
+    👏🏼 Great work ${player.userName}! You just put a / an ${item} in your $uitca$e and have ${player.currentBalance} 💵 for the journey of your dreams`,
     });
+    await sleepLong();
+    console.clear();
+
+    console.log(
+      chalk.yellow(`\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Remember:\n\n\n\n               
+                                                     ${item}`)
+    );
     // await sleepLong();
-    await sleepShort();
+    await sleepLong();
     player.kofferArray.push(item);
     player.rightAnswer += 1;
 
@@ -270,8 +278,10 @@ async function handleAnswer(isCorrect, item, answers) {
       await kofferAbfrage();
     }
   } else {
+    player.lives--;
     spinner.error({
-      text: `💔  UUppssss that was wrong, you now have ${player.lives} 😬 !`,
+      text: `\n\n\n\n\n\n\n\n\n\n\n
+                                      💔  UUppssss that was wrong, you now have ${player.lives} 😬 !`,
     });
 
     await sleepLong();
@@ -291,7 +301,9 @@ async function kofferAbfrage() {
     name: `levelUp`,
     type: `input`,
     message: chalkAnimation.karaoke(
-      `Do you still remember what is inside your $uitca$e? \n answer correclty this question to travel to the next level 💫`
+      `\n\n\n\n\n\n\n
+                                    Do you still remember what is inside your $uitca$e? \n \n \n 
+                                 Answer correclty this question to travel to the next level 💫`
     ),
     default() {
       return `abfrage`;
@@ -334,7 +346,8 @@ async function kofferAbfrage() {
     player.currentBalance == 200
   ) {
     console.log(
-      `👊🏼 Well done ${player.userName}. You just reached the ${player.level}.`
+      `\n\n\n\n\n\n\n
+                            👊🏼 Well done ${player.userName}. You just reached the ${player.level}.`
     );
 
     // player.currentBalance = 0;
@@ -365,7 +378,8 @@ async function question1() {
   var answers = await inquirer.prompt({
     name: `iq_1`,
     type: `list`,
-    message: `What starts with "e" and ends with "e" but only has one letter in it?`,
+    message: `\n\n\n\n\n\n\n
+                          What starts with "e" and ends with "e" but only has one letter in it?\n\n\n\n\n\n\n`,
     choices: [`envelope`, `e`, `eye`, `elite`],
     rightAnswer: `envelope`,
   });
@@ -379,8 +393,9 @@ async function question2() {
   const answers = await inquirer.prompt({
     name: `iq_2`,
     type: `list`,
-    message: `Which number should come next in the pattern?
-        37, 34, 31, 28`,
+    message: `\n\n\n\n\n\n\n
+                                         Which number should come next in the pattern?\n\n\
+                                                         37, 34, 31, 28\n\n\n\n\n\n\n`,
     choices: [23, 25, 17, 26],
   });
   if (answers.iq_2 === 25) {
@@ -393,7 +408,9 @@ async function question3() {
   const answers = await inquirer.prompt({
     name: `iq_3`,
     type: `list`,
-    message: `Book is to Reading as Fork is to:`,
+    message: `\n\n\n\n\n\n\n
+                                              Book is to Reading as Fork is to:\n\n\n\n\n\n\n
+                                                                    `,
     choices: [`a. drawing`, `b. writing`, `stirring`, `eating`],
   });
   if (answers.iq_3 === `eating`) {
@@ -406,8 +423,9 @@ async function question4() {
   const answers = await inquirer.prompt({
     name: `iq_4`,
     type: `list`,
-    message: `What number best completes the analogy:
-      8:4 as 10:`,
+    message: `\n\n\n\n\n\n\n
+                                           What number best completes the analogy:\n\n\n\n\
+                                                            8:4 as 10:\n\n\n\n`,
     choices: [3, 7, 24, 5],
   });
   if (answers.iq_4 === 5) {
@@ -420,9 +438,10 @@ async function question5() {
   const answers = await inquirer.prompt({
     name: `iq_5`,
     type: `list`,
-    message: ` 12593 is to 35291
-        and 29684 is to 46982
-        therefore 72936 is to ?`,
+    message: `\n\n\n\n\n\n\n
+                                               12593 is to 35291\n\n\n\n
+                                               and 29684 is to 46982\n\n\n\n
+                                              therefore 72936 is to ?\n\n\n\n\n\n\n`,
     choices: [69237, 62397, 32796, 39762],
   });
   if (answers.iq_5 === 69237) {
@@ -436,8 +455,9 @@ async function question6() {
   const answers = await inquirer.prompt({
     name: `iq_6`,
     type: `list`,
-    message: ` How many cases do you need if you have to pack 112 pairs
-    of shoes into cases that each hold 28 shoes?`,
+    message: ` \n\n\n\n\n\n\n
+                                    How many cases do you need if you have to pack 112 pairs\n\n\n
+                                         of shoes into cases that each hold 28 shoes?\n\n\n\n\n`,
     choices: [16, 8, 24, 12],
   });
   if (answers.iq_6 === 8) {
@@ -450,8 +470,9 @@ async function question7() {
   const answers = await inquirer.prompt({
     name: `iq_7`,
     type: `list`,
-    message: `Which number should come next in the pattern?
-    -2 , 5, -4, 3, -6:`,
+    message: `\n\n\n\n\n\n\n
+                                    Which number should come next in the pattern?\n\n\n\n
+                                                  -2 , 5, -4, 3, -6:\n\n\n\n`,
     choices: [`0`, `1`, `-3`, `-4`],
   });
   if (answers.iq_7 === `1`) {
@@ -557,11 +578,16 @@ async function continueGame() {
   const answers = await inquirer.prompt({
     name: `spielen`,
     type: `list`,
-    message: `Do you want to play again?`,
+    message: `\n\n\n\n\n\n\n\n\n\n\n
+                                                Do you want to play again?\n\n\n`,
 
     choices: [`yes`, `no`],
   });
   if (answers.spielen === `yes`) {
+    player.currentBalance = 0;
+    player.kofferArray = [];
+    player.level = 0;
+    player.lives = 3;
     await spiele();
   } else {
     process.exit(1);
@@ -570,11 +596,11 @@ async function continueGame() {
 async function nextLevel() {
   const title = chalkAnimation.karaoke(
     `
-   ███    █████████   █████████    ██    ████████    █████████      
-   ████   ███     ██ ██   ██       ██    ██    ██    ███    ██      
-   ██ ██  ██████   ███    ██       ██    █████ ██    ██████ ██      
-   ██  ██ ███     ██ ██   ██       ██    ██     ██  ████    ██      
-   ██   ███████████   ██  ██       █████████████ ████ █████████████ 
+                                 ███    █████████   █████████    ██    ████████    █████████      
+                                 ████   ███     ██ ██   ██       ██    ██    ██    ███    ██      
+                                 ██ ██  ██████   ███    ██       ██    █████ ██    ██████ ██      
+                                 ██  ██ ███     ██ ██   ██       ██    ██     ██  ████    ██      
+                                 ██   ███████████   ██  ██       █████████████ ████ █████████████ 
                                                                     
                                                                     
    `
@@ -583,30 +609,57 @@ async function nextLevel() {
   title.stop(clear());
   // will stop the animation, otherwise it runs forever
 
-  const welcomeText = chalkAnimation.rainbow(`
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣉⣉⣉⣿⣿⣇⣰⣶⣶⣶⣶⣆⣸⣿⣿⣉⣉⣉⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠟⠉⠉⣿⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣿⠉⠉⠻⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣦⣀⣀⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿⣀⣀⣴⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+  const welcomeText = chalkAnimation.rainbow(`\n\n\n\n\n\n\n
+                                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣿⣿⣉⣉⣉⣿⣿⣇⣰⣶⣶⣶⣶⣆⣸⣿⣿⣉⣉⣉⣿⣿⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠟⠉⠉⣿⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣿⠉⠉⠻⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣦⣀⣀⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣿⣀⣀⣴⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
-  Welcome to the Suitcase,
-  give the correct answer and fly to dreamy destinations!
-  Are you readyyyyyyyyy?`);
+                                        \n\n\n\n      Congratulation!!!`);
   await sleepMedium();
   welcomeText.stop(clear());
   // await spieleOneUP();
 }
+async function countElemClown(array, zeichen) {
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the ${zeichen}!`
+  );
+  console.log(`\n\n\n\n\n${array}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_Clown`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up player.username! How many ${zeichen} have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_Clown === "2") {
+    item = answers.ct_Clown;
+  }
+  return handleAnswer(answers.ct_Clown === `2`, item);
+}
+// await countElemClown(arraySmileyColdHot, "  🤡  ");
 
 async function introduction() {
   console.clear();
