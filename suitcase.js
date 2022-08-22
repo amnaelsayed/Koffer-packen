@@ -101,11 +101,11 @@ async function introTextAndName() {
   const getName = await inquirer.prompt({
     name: `userName`,
     type: `input`,
-    message: `
-    Before we start I would like to
-    know a few things about you...
-    \n
-    What is your name?`,
+    message: `\n\n\n\n
+                                         Before we start I would like to
+                                          know a few things about you...
+    \n\n\n
+            What is your name?`,
     default() {
       return `Player`;
       // it will show (player) in the console
@@ -120,8 +120,9 @@ async function getAge() {
   const age = await inquirer.prompt({
     name: `userAge`,
     type: `input`,
-    message: `
-    What is your age?`,
+    message: `\n\n
+            What is your age?`,
+
     default() {
       return `Age`;
     },
@@ -133,31 +134,31 @@ async function getCity() {
   const city = await inquirer.prompt({
     name: `userCity`,
     type: `input`,
-    message: `
-    Where are you from?`,
+    message: `\n\n
+            Where are you from?`,
     default() {
       return `City`;
     },
   });
   player.userCity = city.userCity;
+  console.clear();
 }
 
 /* alle Infos gehen in das player Objet :)
 console.log(player);*/
 
 async function gameRules() {
-  const explanation =
-    chalkAnimation.karaoke(`Great to have you here ${player.userName} from ${player.userCity} \n\n
-  Before you begin with the game, give me a second to explain the rules\n\n
-  The $uitcase is fun & challenging (!only) memory game.\n
-  Questions of different topics are combined with the classical\n
-  "Packing the suitcase" game. \n
-  You have to answer the questions correclty and remember all the items\n
-  that you pack in your suitcase. Every time that you give 5 right answers\n
-  you will be asked to say what is inside your suitcase. If your answer is right\n
-  you will collect $money$ and level up. If you complete all levels you win\n
-  tickes to magic destinations\n\n
-  You have 3 lives to complete all the tasks\n\n`);
+  const explanation = chalkAnimation.karaoke(`\n\n
+                 Great to have you here ${player.userName} from ${player.userCity} \n\n
+               Before you begin with the game, give me a second to explain the rules\n\n
+                     The $uitcase is fun & challenging (!only) memory game.\n
+                  Questions of different topics are combined with the classical\n
+                                   "Packing the suitcase" game. \n\n\n
+      You have to answer the questions correclty and remember all the items that you pack in your suitcase. 
+      Every time that you give 5 right answers you will be asked to say what is inside your suitcase.\n\n
+                If your answer is right you will collect $money$ and level up. \n\n
+                  If you complete all levels you win tickes to magic destinations\n\n
+                             You have 3 lives to complete all the tasks\n\n`);
   // max.Gewicht 25Kg und bei jeder level kriegt 5 plus
   //  auch in den handleAnswer()
   await sleepLong();
