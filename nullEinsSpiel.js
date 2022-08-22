@@ -360,6 +360,9 @@ console.log("\n\n\n\n");
 prompt1.run().then((answer) => console.log("Answer:", answer));
 
 chalkAnimation.rainbow("Lorem ipsum dolor sit amet");
+const array = ["hallo", "hallo", 15, 15, 15];
+console.log(array.join(` `));
+
 // const countGame = [
 //   find1,
 //   findBadSmile,

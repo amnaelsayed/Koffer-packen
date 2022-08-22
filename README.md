@@ -18,3 +18,7 @@ Ideen für den code:
 -Check ob der Spieler genugend Leben hat
 
 ## Schriftzug Game Over => Big Money-sw
+
+## Quellen:
+
+# Schriftzug http://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=SUITCASE
