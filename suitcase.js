@@ -675,49 +675,7 @@ async function nextLevel() {
   welcomeText.stop(clear());
   // await spieleOneUP();
 }
-async function countElemClown() {
-  const arraySmileyColdHot = [
-    "  🥶  ",
-    "  🥵  ",
-    "  🤡  ",
-    "  🥶  ",
-    "  🥶  ",
-    "  🥵  ",
-    "  🥶  ",
-    "  🥶  ",
-    "  🥵  ",
-    "  🥶  ",
-    "  🥵  ",
-    "  🥵  ",
-    "  🤡  ",
-  ];
-  console.log(
-    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-                             Try to concentrate and be fast. You only have 5 sec for every task!`
-  );
-  await sleepLong();
-  console.clear();
-  console.log(
-    `\n\n\n\n\n\n\n\n\n\n\n\n
-                                                    Count the "  🤡  "!`
-  );
-  console.log(`\n\n\n\n\n${arraySmileyColdHot}\n`);
-  await sleepLong();
-  console.clear();
-  let item;
-  const answers = await inquirer.prompt({
-    name: `ct_Clown`,
-    type: `input`,
-    message: `\n\n\n\n\n\n\n
-                           Your time is up ${player.userName}! How many "  🤡  "have you counted?\n\n\n\n
-                                                  `,
-    // choices: [`0`, `1`, `-3`, `-4`],
-  });
-  if (answers.ct_Clown === "2") {
-    item = answers.ct_Clown;
-  }
-  return handleAnswer(answers.ct_Clown === `2`, item);
-}
+
 async function countElemCold() {
   const arraySmileyColdHot = [
     "  🥶  ",
@@ -737,7 +695,7 @@ async function countElemCold() {
   const filtered = arraySmileyColdHot.filter((num) => num === "  🥶  ");
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-                             Try to concentrate and be fast. You only have 5 sec for every task!`
+                             Try to concentrate and be fast. You only have 5 sec for this task!`
   );
   await sleepLong();
   console.clear();
@@ -760,12 +718,478 @@ async function countElemCold() {
   if (answers.ct_Cold === filtered.length) {
     item = answers.ct_Cold;
   }
-  return handleAnswer(answers.ct_Cold == filtered.length, item);
+
+  return handleAnswer(answers.ct_Cold == filtered.length, answers.ct_Cold);
 }
 // await countElemClown("  🤡  ");
 
+async function countElemClown() {
+  const arraySmileyColdHot = [
+    "  🥶  ",
+    "  🥵  ",
+    "  🤡  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥵  ",
+    "  🤡  ",
+  ];
+  const filtered = arraySmileyColdHot.filter((num) => num === "  🤡  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arraySmileyColdHot}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_Clown`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_Clown === filtered.length) {
+    item = answers.ct_Clown;
+  }
+
+  return handleAnswer(answers.ct_Clown == filtered.length, answers.ct_Clown);
+}
+
+async function countElemHot() {
+  const arraySmileyColdHot = [
+    "  🥶  ",
+    "  🥵  ",
+    "  🤡  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥵  ",
+    "  🤡  ",
+  ];
+  const filtered = arraySmileyColdHot.filter((num) => num === "  🥵  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arraySmileyColdHot}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_Hot`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_Hot === filtered.length) {
+    item = answers.ct_Hot;
+  }
+
+  return handleAnswer(answers.ct_Hot == filtered.length, answers.ct_Hot);
+}
+
+async function countElemSmileCat() {
+  const arrCat = [
+    "  😽   ",
+    "  😼  ",
+    "  😻  ",
+    "  😽   ",
+    "  😻  ",
+    "  😽   ",
+    "  😽   ",
+    "  😻  ",
+    "  😼  ",
+    "  😽   ",
+    "  😽   ",
+    "  😽   ",
+  ];
+  const filtered = arrCat.filter((num) => num === "  😽   ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrCat}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_Cat`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_Cat === filtered.length) {
+    item = answers.ct_Cat;
+  }
+
+  return handleAnswer(answers.ct_Cat == filtered.length, answers.ct_Cat);
+}
+async function countElemAngryCat() {
+  const arrCat = [
+    "  😽   ",
+    "  😼  ",
+    "  😻  ",
+    "  😽   ",
+    "  😻  ",
+    "  😽   ",
+    "  😽   ",
+    "  😻  ",
+    "  😼  ",
+    "  😽   ",
+    "  😽   ",
+    "  😽   ",
+  ];
+  const filtered = arrCat.filter((num) => num === "  😼  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrCat}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_AngCat`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_AngCat === filtered.length) {
+    item = answers.ct_AngCat;
+  }
+
+  return handleAnswer(answers.ct_AngCat == filtered.length, answers.ct_AngCat);
+}
+
+async function countElemLoveCat() {
+  const arrCat = [
+    "  😽   ",
+    "  😼  ",
+    "  😻  ",
+    "  😽   ",
+    "  😻  ",
+    "  😽   ",
+    "  😽   ",
+    "  😻  ",
+    "  😼  ",
+    "  😽   ",
+    "  😽   ",
+    "  😽   ",
+  ];
+  const filtered = arrCat.filter((num) => num === "  😻  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrCat}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_LoveCat`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_LoveCat === filtered.length) {
+    item = answers.ct_LoveCat;
+  }
+
+  return handleAnswer(
+    answers.ct_LoveCat == filtered.length,
+    answers.ct_LoveCat
+  );
+}
+
+async function countElemMermaidMan() {
+  const arrMermaid = [
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♀️   ",
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+  ];
+  const filtered = arrMermaid.filter((num) => num === "  🧞‍♂️  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrCat}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_MerMan`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_MerMan === filtered.length) {
+    item = answers.ct_AngCat;
+  }
+
+  return handleAnswer(
+    answers.ct_MerMan == filtered.length,
+    answers.ct_ct_MerMan
+  );
+}
+
+async function countElemMermaid() {
+  const arrMermaid = [
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♀️   ",
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♀️   ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+    "  🧞‍♂️  ",
+  ];
+  const filtered = arrMermaid.filter((num) => num === "  🧞‍♂️  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrMermaid}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_Mermaid`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_Mermaid === filtered.length) {
+    item = answers.ct_Mermaid;
+  }
+
+  return handleAnswer(
+    answers.ct_Mermaid == filtered.length,
+    answers.ct_Mermaid
+  );
+}
+async function countElemB() {
+  const arrbpq = [
+    "  b  ",
+    "  b  ",
+    "  p  ",
+    "  p  ",
+    "  q  ",
+    "  b  ",
+    "  b  ",
+    "  p  ",
+    "  q  ",
+    "  b  ",
+    "  q  ",
+    "  p  ",
+    "  b  ",
+  ];
+  const filtered = arrbpq.filter((num) => num === "  b  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrbpq}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_b`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_b === filtered.length) {
+    item = answers.ct_b;
+  }
+
+  return handleAnswer(answers.ct_b == filtered.length, answers.ct_b);
+}
+
+async function countElemP() {
+  const arrbpq = [
+    "  b  ",
+    "  b  ",
+    "  p  ",
+    "  p  ",
+    "  q  ",
+    "  b  ",
+    "  b  ",
+    "  p  ",
+    "  q  ",
+    "  b  ",
+    "  q  ",
+    "  p  ",
+    "  b  ",
+  ];
+  const filtered = arrbpq.filter((num) => num === "  p  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrbpq}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_p`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_p === filtered.length) {
+    item = answers.ct_p;
+  }
+
+  return handleAnswer(answers.ct_p == filtered.length, answers.ct_p);
+}
+
+async function countElemQ() {
+  const arrbpq = [
+    "  b  ",
+    "  b  ",
+    "  p  ",
+    "  p  ",
+    "  q  ",
+    "  b  ",
+    "  b  ",
+    "  p  ",
+    "  q  ",
+    "  b  ",
+    "  q  ",
+    "  p  ",
+    "  b  ",
+  ];
+  const filtered = arrbpq.filter((num) => num === "  q  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arrbpq}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_q`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_q === filtered.length) {
+    item = answers.ct_q;
+  }
+
+  return handleAnswer(answers.ct_q == filtered.length, answers.ct_q);
+}
 // vlt noch eine won funktion????
-await countElemCold();
+
 async function introduction() {
   console.clear();
   await welcome();
@@ -776,14 +1200,25 @@ async function introduction() {
 }
 async function spiele() {
   console.clear();
+  await countElemCold();
+  await countElemAngryCat();
+  await countElemClown();
+  await countElemB();
+  await countElemHot();
+  await countElemLoveCat();
+  await countElemSmileCat();
+  await countElemClown();
+  await countElemP();
+  await countElemQ();
   await question7();
-  await countElemClown("  🤡  ");
+
   await question7();
   await question7();
   await question7();
   await question7();
   await question7();
   await question7();
+
   // 8spiele minimum
 }
 
