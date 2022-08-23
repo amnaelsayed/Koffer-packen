@@ -1872,7 +1872,7 @@ async function countElemQ() {
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrbpq}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
