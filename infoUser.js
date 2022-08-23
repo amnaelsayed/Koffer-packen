@@ -14,4 +14,4 @@ const prompt5 = enquirer.form({
     { name: "username", message: "GitHub username", initial: "jonschlinkert" },
   ],
 });
-prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
+prompt5.then((answer) => console.log("Answer:", answer));
