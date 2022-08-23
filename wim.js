@@ -9,6 +9,8 @@ const prompt = promptSync();
 
 const sleepMedium = (ms = 10000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
+const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 
 const wim1 = ["🧩", "🎮", "🪗", "🪘", "🎷", "🚴‍♂️"];
 const wim11 = ["🛼", "🪀", "🥊", "🎺", "🚲"];
@@ -61,7 +63,7 @@ const wimAll = [
   [wim10, wim1010],
 ];
 
-function wimGame(arrayMain) {
+async function whatIsMissingIntro() {
   const intro = prompt(
     chalk.yellow(
       `
@@ -103,53 +105,3 @@ function wimGame(arrayMain) {
     )
   );
 }
-function chooseArray() {
-  let i = Math.ceil(Math.random() * 9);
-  const array1 = wimAll[i][0];
-  const array2 = wimAll[i][1];
-}
-//=========================00
-wimGame();
-chooseArray();
-//=========================00
-
-function whatIsMissing(array1, array2) {
-  console.clear();
-  const i = Math.ceil(Math.random() * array1.length - 1);
-  const array3 = [];
-  console.log(`Memorise the objects :`);
-  console.log(array1);
-
-  // ================================
-  async function controlAnswer(isCorrect) {
-    const spinner = createSpinner("Checking answer...").start();
-    await sleepMedium();
-    if (isCorrect) {
-      spinner.success({
-        text: ` That was amazing!`,
-      });
-    } else{
-      spinner.error({
-        text: `Hmmm that wasn't the right answer! Let's try another one`,
-      });
-  }
-}
-
-// ==========================
-setTimeout(function () {
-  console.clear();
-  array3.push(array2.shift());
-  array3.push(array2.shift());
-  array3.push(array2.pop());
-  array3.push(array2.shift());
-  array3.push(array2[0]);
-  async function frage1(array3) {
-    const answers = await inquirer.prompt({
-      name: `objekt1`,
-      type: `list`,
-      message: `Which of these items is the one that you saw before?`,
-      choices: array3,
-
-
-
-  

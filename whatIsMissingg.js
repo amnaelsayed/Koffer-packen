@@ -106,17 +106,17 @@ async function whatIsMissingIntro() {
   );
 }
 
-function whatIsMissing(array, array2) {
+function whatIsMissing(array1, array2) {
   console.clear();
-  const i = Math.ceil(Math.random() * array.length - 1);
+  const i = Math.ceil(Math.random() * array1.length - 1);
   const array3 = [];
   console.log(`Memorise the objects :`);
-  console.log(array);
+  console.log(array1);
 
   //======================================================
   async function controlAnswer(isCorrect) {
     const spinner = createSpinner("Checking answer...").start();
-    await sleepMedium();
+    await sleepShort();
     if (isCorrect) {
       spinner.success({
         text: ` That was amazing!`,
@@ -129,203 +129,212 @@ function whatIsMissing(array, array2) {
   // =======================================================
   setTimeout(function () {
     console.clear();
-    const missing = array2.push(array.splice(i, 1)[0]);
+    const missing = array2.push(array1.splice(i, 1)[0]);
 
-    let seconds = new Date().getSeconds();
-    if (seconds <= 10) {
-      array3.push(array2.shift());
-      array3.push(array2.shift());
-      array3.push(array2.pop());
-      array3.push(array2.shift());
-      array3.push(array2[0]);
-      async function frage1(array3) {
-        let item;
+    // let seconds = new Date().getSeconds();
+    // if (seconds <= 10) {
+    array3.push(array2.shift());
+    array3.push(array2.shift());
+    array3.push(array2.pop());
+    array3.push(array2.shift());
+    array3.push(array2[0]);
+    async function frage1(array3) {
+      let item;
 
-        const answers = await inquirer.prompt({
-          name: `objekt1`,
-          type: `list`,
-          message: `Which of these items is the one that you saw before?`,
-          choices: array3,
-        });
-        if (answers.objekt1 === array3[2]) {
-          item = answers.objekt1;
-          console.log(`Amazing that was the right answer!!!`);
-        }
-        return controlAnswer(answers.objekt1 === item);
+      const answers = await inquirer.prompt({
+        name: `objekt1`,
+        type: `list`,
+        message: `Which of these items is the one that you saw before?`,
+        choices: array3,
+      });
+      if (answers.objekt1 === array3[2]) {
+        item = answers.objekt1;
       }
-      frage1(array3);
-      //=======================================0
-    } else if (seconds > 10 && seconds <= 20) {
-      array3.push(array2.pop());
-      array3.push(array2.pop());
-      array3.push(array2.pop());
-      array3.push(array2.pop());
-      array3.push(array2[0]);
-      async function frage1(array3) {
-        let item;
-        const answers = await inquirer.prompt({
-          name: `objekt1`,
-          type: `list`,
-          message: `Which of these items is the one that you saw before?`,
-          choices: array3,
-        });
-        if (answers.objekt1 === array3[0]) {
-          item = answers.objekt1;
-          console.log(`Amazing that was the right answer!!!`);
-        }
-        return controlAnswer(answers.objekt1 === item);
-      }
-
-      frage1(array3);
-      // ================================================
-    } else if (seconds > 20 && seconds <= 30) {
-      array3.push(array2.shift());
-      array3.push(array2.shift());
-      array3.push(array2.pop());
-      array3.push(array2.pop());
-      array3.push(array2[0]);
-
-      async function frage1(array3) {
-        let item;
-
-        const answers = await inquirer.prompt({
-          name: `objekt1`,
-          type: `list`,
-          message: `Which of these items is the one that you saw before?`,
-          choices: array3,
-        });
-        if (answers.objekt1 === array3[2]) {
-          item = answers.objekt1;
-          console.log(`Amazing that was the right answer!!!`);
-        }
-        return controlAnswer(answers.objekt1 === item);
-      }
-
-      frage1(array3);
-
-      // console.log(array);
-      // console.log(array3);
-
-      // =====================================
-    } else if (seconds > 30 && seconds <= 40) {
-      array3.push(array2.shift());
-      array3.push(array2.pop());
-      array3.push(array2.pop());
-      array3.push(array2.pop());
-      array3.push(array2[0]);
-      async function frage1(array3) {
-        let item;
-
-        const answers = await inquirer.prompt({
-          name: `objekt1`,
-          type: `list`,
-          message: `Which of these items is the one that you saw before?`,
-          choices: array3,
-        });
-        if (answers.objekt1 === array3[1]) {
-          item = answers.objekt1;
-          console.log(`Amazing that was the right answer!!!`);
-        }
-        return controlAnswer(answers.objekt1 === item);
-      }
-
-      frage1(array3);
-
-      // console.log(array);
-      // console.log(`Which of these items is the one that you saw before?`);
-      // console.log(array3);
-
-      // ============================================================
-    } else if (seconds > 40 && seconds <= 50) {
-      array3.push(array2.shift());
-      array3.push(array2.shift());
-      array3.push(array2.shift());
-      array3.push(array2.pop());
-      array3.push(array2[0]);
-      async function frage1(array3) {
-        let item;
-
-        const answers = await inquirer.prompt({
-          name: `objekt1`,
-          type: `list`,
-          message: `Which of these items is the one that you saw before?`,
-          choices: array3,
-        });
-        if (answers.objekt1 === array3[3]) {
-          item = answers.objekt1;
-          console.log(`Amazing that was the right answer!!!`);
-        }
-        return controlAnswer(answers.objekt1 === item);
-      }
-
-      frage1(array3);
-    } else {
-      array3.push(...array2);
-      async function frage1(array3) {
-        let item;
-
-        const answers = await inquirer.prompt({
-          name: `objekt1`,
-          type: `list`,
-          message: `Which of these items is the one that you saw before?`,
-          choices: array3,
-        });
-        if (answers.objekt1 === array3[4]) {
-          item = answers.objekt1;
-          console.log(`Amazing that was the right answer!!!`);
-        }
-        return controlAnswer(answers.objekt1 === item);
-      }
-
-      frage1(array3);
-
-      console.log(array3);
+      return controlAnswer(answers.objekt1 === item);
     }
+    frage1(array3);
+
+    //   //=======================================0
+    // } else if (seconds > 10 && seconds <= 20) {
+    //   array3.push(array2.pop());
+    //   array3.push(array2.pop());
+    //   array3.push(array2.pop());
+    //   array3.push(array2.pop());
+    //   array3.push(array2[0]);
+    //   async function frage1(array3) {
+    //     let item;
+    //     const answers = await inquirer.prompt({
+    //       name: `objekt1`,
+    //       type: `list`,
+    //       message: `Which of these items is the one that you saw before?`,
+    //       choices: array3,
+    //     });
+    //     if (answers.objekt1 === array3[0]) {
+    //       item = answers.objekt1;
+    //       console.log(`Amazing that was the right answer!!!`);
+    //     }
+    //     return controlAnswer(answers.objekt1 === item);
+    //   }
+
+    //   frage1(array3);
+    //   // ================================================
+    // } else if (seconds > 20 && seconds <= 30) {
+    //   array3.push(array2.shift());
+    //   array3.push(array2.shift());
+    //   array3.push(array2.pop());
+    //   array3.push(array2.pop());
+    //   array3.push(array2[0]);
+
+    //   async function frage1(array3) {
+    //     let item;
+
+    //     const answers = await inquirer.prompt({
+    //       name: `objekt1`,
+    //       type: `list`,
+    //       message: `Which of these items is the one that you saw before?`,
+    //       choices: array3,
+    //     });
+    //     if (answers.objekt1 === array3[2]) {
+    //       item = answers.objekt1;
+    //       console.log(`Amazing that was the right answer!!!`);
+    //     }
+    //     return controlAnswer(answers.objekt1 === item);
+    //   }
+
+    //   frage1(array3);
+
+    //   // console.log(array);
+    //   // console.log(array3);
+
+    //   // =====================================
+    // } else if (seconds > 30 && seconds <= 40) {
+    //   array3.push(array2.shift());
+    //   array3.push(array2.pop());
+    //   array3.push(array2.pop());
+    //   array3.push(array2.pop());
+    //   array3.push(array2[0]);
+    //   async function frage1(array3) {
+    //     let item;
+
+    //     const answers = await inquirer.prompt({
+    //       name: `objekt1`,
+    //       type: `list`,
+    //       message: `Which of these items is the one that you saw before?`,
+    //       choices: array3,
+    //     });
+    //     if (answers.objekt1 === array3[1]) {
+    //       item = answers.objekt1;
+    //       console.log(`Amazing that was the right answer!!!`);
+    //     }
+    //     return controlAnswer(answers.objekt1 === item);
+    //   }
+
+    //   frage1(array3);
+
+    //   // console.log(array);
+    //   // console.log(`Which of these items is the one that you saw before?`);
+    //   // console.log(array3);
+
+    //   // ============================================================
+    // } else if (seconds > 40 && seconds <= 50) {
+    //   array3.push(array2.shift());
+    //   array3.push(array2.shift());
+    //   array3.push(array2.shift());
+    //   array3.push(array2.pop());
+    //   array3.push(array2[0]);
+    //   async function frage1(array3) {
+    //     let item;
+
+    //     const answers = await inquirer.prompt({
+    //       name: `objekt1`,
+    //       type: `list`,
+    //       message: `Which of these items is the one that you saw before?`,
+    //       choices: array3,
+    //     });
+    //     if (answers.objekt1 === array3[3]) {
+    //       item = answers.objekt1;
+    //       console.log(`Amazing that was the right answer!!!`);
+    //     }
+    //     return controlAnswer(answers.objekt1 === item);
+    //   }
+
+    //   frage1(array3);
+    // } else {
+    //   array3.push(...array2);
+    //   async function frage1(array3) {
+    //     let item;
+
+    //     const answers = await inquirer.prompt({
+    //       name: `objekt1`,
+    //       type: `list`,
+    //       message: `Which of these items is the one that you saw before?`,
+    //       choices: array3,
+    //     });
+    //     if (answers.objekt1 === array3[4]) {
+    //       item = answers.objekt1;
+    //       console.log(`Amazing that was the right answer!!!`);
+    //     }
+    //     return controlAnswer(answers.objekt1 === item);
+    //   }
+
+    // frage1(array3);
+
+    // console.log(array3);
+    // }
   }, 10000);
 }
-function chooseArray(array, array2) {
+async function chooseArray() {
+  const wimAll = [
+    [wim1, wim11],
+    [wim2, wim22],
+
+    [wim3, wim33],
+
+    [wim4, wim44],
+
+    [wim5, wim55],
+
+    [wim6, wim66],
+
+    [wim7, wim77],
+
+    [wim8, wim88],
+
+    [wim9, wim99],
+
+    [wim10, wim1010],
+  ];
   let i = Math.ceil(Math.random() * 9);
   whatIsMissing(wimAll[i][0], wimAll[i][1]);
 }
-async function whatIsMissingGame(array, array2) {
-  // chooseArray()
-  await whatIsMissingIntro();
-  for (let i = 0; i <= 2; i++) {
-    chooseArray();
-  }
-  // chooseArray(array, array2);
+async function chooseArray2() {
+  const wimAll = [
+    [wim1, wim11],
+    [wim2, wim22],
+
+    [wim3, wim33],
+
+    [wim4, wim44],
+
+    [wim5, wim55],
+
+    [wim6, wim66],
+
+    [wim7, wim77],
+
+    [wim8, wim88],
+
+    [wim9, wim99],
+
+    [wim10, wim1010],
+  ];
+  let i = Math.ceil(Math.random() * 9);
+  whatIsMissing(wimAll[i][0], wimAll[i][1]);
+  console.clear();
+}
+function whatIsMissingGame() {
+  whatIsMissingIntro();
+  chooseArray();
 }
 
-whatIsMissingGame();
-
-// async function gameOver() {
-//   const go = chalkAnimation.karaoke(`
-// ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
-// ███▀▀▀██┼███▀▀▀███┼███▀█▄█▀███┼██▀▀▀
-// ██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼█┼┼┼██┼██┼┼┼
-// ██┼┼┼▄▄▄┼██▄▄▄▄▄██┼██┼┼┼▀┼┼┼██┼██▀▀▀
-// ██┼┼┼┼██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██┼┼┼
-// ███▄▄▄██┼██┼┼┼┼┼██┼██┼┼┼┼┼┼┼██┼██▄▄▄
-// ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
-// ███▀▀▀███┼▀███┼┼██▀┼██▀▀▀┼██▀▀▀▀██▄┼
-// ██┼┼┼┼┼██┼┼┼██┼┼██┼┼██┼┼┼┼██┼┼┼┼┼██┼
-// ██┼┼┼┼┼██┼┼┼██┼┼██┼┼██▀▀▀┼██▄▄▄▄▄▀▀┼
-// ██┼┼┼┼┼██┼┼┼██┼┼█▀┼┼██┼┼┼┼██┼┼┼┼┼██┼
-// ███▄▄▄███┼┼┼─▀█▀┼┼─┼██▄▄▄┼██┼┼┼┼┼██▄
-// ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼██┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼████▄┼┼┼▄▄▄▄▄▄▄┼┼┼▄████┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼▀▀█▄█████████▄█▀▀┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼┼█████████████┼┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼┼██▀▀▀███▀▀▀██┼┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼┼██┼┼┼███┼┼┼██┼┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼┼█████▀▄▀█████┼┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼┼┼███████████┼┼┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼▄▄▄██┼┼█▀█▀█┼┼██▄▄▄┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼▀▀██┼┼┼┼┼┼┼┼┼┼┼██▀▀┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼▀▀┼┼┼┼┼┼┼┼┼┼┼
-// ┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼┼`);
-
-//   await sleepMedium();
-//   go.stop();
-// }
+export default whatIsMissingGame;
