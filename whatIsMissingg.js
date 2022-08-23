@@ -332,7 +332,7 @@ async function chooseArray2() {
   whatIsMissing(wimAll[i][0], wimAll[i][1]);
   console.clear();
 }
-function whatIsMissingGame() {
+async function whatIsMissingGame() {
   whatIsMissingIntro();
   chooseArray();
 }
