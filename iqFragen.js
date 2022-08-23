@@ -258,20 +258,6 @@ async function question17() {
   return handleAnswer(answers.iq_17 === 3);
 }
 
-async function question() {
-  let item;
-  const answers = await inquirer.prompt({
-    name: `tri_1`,
-    type: `list`,
-    message: "How many players are there on a water polo team?",
-    choices: [9, 10, 7, 8],
-  });
-  if (answers.tri_1 === 7) {
-    item = answers.tri_1;
-  }
-  return handleAnswer(answers.tri_1 === "seven");
-}
-
 // async function question() {
 // let item;
 //   const answers = await inquirer.prompt({
