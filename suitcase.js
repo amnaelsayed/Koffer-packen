@@ -161,14 +161,14 @@ async function gameRules() {
                                    You have 3 lives to complete all the tasks!\n\n`);
   // max.Gewicht 25Kg und bei jeder level kriegt 5 plus
   //  auch in den handleAnswer()
-  await sleepShort();
+  await sleepLong();
 
   explanation.stop();
 }
 
 async function nextLevel() {
-  const title = chalkAnimation.karaoke(
-    `
+  const title = chalkAnimation.rainbow(
+    `\n\n\n\n\n\n\n\n
                                  ███    █████████   █████████    ██    ████████    █████████      
                                  ████   ███     ██ ██   ██       ██    ██    ██    ███    ██      
                                  ██ ██  ██████   ███    ██       ██    █████ ██    ██████ ██      
@@ -178,11 +178,11 @@ async function nextLevel() {
                                                                     
    `
   );
-  await sleepMedium();
+  await sleepLong();
   title.stop(clear());
   // will stop the animation, otherwise it runs forever
 
-  const welcomeText = chalkAnimation.karaoke(`\n\n\n\n\n\n\n
+  const welcomeText = chalkAnimation.rainbow(`\n\n\n\n\n\n\n
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -200,7 +200,7 @@ async function nextLevel() {
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
                                         \n\n\n\n      Congratulation!!!`);
-  await sleepMedium();
+  await sleepLong();
   welcomeText.stop(clear());
   // await spieleOneUP();
 }
@@ -275,7 +275,7 @@ async function lostOneLife() {
                      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 `);
 
-  await sleepShort();
+  await sleepMedium();
 
   go.stop();
   console.clear();
@@ -294,10 +294,10 @@ async function handleAnswer(isCorrect, item, answers) {
       text: `\n\n\n                                                                                                          ${player.lives.join(
         ` `
       )}
-      \n\n\n\n\n\n\n\n                                                                       
-    👏🏼 Great work ${
-      player.userName
-    }! You just put a / an ${item} in your $uitca$e and have ${
+      \n\n\n\n\n\n\n\n\n\n
+👏🏼 Great work ${
+        player.userName
+      }! You just put a / an ${item} in your $uitca$e and have ${
         player.currentBalance
       } 💵 for the journey of your dreams`,
     });
@@ -313,7 +313,7 @@ async function handleAnswer(isCorrect, item, answers) {
                                                        ${item}`)
     );
     // await sleepLong();
-    await sleepLong();
+    await sleepMedium();
     player.kofferArray.push(item);
     player.rightAnswer += 1;
 
@@ -355,16 +355,19 @@ async function kofferAbfrage() {
     name: `levelUp`,
     type: `input`,
     message: `\n\n\n\n\n\n\n
-                                    Do you still remember what is inside your $uitca$e? \n \n \n 
-                                 Answer correclty this question to travel to the next level 💫`,
+                               Do you still remember what is inside your $uitca$e? \n \n \n 
+                            Answer correclty this question to travel to the next level 💫\n \n
+                                Type in the answers only with a space between.\n
+                                                     Good Luck!`,
     default() {
       return `abfrage`;
     },
   });
   await sleepLong();
+  console.clear();
   playerRemembers = answers.levelUp;
-  console.log(playerRemembers);
-  console.log(player.kofferArray.join(` `));
+  // console.log(playerRemembers);
+  // console.log(player.kofferArray.join(` `));
   if (
     player.kofferArray.join(` `) == playerRemembers &&
     player.kofferArray.length == 10 &&
@@ -373,14 +376,15 @@ async function kofferAbfrage() {
     player.kofferArray = [];
     player.level += 1;
     console.log(player.currentBalance);
+    console.clear();
     console.log(
-      `\n\n\n                                                                                                                        ${player.lives.join(
+      `\n\n\n                                                                                                              ${player.lives.join(
         ` `
       )}
       \n\n\n\n
-                            👊🏼 Well done ${
-                              player.userName
-                            }. You just reached the ${player.level}.`
+                      👊🏼 Well done ${player.userName}. You just reached the ${
+        player.level
+      }.`
     );
 
     await sleepLong();
@@ -397,13 +401,13 @@ async function kofferAbfrage() {
     player.level += 1;
     console.log(player.currentBalance);
     console.log(
-      `\n\n\n                                                                                                                        ${player.lives.join(
-        ` `
+      `\n\n\n                                                                                                                  ${player.lives.join(
+        ` `` `
       )}
       \n\n\n\n
-                            👊🏼 Well done ${
-                              player.userName
-                            }. You just reached the ${player.level}.`
+                      👊🏼 Well done ${player.userName}. You just reached the ${
+        player.level
+      }.`
     );
 
     await sleepLong();
@@ -420,11 +424,13 @@ async function kofferAbfrage() {
     player.level += 1;
     console.log(player.currentBalance);
     console.log(
-      `\n\n\n                                                                                            ${player.lives.join()}
+      `\n\n\n                                                                                            ${player.lives.join(
+        ` `
+      )}
       \n\n\n\n
-                            👊🏼 Well done ${
-                              player.userName
-                            }. You just reached the ${player.level}.`
+                    👊🏼 Well done ${player.userName}. You just reached the ${
+        player.level
+      }.`
     );
 
     await sleepLong();
@@ -443,52 +449,78 @@ async function kofferAbfrage() {
 
 // console.log(player);
 //==============Fragen-Funktionen========================
+// async function mathe1() {
+//   let item;
+//   const answers = await inquirer.prompt({
+//     name: `mathQuestion`,
+//     type: `list`,
+//     message: `\n\n                                                                                           ${player.lives.join(
+//       ` `
+//     )}
+//     \n\n\n\n\n\n\n\n\n\n
+//                                       "Find the sum of 111 + 222 + 333"`,
+//     choices: [700, 666, 10, 100],
+//   });
+//   if (answers.mathQuestion == "666") {
+//     item = answers.mathQuestion;
+//   }
+//   console.log(item);
+//   console.log(answers.mathQuestion);
+//   return handleAnswer(answers.mathQuestion === "666", item);
+// }
 async function mathe1() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
-                                      "Find the sum of 111 + 222 + 333"`,
+                                     "Find the sum of 111 + 222 + 333"`,
     choices: [700, 666, 10, 100],
   });
   if (answers.mathQuestion === 666) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 666);
-}
 
+  return handleAnswer(answers.mathQuestion === 666, item);
+}
 async function mathe2() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                             "Subtract 457 from 832"`,
-    choices: [375, 57, 376, 970],
+    choices: ["375", "57", "376", "970"],
   });
-  if (answers.mathQuestion === 375) {
+  if (answers.mathQuestion == "375") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 375);
+
+  return handleAnswer(answers.mathQuestion == "375", item);
 }
 
 async function mathe3() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                               "50 times 5 is equal to"`,
     choices: [2500, 505, 500, "None"],
   });
-  if (answers.mathQuestion === "None") {
+  if (answers.mathQuestion == "None") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === "None");
+  return handleAnswer(answers.mathQuestion == "None", item);
 }
 
 async function mathe4() {
@@ -496,15 +528,17 @@ async function mathe4() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                           "Find the product of 72 * 3"`,
     choices: [216, 7230, 106, 372],
   });
-  if (answers.mathQuestion === 216) {
+  if (answers.mathQuestion == "216") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 216);
+  return handleAnswer(answers.mathQuestion == "216", item);
 }
 
 async function mathe5() {
@@ -512,15 +546,17 @@ async function mathe5() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                        "The smallest number of seven digits is"`,
     choices: ["0", "99,99,999", "10,10,100", "10,00,000"],
   });
-  if (answers.mathQuestion === "10,00,000") {
+  if (answers.mathQuestion == "10,00,000") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === "10,00,000");
+  return handleAnswer(answers.mathQuestion == "10,00,000", item);
 }
 
 async function mathe6() {
@@ -528,15 +564,17 @@ async function mathe6() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                  "What is the largest two digits prime number?"`,
     choices: [96, 97, 98, 99],
   });
-  if (answers.mathQuestion === 97) {
+  if (answers.mathQuestion == "97") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 97);
+  return handleAnswer(answers.mathQuestion == "97", item);
 }
 
 async function mathe7() {
@@ -544,15 +582,17 @@ async function mathe7() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                      "How many factors are there in 71?"`,
     choices: [1, 2, 3, "None of these"],
   });
-  if (answers.mathQuestion === 2) {
+  if (answers.mathQuestion == "2") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 2);
+  return handleAnswer(answers.mathQuestion == "2", item);
 }
 
 async function mathe8() {
@@ -560,15 +600,17 @@ async function mathe8() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                "What is the average value of 25, 20, 23 and 22?"`,
     choices: [20, 21.5, 22.5, 24],
   });
-  if (answers.mathQuestion === 22.5) {
+  if (answers.mathQuestion == "22.5") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 22.5);
+  return handleAnswer(answers.mathQuestion == "22.5", item);
 }
 
 async function mathe9() {
@@ -576,15 +618,17 @@ async function mathe9() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                   "What is the sum of one digit prime numbers?"`,
     choices: [11, 13, 15, 17],
   });
-  if (answers.mathQuestion === 17) {
+  if (answers.mathQuestion == "17") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 17);
+  return handleAnswer(answers.mathQuestion == "17", item);
 }
 
 async function mathe10() {
@@ -592,15 +636,17 @@ async function mathe10() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                         "How many hours in 90 minutes?"`,
     choices: [1.5, 1.3, 1, "None of these"],
   });
-  if (answers.mathQuestion === 1.5) {
+  if (answers.mathQuestion == "1.5") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 1.5);
+  return handleAnswer(answers.mathQuestion == "1.5", item);
 }
 
 async function mathe11() {
@@ -608,30 +654,34 @@ async function mathe11() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
       \n\n\n\n\n\n\n\n\n\n
                  "A clock seen through a mirror shows 8 o 'clock. What is the correct time?"`,
     choices: [8.0, 4.0, 12.2, 12.4],
   });
-  if (answers.mathQuestion === 4.0) {
+  if (answers.mathQuestion == "4.0") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 4.0);
+  return handleAnswer(answers.mathQuestion == "4.0", item);
 }
 async function mathe12() {
   let item;
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
       \n\n\n\n\n\n\n\n\n\n
                "Using the number line, determine how much more than or less than -2.2 is 6.8?"`,
     choices: ["9more", "4.6more", "4.6less", "9less"],
   });
-  if (answers.mathQuestion === "9more") {
+  if (answers.mathQuestion == "9more") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === "9more");
+  return handleAnswer(answers.mathQuestion == "9more", item);
 }
 
 async function mathe13() {
@@ -639,15 +689,17 @@ async function mathe13() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                          "If Davids age is 27 years old in 2011. What was his age in 2003?"`,
     choices: [17, 37, 20, 19],
   });
-  if (answers.mathQuestion === 19) {
+  if (answers.mathQuestion == "19") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 19);
+  return handleAnswer(answers.mathQuestion == "19", item);
 }
 
 async function mathe14() {
@@ -655,15 +707,17 @@ async function mathe14() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                               "What is 121 times 11"`,
     choices: [1331, 1313, 1133, 3131],
   });
-  if (answers.mathQuestion === 1331) {
+  if (answers.mathQuestion == "1331") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 1331);
+  return handleAnswer(answers.mathQuestion == "1331", item);
 }
 
 async function mathe15() {
@@ -671,15 +725,17 @@ async function mathe15() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                                 "10001 - 101 = ?"`,
     choices: [1001, 990, 9990, 9900],
   });
-  if (answers.mathQuestion === 9900) {
+  if (answers.mathQuestion == "9900") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 9900);
+  return handleAnswer(answers.mathQuestion == "9900", item);
 }
 
 async function mathe16() {
@@ -687,15 +743,17 @@ async function mathe16() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                               "Which number has the greatest absolute value?"`,
     choices: [0, -20, -10, 10],
   });
-  if (answers.mathQuestion === 10) {
+  if (answers.mathQuestion == "10") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 10);
+  return handleAnswer(answers.mathQuestion == "10", item);
 }
 
 async function mathe17() {
@@ -703,15 +761,17 @@ async function mathe17() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                        "Speed of a car is 60 km/hr. Distance covered in 1 ¼ hours is"`,
     choices: [60, 65, 70, 75],
   });
-  if (answers.mathQuestion === 75) {
+  if (answers.mathQuestion == "75") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 75);
+  return handleAnswer(answers.mathQuestion == "75", item);
 }
 
 async function mathe18() {
@@ -719,15 +779,17 @@ async function mathe18() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                              "Which unit is used to measure length and width?"`,
     choices: ["Scale", "Meter", "Liter", "Gram"],
   });
-  if (answers.mathQuestion === "Meter") {
+  if (answers.mathQuestion == "Meter") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === "Meter");
+  return handleAnswer(answers.mathQuestion == "Meter", item);
 }
 
 async function mathe19() {
@@ -735,15 +797,17 @@ async function mathe19() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                   "How many sides are there in a nonagon?"`,
     choices: [3, 5, 7, 9],
   });
-  if (answers.mathQuestion === 9) {
+  if (answers.mathQuestion == "9") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 9);
+  return handleAnswer(answers.mathQuestion == "9", item);
 }
 
 async function mathe20() {
@@ -751,15 +815,17 @@ async function mathe20() {
   const answers = await inquirer.prompt({
     name: `mathQuestions`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                        "What is the square root of 64?"`,
     choices: [6, 8, 21, 24],
   });
-  if (answers.mathQuestion === 8) {
+  if (answers.mathQuestion == "8") {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion === 8);
+  return handleAnswer(answers.mathQuestion == "8", item);
 }
 
 async function trivial1() {
@@ -767,15 +833,17 @@ async function trivial1() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                    "In what year did the Titanic sink in the Atlantic on her maiden voyage?"`,
     choices: ["1912", "1921", "1914", "1916"],
   });
-  if (answers.trivialFragen === "1912") {
+  if (answers.trivialFragen == "1912") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === "1912");
+  return handleAnswer(answers.trivialFragen == "1912", item);
 }
 
 async function trivial2() {
@@ -783,15 +851,17 @@ async function trivial2() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                        "What is the smallest bird in the world?"`,
     choices: ["owl", "swallow", "pigeon", "Bee Hummingbird"],
   });
-  if (answers.trivialFragen === "Bee Hummingbird") {
+  if (answers.trivialFragen == "Bee Hummingbird") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === "Bee Hummingbird");
+  return handleAnswer(answers.trivialFragen == "Bee Hummingbird", item);
 }
 
 async function trivial3() {
@@ -799,15 +869,17 @@ async function trivial3() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
       "In which movie did Hugh Jackman play the rival magician of the character played by Christian Bale?"`,
     choices: ["The prestige", "Lord of the Rings", "Assassins", "Dream"],
   });
-  if (answers.trivialFragen === "The prestige") {
+  if (answers.trivialFragen == "The prestige") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === "The prestige");
+  return handleAnswer(answers.trivialFragen == "The prestige", item);
 }
 
 async function trivial4() {
@@ -815,15 +887,17 @@ async function trivial4() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                 "What year was The Godfather first published?"`,
     choices: [1917, 1972, 1982, 1983],
   });
-  if (answers.trivialFragen === 1972) {
+  if (answers.trivialFragen == "1972") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === 1972);
+  return handleAnswer(answers.trivialFragen == "1972", item);
 }
 
 async function trivial5() {
@@ -831,15 +905,17 @@ async function trivial5() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                 "How many players are there on a water polo team?"`,
     choices: [9, 10, 7, 8],
   });
-  if (answers.trivialFragen === 8) {
+  if (answers.trivialFragen == "8") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === 8);
+  return handleAnswer(answers.trivialFragen == "8", item);
 }
 
 async function trivial6() {
@@ -847,15 +923,17 @@ async function trivial6() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                       "How many hearts does an octopus have?"`,
     choices: [5, 3, 4, 7],
   });
-  if (answers.trivialFragen === 3) {
+  if (answers.trivialFragen == "3") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === 3);
+  return handleAnswer(answers.trivialFragen == "3", item);
 }
 
 async function trivial7() {
@@ -863,15 +941,17 @@ async function trivial7() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
               "Which singer was known as The King of Pop and The Gloved One among others?"`,
     choices: ["Michael Jackson", "Elton John", "Ubo Jürgens", "John Lennon"],
   });
-  if (answers.trivialFragen === "Michael Jackson") {
+  if (answers.trivialFragen == "Michael Jackson") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === "Michael Jackson");
+  return handleAnswer(answers.trivialFragen == "Michael Jackson", item);
 }
 
 async function trivial8() {
@@ -879,15 +959,17 @@ async function trivial8() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                 "What nationality was the artist Henri Matisse?"`,
     choices: ["German", "Russian", "Arabian", "French"],
   });
-  if (answers.trivialFragen === "French") {
+  if (answers.trivialFragen == "French") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === "French");
+  return handleAnswer(answers.trivialFragen == "French", item);
 }
 
 async function trivial9() {
@@ -895,7 +977,9 @@ async function trivial9() {
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                 "Name the land.Giza Pyramid and the Great Sphinx?"`,
     choices: ["Syria", "Egypt", "Italy", "Greece"],
@@ -903,22 +987,24 @@ async function trivial9() {
   if (answers.trivialFragen === "Egypt") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === "Egypt");
+  return handleAnswer(answers.trivialFragen === "Egypt", item);
 }
 async function trivial10() {
   let item;
   const answers = await inquirer.prompt({
     name: `trivialFragen`,
     type: `list`,
-    message: ` \n\n                                                                                           ${player.lives.join()}
+    message: ` \n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                       What year is modern paper first used?`,
     choices: [105, 109, 125, 912],
   });
-  if (answers.trivialFragen === 105) {
+  if (answers.trivialFragen == "105") {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen === 105);
+  return handleAnswer(answers.trivialFragen == "105", item);
 }
 
 async function question1() {
@@ -926,7 +1012,9 @@ async function question1() {
   var answers = await inquirer.prompt({
     name: `iq_1`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                      What starts with "e" and ends with "e" but only has one letter in it?`,
     choices: [`envelope`, `e`, `eye`, `elite`],
@@ -943,16 +1031,18 @@ async function question2() {
   const answers = await inquirer.prompt({
     name: `iq_2`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                   Which number should come next in the pattern?\n\n
                                                  37, 34, 31, 28`,
     choices: [23, 25, 17, 26],
   });
-  if (answers.iq_2 === 25) {
+  if (answers.iq_2 == "25") {
     item = answers.iq_2;
   }
-  return handleAnswer(answers.iq_2 === 25, item);
+  return handleAnswer(answers.iq_2 == "25", item);
 }
 // ==========================
 async function question3() {
@@ -960,7 +1050,9 @@ async function question3() {
   const answers = await inquirer.prompt({
     name: `iq_3`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                             Book is to Reading as Fork is to:`,
     choices: [`drawing`, `writing`, `stirring`, `eating`],
@@ -976,16 +1068,18 @@ async function question4() {
   const answers = await inquirer.prompt({
     name: `iq_4`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                      What number best completes the analogy:\n\n
                                                        8:4 as 10:`,
     choices: [3, 7, 24, 5],
   });
-  if (answers.iq_4 === 5) {
+  if (answers.iq_4 == "5") {
     item = answers.iq_4;
   }
-  return handleAnswer(answers.iq_4 === 5, item);
+  return handleAnswer(answers.iq_4 == "5", item);
 }
 // ==========================
 async function question5() {
@@ -993,50 +1087,56 @@ async function question5() {
   const answers = await inquirer.prompt({
     name: `iq_5`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                                    12593 is to 35291\n\n
                                                   and 29684 is to 46982\n\n
                                                  therefore 72936 is to ?`,
     choices: [69237, 62397, 32796, 39762],
   });
-  if (answers.iq_5 === 69237) {
+  if (answers.iq_5 == "69237") {
     item = answers.iq_5;
   }
 
-  return handleAnswer(answers.iq_5 === 69237, item);
+  return handleAnswer(answers.iq_5 == "69237", item);
 }
 // ==========================
 async function question6() {
   const answers = await inquirer.prompt({
     name: `iq_6`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                               How many cases do you need if you have to pack 112 pairs\n\n
                                       of shoes into cases that each hold 28 shoes?`,
     choices: [16, 8, 24, 12],
   });
-  if (answers.iq_8 === 8) {
+  if (answers.iq_8 == "8") {
     item = answers.iq_;
   }
-  return handleAnswer(answers.iq_1 === 8);
+  return handleAnswer(answers.iq_1 == "8");
 }
 // ==========================
 async function question7() {
   const answers = await inquirer.prompt({
     name: `iq_7`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                       Which number should come next in the pattern?\n\n
                                                    -2 , 5, -4, 3, -6:`,
     choices: [0, 1, -3, -4],
   });
-  if (answers.iq_7 === 1) {
+  if (answers.iq_7 == "1") {
     item = answers.iq_7;
   }
-  return handleAnswer(answers.iq_7 === 1);
+  return handleAnswer(answers.iq_7 == "1");
 }
 // ==========================
 async function question8() {
@@ -1044,16 +1144,18 @@ async function question8() {
   const answers = await inquirer.prompt({
     name: `iq_8`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                     Which number should come next in the pattern?\n\n
                                                       7,21,14,42,28:`,
     choices: [84, 56, 64, 76],
   });
-  if (answers.iq_8 === 84) {
+  if (answers.iq_8 == "84") {
     item = answers.iq_8;
   }
-  return handleAnswer(answers.iq_8 === 84);
+  return handleAnswer(answers.iq_8 == "84");
 }
 // ==========================
 
@@ -1062,16 +1164,18 @@ async function question9() {
   const answers = await inquirer.prompt({
     name: `iq_9`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                    Which number should replace the questionmark?\n\n
                                           1, 10, 3, 8, ?, 6, 7, 4, 9, 2:`,
     choices: [8, 5, 9, 11],
   });
-  if (answers.iq_9 === 5) {
+  if (answers.iq_9 == "5") {
     item = answers.iq_9;
   }
-  return handleAnswer(answers.iq_9 === 5);
+  return handleAnswer(answers.iq_9 == "5");
 }
 // ==========================
 
@@ -1080,16 +1184,18 @@ async function question10() {
   const answers = await inquirer.prompt({
     name: `iq_10`,
     type: `list`,
-    message: `\n\n\                                                                                           ${player.lives.join()}
+    message: `\n\n\                                                                                           ${player.lives.join(
+      ` `
+    )}
     n\n\n\n\n\n\n\n\n\n
                                      Which number should replace the questionmark?\n\n
                                                  1, 3, 9, 27, ?, 243:`,
     choices: [36, 78, 81, 112],
   });
-  if (answers.iq_10 === 81) {
+  if (answers.iq_10 == "81") {
     item = answers.iq_10;
   }
-  return handleAnswer(answers.iq_10 === 81);
+  return handleAnswer(answers.iq_10 == "81");
 }
 // ==========================
 
@@ -1098,7 +1204,9 @@ async function question11() {
   const answers = await inquirer.prompt({
     name: `iq_11`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
     Jack is looking at Anne. Anne is looking at George. Jack is married, George is not, and we don’t know if Anne is married. Is a married person looking at an unmarried person?`,
     choices: [`yes`, `no`, `we cannot know`],
@@ -1115,7 +1223,9 @@ async function question12() {
   const answers = await inquirer.prompt({
     name: `iq_12`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
               The day before two days after the day before tomorrow is Saturday. What day is it today?`,
     choices: [`Sunday`, `Tuesday`, `Monday`, `Friday`],
@@ -1132,7 +1242,9 @@ async function question13() {
   const answers = await inquirer.prompt({
     name: `iq_13`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                           What can be broken but never held?`,
     choices: [`heart`, `vase`, `promise`, `none of this`],
@@ -1149,7 +1261,9 @@ async function question14() {
   const answers = await inquirer.prompt({
     name: `iq_14`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                    What’s full of holes but can still hold water?`,
     choices: [`cheese`, `rock`, `sponge`, `shocks`],
@@ -1166,7 +1280,9 @@ async function question15() {
   const answers = await inquirer.prompt({
     name: `iq_15`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                       What is always coming but never arrives?`,
     choices: [`train`, `tomorrow`, `money`, `happines`],
@@ -1183,16 +1299,18 @@ async function question16() {
   const answers = await inquirer.prompt({
     name: `iq_16`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                         Which number should replace the questionmark?
     2, 3, 5, 7, 11, 13, 17, 19, ?, 29:`,
     choices: [`23`, `22`, `25`, `30`],
   });
-  if (answers.iq_16 === 23) {
+  if (answers.iq_16 == "23") {
     item = answers.iq_16;
   }
-  return handleAnswer(answers.iq_16 === 23);
+  return handleAnswer(answers.iq_16 == "23");
 }
 // ==========================
 
@@ -1201,15 +1319,17 @@ async function question17() {
   const answers = await inquirer.prompt({
     name: `iq_17`,
     type: `list`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
     There are two ducks in front of a duck, two ducks behind a duck and a duck in the middle. How many ducks are there?`,
     choices: [5, 6, 3, 4],
   });
-  if (answers.iq_17 === 3) {
+  if (answers.iq_17 == "3") {
     item = answers.iq_17;
   }
-  return handleAnswer(answers.iq_17 === 3);
+  return handleAnswer(answers.iq_17 == "3");
 }
 async function countElemCold() {
   const arraySmileyColdHot = [
@@ -1235,13 +1355,15 @@ async function countElemCold() {
   await sleepLong();
   console.clear();
   console.log(
-    `\n\n                                                                                           ${player.lives.join()}
+    `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join()}
+  console.log(`\n\n                                                                       
   \n\n\n${arraySmileyColdHot}\n`);
   await sleepLong();
   console.clear();
@@ -1249,7 +1371,9 @@ async function countElemCold() {
   const answers = await inquirer.prompt({
     name: `ct_Cold`,
     type: `input`,
-    message: `\n\n                                                                                           ${player.lives.join()}
+    message: `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n
                            Your time is up ${player.userName}! How many "  ${
       filtered[0]
@@ -1289,13 +1413,17 @@ async function countElemClown() {
   await sleepLong();
   console.clear();
   console.log(
-    `\n\n                                                                                           ${player.lives.join()}
+    `\n\n                                                                                           ${player.lives.join(
+      ` `
+    )}
     \n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join()}
+  console.log(`\n\n                                                                                           ${player.lives.join(
+    ` `
+  )}
   \n\n\n${arraySmileyColdHot}\n`);
   await sleepLong();
   console.clear();
@@ -1397,7 +1525,7 @@ async function countElemSmileCat() {
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join()}
+  console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
   await sleepLong();
   console.clear();
@@ -1448,7 +1576,7 @@ async function countElemAngryCat() {
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join()}
+  console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
   await sleepLong();
   console.clear();
@@ -1500,7 +1628,7 @@ async function countElemLoveCat() {
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join()}
+  console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
   await sleepLong();
   console.clear();
