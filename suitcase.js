@@ -511,7 +511,7 @@ async function question7() {
   const answers = await inquirer.prompt({
     name: `iq_7`,
     type: `list`,
-    message: `\n\n\n                                                                                                                  ${player.lives.join(
+    message: `\n\n\n                                                                                                            ${player.lives.join(
       ` `
     )}
     \n\n\n\n
@@ -675,7 +675,22 @@ async function nextLevel() {
   welcomeText.stop(clear());
   // await spieleOneUP();
 }
-async function countElemClown(array, zeichen) {
+async function countElemClown() {
+  const arraySmileyColdHot = [
+    "  🥶  ",
+    "  🥵  ",
+    "  🤡  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥵  ",
+    "  🤡  ",
+  ];
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
@@ -684,9 +699,9 @@ async function countElemClown(array, zeichen) {
   console.clear();
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n
-                                                    Count the ${zeichen}!`
+                                                    Count the "  🤡  "!`
   );
-  console.log(`\n\n\n\n\n${array}\n`);
+  console.log(`\n\n\n\n\n${arraySmileyColdHot}\n`);
   await sleepLong();
   console.clear();
   let item;
@@ -694,7 +709,7 @@ async function countElemClown(array, zeichen) {
     name: `ct_Clown`,
     type: `input`,
     message: `\n\n\n\n\n\n\n
-                           Your time is up player.username! How many ${zeichen} have you counted?\n\n\n\n
+                           Your time is up ${player.userName}! How many "  🤡  "have you counted?\n\n\n\n
                                                   `,
     // choices: [`0`, `1`, `-3`, `-4`],
   });
@@ -703,10 +718,54 @@ async function countElemClown(array, zeichen) {
   }
   return handleAnswer(answers.ct_Clown === `2`, item);
 }
-// await countElemClown(arraySmileyColdHot, "  🤡  ");
+async function countElemCold() {
+  const arraySmileyColdHot = [
+    "  🥶  ",
+    "  🥵  ",
+    "  🤡  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥶  ",
+    "  🥵  ",
+    "  🥵  ",
+    "  🤡  ",
+  ];
+  const filtered = arraySmileyColdHot.filter((num) => num === "  🥶  ");
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                             Try to concentrate and be fast. You only have 5 sec for every task!`
+  );
+  await sleepLong();
+  console.clear();
+  console.log(
+    `\n\n\n\n\n\n\n\n\n\n\n\n
+                                                    Count the "  ${filtered[0]}  "!`
+  );
+  console.log(`\n\n\n\n\n${arraySmileyColdHot}\n`);
+  await sleepLong();
+  console.clear();
+  let item;
+  const answers = await inquirer.prompt({
+    name: `ct_Cold`,
+    type: `input`,
+    message: `\n\n\n\n\n\n\n
+                           Your time is up ${player.userName}! How many "  ${filtered[0]}  "have you counted?\n\n\n\n
+                                                  `,
+    // choices: [`0`, `1`, `-3`, `-4`],
+  });
+  if (answers.ct_Cold === filtered.length) {
+    item = answers.ct_Cold;
+  }
+  return handleAnswer(answers.ct_Cold == filtered.length, item);
+}
+// await countElemClown("  🤡  ");
 
 // vlt noch eine won funktion????
-
+await countElemCold();
 async function introduction() {
   console.clear();
   await welcome();
@@ -718,7 +777,7 @@ async function introduction() {
 async function spiele() {
   console.clear();
   await question7();
-  await question7();
+  await countElemClown("  🤡  ");
   await question7();
   await question7();
   await question7();
