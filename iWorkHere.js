@@ -988,13 +988,13 @@ await spiele();
 
 // level1()
 // await question1();
->>>>>>> f9b19462e7c7bee2b3f4bed8a26cf36bf3303e75
+
 // await question2();
 // await question3();
 // await question4();
 // await question5();
 
-<<<<<<< HEAD
+
 // #!/usr/bin/env node
 
 const sleepMedium = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
@@ -1033,7 +1033,7 @@ async function gameOver() {
 }
 await gameOver();
 
-=======
+
 // await question1();
 // await question2();
 // await question3();
@@ -1052,4 +1052,4 @@ await gameOver();
 //     await question3(),
 //     await question4();
 // }
->>>>>>> f9b19462e7c7bee2b3f4bed8a26cf36bf3303e75
+
