@@ -522,7 +522,7 @@ async function question7() {
   if (answers.iq_7 === 1) {
     item = answers.iq_7;
   }
-  return handleAnswer(answers.iq_7 === 1);
+  return handleAnswer(answers.iq_7 === 1, item);
 }
 // ==========================
 async function question8() {

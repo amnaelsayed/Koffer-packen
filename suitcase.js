@@ -7,12 +7,11 @@ import inquirer from "inquirer";
 import chalkAnimation from "chalk-animation";
 import promptSync from "prompt-sync";
 import { createSpinner } from "nanospinner";
-// import whatIsMissingGame from "./whatIsMissingg.js";
 const prompt = promptSync();
-
-// import arrSmile from "./nullEinsSpiel.js";
-// import arraySmileyColdHot from "./nullEinsSpiel.js";
-// import arrGhost from "./nullEinsSpiel.js";
+// import introGame from "./whatIsMissingg.js";
+import arrSmile from "./nullEinsSpiel.js";
+import arraySmileyColdHot from "./nullEinsSpiel.js";
+import arrGhost from "./nullEinsSpiel.js";
 
 /* npm install wird gebraicht, ich habe neue Packete addiert!!! */
 let playerRemembers;
@@ -52,7 +51,7 @@ const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleepLong = (ms = 10000) => new Promise((r) => setTimeout(r, ms));
+const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
 const sleepExtraLong = (ms = 50000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
@@ -160,7 +159,8 @@ async function gameRules() {
                          If your answer is right you will collect $money$ and level up. \n\n
                         If you complete all levels you win tickes to magic destinations.\n\n
                                    You have 3 lives to complete all the tasks!\n\n`);
-
+  // max.Gewicht 25Kg und bei jeder level kriegt 5 plus
+  //  auch in den handleAnswer()
   await sleepLong();
 
   explanation.stop();
@@ -169,11 +169,11 @@ async function gameRules() {
 async function nextLevel() {
   const title = chalkAnimation.rainbow(
     `\n\n\n\n\n\n\n\n
-                              ███    █████████   █████████    ██    ████████    █████████      
-                              ████   ███     ██ ██   ██       ██    ██    ██    ███    ██      
-                              ██ ██  ██████   ███    ██       ██    █████ ██    ██████ ██      
-                              ██  ██ ███     ██ ██   ██       ██    ██     ██  ████    ██      
-                              ██   ███████████   ██  ██       █████████████ ████ █████████████ 
+                                 ███    █████████   █████████    ██    ████████    █████████      
+                                 ████   ███     ██ ██   ██       ██    ██    ██    ███    ██      
+                                 ██ ██  ██████   ███    ██       ██    █████ ██    ██████ ██      
+                                 ██  ██ ███     ██ ██   ██       ██    ██     ██  ████    ██      
+                                 ██   ███████████   ██  ██       █████████████ ████ █████████████ 
                                                                     
                                                                     
    `
@@ -199,8 +199,7 @@ async function nextLevel() {
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
-                                        \n\n\n\n
-                                                      Congratulation!!!`);
+                                        \n\n\n\n      Congratulation!!!`);
   await sleepLong();
   welcomeText.stop(clear());
   // await spieleOneUP();
@@ -296,13 +295,13 @@ async function handleAnswer(isCorrect, item, answers) {
         ` `
       )}
       \n\n\n\n\n\n\n\n\n\n
-Great work ${
+👏🏼 Great work ${
         player.userName
-      }! You just put a / an ***${item}*** in your $uitca$e and have ${
+      }! You just put a / an ${item} in your $uitca$e and have ${
         player.currentBalance
       } 💵 for the journey of your dreams`,
     });
-    await sleepMedium();
+    await sleepLong();
     console.clear();
 
     console.log(
@@ -314,7 +313,7 @@ Great work ${
                                                        ${item}`)
     );
     // await sleepLong();
-    await sleepShort();
+    await sleepMedium();
     player.kofferArray.push(item);
 
     player.rightAnswer += 1;
@@ -325,7 +324,7 @@ Great work ${
       (player.kofferArray.length == 7 && player.currentBalance == 480) ||
       (player.kofferArray.length == 10 && player.currentBalance == 880)
     ) {
-      // console.log(player.kofferArray);
+      console.log(player.kofferArray);
       await kofferAbfrage();
     }
   } else {
@@ -358,14 +357,14 @@ async function kofferAbfrage() {
     type: `input`,
     message: `\n\n\n\n\n\n\n
                                Do you still remember what is inside your $uitca$e? \n \n \n 
-                            Answer this question correclty and travel to the next level 💫\n \n
-                                \n
+                            Answer correclty this question to travel to the next level 💫\n \n
+                                Type in the answers only with a space between.\n
                                                      Good Luck!`,
     default() {
-      return `Type in the answers with a space between.`;
+      return `abfrage`;
     },
   });
-  await sleepShort();
+  await sleepLong();
   console.clear();
   playerRemembers = answers.levelUp;
   // console.log(playerRemembers);
@@ -377,19 +376,19 @@ async function kofferAbfrage() {
   ) {
     player.kofferArray = [];
     player.level += 1;
-
+    console.log(player.currentBalance);
     console.clear();
     console.log(
       `\n\n\n                                                                                                              ${player.lives.join(
         ` `
       )}
       \n\n\n\n
-                      👊🏼 Well done ${
-                        player.userName
-                      }. You just reached the level ${player.level}.`
+                      👊🏼 Well done ${player.userName}. You just reached the ${
+        player.level
+      }.`
     );
 
-    await sleepMedium();
+    await sleepLong();
     console.clear();
     await nextLevel();
     await level2();
@@ -407,12 +406,12 @@ async function kofferAbfrage() {
         ` `` `
       )}
       \n\n\n\n
-                      👊🏼 Well done ${
-                        player.userName
-                      }. You just reached the level ${player.level}.`
+                      👊🏼 Well done ${player.userName}. You just reached the ${
+        player.level
+      }.`
     );
 
-    await sleepMedium();
+    await sleepLong();
     console.clear();
     await nextLevel();
     await level2();
@@ -430,9 +429,9 @@ async function kofferAbfrage() {
         ` `
       )}
       \n\n\n\n
-                    👊🏼 Well done ${
-                      player.userName
-                    }. You just reached the level ${player.level}.`
+                    👊🏼 Well done ${player.userName}. You just reached the ${
+        player.level
+      }.`
     );
 
     await sleepLong();
@@ -1120,7 +1119,7 @@ async function question6() {
   if (answers.iq_8 == "8") {
     item = answers.iq_;
   }
-  return handleAnswer(answers.iq_1 == "8", item);
+  return handleAnswer(answers.iq_1 == "8");
 }
 // ==========================
 async function question7() {
@@ -1138,7 +1137,7 @@ async function question7() {
   if (answers.iq_7 == "1") {
     item = answers.iq_7;
   }
-  return handleAnswer(answers.iq_7 == "1", item);
+  return handleAnswer(answers.iq_7 == "1");
 }
 // ==========================
 async function question8() {
@@ -1157,7 +1156,7 @@ async function question8() {
   if (answers.iq_8 == "84") {
     item = answers.iq_8;
   }
-  return handleAnswer(answers.iq_8 == "84", item);
+  return handleAnswer(answers.iq_8 == "84");
 }
 // ==========================
 
@@ -1177,7 +1176,7 @@ async function question9() {
   if (answers.iq_9 == "5") {
     item = answers.iq_9;
   }
-  return handleAnswer(answers.iq_9 == "5", item);
+  return handleAnswer(answers.iq_9 == "5");
 }
 // ==========================
 
@@ -1197,7 +1196,7 @@ async function question10() {
   if (answers.iq_10 == "81") {
     item = answers.iq_10;
   }
-  return handleAnswer(answers.iq_10 == "81", item);
+  return handleAnswer(answers.iq_10 == "81");
 }
 // ==========================
 
@@ -1216,7 +1215,7 @@ async function question11() {
   if (answers.iq_11 === `yes`) {
     item = answers.iq_11;
   }
-  return handleAnswer(answers.iq_11 === `yes`, item);
+  return handleAnswer(answers.iq_11 === `yes`);
 }
 // ==========================
 
@@ -1235,7 +1234,7 @@ async function question12() {
   if (answers.iq_12 === `Friday`) {
     item = answers.iq_12;
   }
-  return handleAnswer(answers.iq_12 === `Friday`, item);
+  return handleAnswer(answers.iq_12 === `Friday`);
 }
 // ==========================
 
@@ -1254,7 +1253,7 @@ async function question13() {
   if (answers.iq_13 === `promise`) {
     item = answers.iq_13;
   }
-  return handleAnswer(answers.iq_13 === promise, item);
+  return handleAnswer(answers.iq_13 === promise);
 }
 // ==========================
 
@@ -1273,7 +1272,7 @@ async function question14() {
   if (answers.iq_14 === `sponge`) {
     item = answers.iq_14;
   }
-  return handleAnswer(answers.iq_14 === `sponge`, item);
+  return handleAnswer(answers.iq_14 === `sponge`);
 }
 // ==========================
 
@@ -1292,7 +1291,7 @@ async function question15() {
   if (answers.iq_15 === `tomorrow`) {
     item = answers.iq_15;
   }
-  return handleAnswer(answers.iq_15 === `tomorrow`, item);
+  return handleAnswer(answers.iq_15 === `tomorrow`);
 }
 // ==========================
 
@@ -1312,7 +1311,7 @@ async function question16() {
   if (answers.iq_16 == "23") {
     item = answers.iq_16;
   }
-  return handleAnswer(answers.iq_16 == "23", item);
+  return handleAnswer(answers.iq_16 == "23");
 }
 // ==========================
 
@@ -1331,7 +1330,7 @@ async function question17() {
   if (answers.iq_17 == "3") {
     item = answers.iq_17;
   }
-  return handleAnswer(answers.iq_17 == "3", item);
+  return handleAnswer(answers.iq_17 == "3");
 }
 async function countElemCold() {
   const arraySmileyColdHot = [
@@ -1354,7 +1353,7 @@ async function countElemCold() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for this task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n                                                                                           ${player.lives.join(
@@ -1367,7 +1366,7 @@ async function countElemCold() {
   );
   console.log(`\n\n                                                                       
   \n\n\n${arraySmileyColdHot}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1412,7 +1411,7 @@ async function countElemClown() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n                                                                                           ${player.lives.join(
@@ -1427,7 +1426,7 @@ async function countElemClown() {
     ` `
   )}
   \n\n\n${arraySmileyColdHot}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1466,7 +1465,7 @@ async function countElemHot() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n                                                                                           ${player.lives.join()}
@@ -1477,7 +1476,7 @@ async function countElemHot() {
   );
   console.log(`\n\n                                                                                           ${player.lives.join()}
   \n\n\n${arraySmileyColdHot}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1518,7 +1517,7 @@ async function countElemSmileCat() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n                                                                                           ${player.lives.join()}
@@ -1529,7 +1528,7 @@ async function countElemSmileCat() {
   );
   console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1569,7 +1568,7 @@ async function countElemAngryCat() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n                                                                                           ${player.lives.join()}
@@ -1580,7 +1579,7 @@ async function countElemAngryCat() {
   );
   console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1621,7 +1620,7 @@ async function countElemLoveCat() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n                                                                                           ${player.lives.join()}
@@ -1632,7 +1631,7 @@ async function countElemLoveCat() {
   );
   console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1675,14 +1674,14 @@ async function countElemMermaidMan() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1725,14 +1724,14 @@ async function countElemMermaid() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrMermaid}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1773,14 +1772,14 @@ async function countElemB() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrbpq}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1819,14 +1818,14 @@ async function countElemP() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrbpq}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1865,14 +1864,14 @@ async function countElemQ() {
     `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
                              Try to concentrate and be fast. You only have 5 sec for every task!`
   );
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   console.log(
     `\n\n\n\n\n\n\n\n\n\n\n\n
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrbpq}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1905,9 +1904,8 @@ async function continueGame() {
   if (answers.spielen === `yes`) {
     player.currentBalance = 0;
     player.kofferArray = [];
-    player.lives = ["💛", "💛", "💛"];
     player.level = 0;
-
+    player.lives = 3;
     await spiele();
   } else {
     process.exit(1);
@@ -1918,14 +1916,11 @@ async function continueGame() {
 
 async function introduction() {
   console.clear();
-  // await whatIsMissingGame();
   await welcome();
   await introTextAndName();
   await getAge();
   await getCity();
-
   await gameRules();
-  // await whatIsMissingGame();
 }
 async function spiele() {
   console.clear();
