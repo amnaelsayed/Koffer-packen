@@ -3,6 +3,7 @@ import chalk from "chalk";
 import figlet from "figlet";
 import enquirer from "enquirer";
 const prompt = promptSync();
+import chalkAnimation from 'chalk-animation'
 
 
 const { Select } = enquirer;
@@ -55,3 +56,19 @@ async function questions(){
 
 // await question2();
 console.log(questions(prompt1));
+
+// let str = 'Loading...';
+// const rainbow = chalkAnimation.rainbow(str);
+
+// // Add a new dot every second
+// setInterval(() => {
+// 	rainbow.replace(str += '.');
+// }, 5000);
+// console.log(setInterval(str));
+
+const rainbow = chalkAnimation.neon('GAME OVER').stop(); // Don't start the animation
+
+rainbow.render(); // Display the first frame
+
+const frame = rainbow.frame(); // Get the second frame
+console.log(frame);
