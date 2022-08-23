@@ -536,10 +536,10 @@ async function mathe4() {
                                           "Find the product of 72 * 3"`,
     choices: [216, 7230, 106, 372],
   });
-  if (answers.mathQuestion == "216") {
+  if (answers.mathQuestion == 216) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "216", item);
+  return handleAnswer(answers.mathQuestion == 216, item);
 }
 
 async function mathe5() {
@@ -572,10 +572,10 @@ async function mathe6() {
                                  "What is the largest two digits prime number?"`,
     choices: [96, 97, 98, 99],
   });
-  if (answers.mathQuestion == "97") {
+  if (answers.mathQuestion == 97) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "97", item);
+  return handleAnswer(answers.mathQuestion == 97, item);
 }
 
 async function mathe7() {
@@ -590,10 +590,10 @@ async function mathe7() {
                                      "How many factors are there in 71?"`,
     choices: [1, 2, 3, "None of these"],
   });
-  if (answers.mathQuestion == "2") {
+  if (answers.mathQuestion == 2) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "2", item);
+  return handleAnswer(answers.mathQuestion == 2, item);
 }
 
 async function mathe8() {
@@ -608,10 +608,10 @@ async function mathe8() {
                                "What is the average value of 25, 20, 23 and 22?"`,
     choices: [20, 21.5, 22.5, 24],
   });
-  if (answers.mathQuestion == "22.5") {
+  if (answers.mathQuestion == 22.5) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "22.5", item);
+  return handleAnswer(answers.mathQuestion == 22.5, item);
 }
 
 async function mathe9() {
@@ -626,10 +626,10 @@ async function mathe9() {
                                   "What is the sum of one digit prime numbers?"`,
     choices: [11, 13, 15, 17],
   });
-  if (answers.mathQuestion == "17") {
+  if (answers.mathQuestion == 17) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "17", item);
+  return handleAnswer(answers.mathQuestion == 17, item);
 }
 
 async function mathe10() {
@@ -644,10 +644,10 @@ async function mathe10() {
                                         "How many hours in 90 minutes?"`,
     choices: [1.5, 1.3, 1, "None of these"],
   });
-  if (answers.mathQuestion == "1.5") {
+  if (answers.mathQuestion == 1.5) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "1.5", item);
+  return handleAnswer(answers.mathQuestion == 1.5, item);
 }
 
 async function mathe11() {
@@ -662,10 +662,10 @@ async function mathe11() {
                  "A clock seen through a mirror shows 8 o 'clock. What is the correct time?"`,
     choices: [8.0, 4.0, 12.2, 12.4],
   });
-  if (answers.mathQuestion == "4.0") {
+  if (answers.mathQuestion == 4.0) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "4.0", item);
+  return handleAnswer(answers.mathQuestion == 4.0, item);
 }
 async function mathe12() {
   let item;
@@ -697,10 +697,10 @@ async function mathe13() {
                          "If Davids age is 27 years old in 2011. What was his age in 2003?"`,
     choices: [17, 37, 20, 19],
   });
-  if (answers.mathQuestion == "19") {
+  if (answers.mathQuestion == 19) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "19", item);
+  return handleAnswer(answers.mathQuestion == 19, item);
 }
 
 async function mathe14() {
@@ -715,10 +715,10 @@ async function mathe14() {
                                               "What is 121 times 11"`,
     choices: [1331, 1313, 1133, 3131],
   });
-  if (answers.mathQuestion == "1331") {
+  if (answers.mathQuestion == 1331) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "1331", item);
+  return handleAnswer(answers.mathQuestion == 1331, item);
 }
 
 async function mathe15() {
@@ -733,10 +733,10 @@ async function mathe15() {
                                                 "10001 - 101 = ?"`,
     choices: [1001, 990, 9990, 9900],
   });
-  if (answers.mathQuestion == "9900") {
+  if (answers.mathQuestion == 9900) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "9900", item);
+  return handleAnswer(answers.mathQuestion == 9900, item);
 }
 
 async function mathe16() {
@@ -751,10 +751,10 @@ async function mathe16() {
                               "Which number has the greatest absolute value?"`,
     choices: [0, -20, -10, 10],
   });
-  if (answers.mathQuestion == "10") {
+  if (answers.mathQuestion == 10) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "10", item);
+  return handleAnswer(answers.mathQuestion == 10, item);
 }
 
 async function mathe17() {
@@ -769,10 +769,10 @@ async function mathe17() {
                        "Speed of a car is 60 km/hr. Distance covered in 1 ¼ hours is"`,
     choices: [60, 65, 70, 75],
   });
-  if (answers.mathQuestion == "75") {
+  if (answers.mathQuestion == 75) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "75", item);
+  return handleAnswer(answers.mathQuestion == 75, item);
 }
 
 async function mathe18() {
@@ -805,10 +805,10 @@ async function mathe19() {
                                   "How many sides are there in a nonagon?"`,
     choices: [3, 5, 7, 9],
   });
-  if (answers.mathQuestion == "9") {
+  if (answers.mathQuestion == 9) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "9", item);
+  return handleAnswer(answers.mathQuestion == 9, item);
 }
 
 async function mathe20() {
@@ -823,10 +823,10 @@ async function mathe20() {
                                        "What is the square root of 64?"`,
     choices: [6, 8, 21, 24],
   });
-  if (answers.mathQuestion == "8") {
+  if (answers.mathQuestion == 8) {
     item = answers.mathQuestion;
   }
-  return handleAnswer(answers.mathQuestion == "8", item);
+  return handleAnswer(answers.mathQuestion == 8, item);
 }
 
 async function trivial1() {
@@ -895,10 +895,10 @@ async function trivial4() {
                                 "What year was The Godfather first published?"`,
     choices: [1917, 1972, 1982, 1983],
   });
-  if (answers.trivialFragen == "1972") {
+  if (answers.trivialFragen == 1972) {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen == "1972", item);
+  return handleAnswer(answers.trivialFragen == 1972, item);
 }
 
 async function trivial5() {
@@ -913,10 +913,10 @@ async function trivial5() {
                                 "How many players are there on a water polo team?"`,
     choices: [9, 10, 7, 8],
   });
-  if (answers.trivialFragen == "8") {
+  if (answers.trivialFragen == 8) {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen == "8", item);
+  return handleAnswer(answers.trivialFragen == 8, item);
 }
 
 async function trivial6() {
@@ -931,10 +931,10 @@ async function trivial6() {
                                       "How many hearts does an octopus have?"`,
     choices: [5, 3, 4, 7],
   });
-  if (answers.trivialFragen == "3") {
+  if (answers.trivialFragen == 3) {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen == "3", item);
+  return handleAnswer(answers.trivialFragen == 3, item);
 }
 
 async function trivial7() {
@@ -1002,10 +1002,10 @@ async function trivial10() {
                                       What year is modern paper first used?`,
     choices: [105, 109, 125, 912],
   });
-  if (answers.trivialFragen == "105") {
+  if (answers.trivialFragen == 105) {
     item = answers.trivialFragen;
   }
-  return handleAnswer(answers.trivialFragen == "105", item);
+  return handleAnswer(answers.trivialFragen == 105, item);
 }
 
 async function question1() {
@@ -1040,10 +1040,10 @@ async function question2() {
                                                  37, 34, 31, 28`,
     choices: [23, 25, 17, 26],
   });
-  if (answers.iq_2 == "25") {
+  if (answers.iq_2 == 25) {
     item = answers.iq_2;
   }
-  return handleAnswer(answers.iq_2 == "25", item);
+  return handleAnswer(answers.iq_2 == 25, item);
 }
 // ==========================
 async function question3() {
@@ -1077,10 +1077,10 @@ async function question4() {
                                                        8:4 as 10:`,
     choices: [3, 7, 24, 5],
   });
-  if (answers.iq_4 == "5") {
+  if (answers.iq_4 == 5) {
     item = answers.iq_4;
   }
-  return handleAnswer(answers.iq_4 == "5", item);
+  return handleAnswer(answers.iq_4 == 5, item);
 }
 // ==========================
 async function question5() {
@@ -1097,11 +1097,11 @@ async function question5() {
                                                  therefore 72936 is to ?`,
     choices: [69237, 62397, 32796, 39762],
   });
-  if (answers.iq_5 == "69237") {
+  if (answers.iq_5 == 69237) {
     item = answers.iq_5;
   }
 
-  return handleAnswer(answers.iq_5 == "69237", item);
+  return handleAnswer(answers.iq_5 == 69237, item);
 }
 // ==========================
 async function question6() {
@@ -1116,10 +1116,10 @@ async function question6() {
                                       of shoes into cases that each hold 28 shoes?`,
     choices: [16, 8, 24, 12],
   });
-  if (answers.iq_8 == "8") {
+  if (answers.iq_8 == 8) {
     item = answers.iq_;
   }
-  return handleAnswer(answers.iq_1 == "8");
+  return handleAnswer(answers.iq_1 == 8, item);
 }
 // ==========================
 async function question7() {
@@ -1134,10 +1134,10 @@ async function question7() {
                                                    -2 , 5, -4, 3, -6:`,
     choices: [0, 1, -3, -4],
   });
-  if (answers.iq_7 == "1") {
+  if (answers.iq_7 == 1) {
     item = answers.iq_7;
   }
-  return handleAnswer(answers.iq_7 == "1");
+  return handleAnswer(answers.iq_7 == 1, item);
 }
 // ==========================
 async function question8() {
@@ -1153,10 +1153,10 @@ async function question8() {
                                                       7,21,14,42,28:`,
     choices: [84, 56, 64, 76],
   });
-  if (answers.iq_8 == "84") {
+  if (answers.iq_8 == 84) {
     item = answers.iq_8;
   }
-  return handleAnswer(answers.iq_8 == "84");
+  return handleAnswer(answers.iq_8 == 84, item);
 }
 // ==========================
 
@@ -1173,10 +1173,10 @@ async function question9() {
                                           1, 10, 3, 8, ?, 6, 7, 4, 9, 2:`,
     choices: [8, 5, 9, 11],
   });
-  if (answers.iq_9 == "5") {
+  if (answers.iq_9 == 5) {
     item = answers.iq_9;
   }
-  return handleAnswer(answers.iq_9 == "5");
+  return handleAnswer(answers.iq_9 == 5, item);
 }
 // ==========================
 
@@ -1196,7 +1196,7 @@ async function question10() {
   if (answers.iq_10 == "81") {
     item = answers.iq_10;
   }
-  return handleAnswer(answers.iq_10 == "81");
+  return handleAnswer(answers.iq_10 == 81, item);
 }
 // ==========================
 
@@ -1215,7 +1215,7 @@ async function question11() {
   if (answers.iq_11 === `yes`) {
     item = answers.iq_11;
   }
-  return handleAnswer(answers.iq_11 === `yes`);
+  return handleAnswer(answers.iq_11 === `yes`, item);
 }
 // ==========================
 
@@ -1234,7 +1234,7 @@ async function question12() {
   if (answers.iq_12 === `Friday`) {
     item = answers.iq_12;
   }
-  return handleAnswer(answers.iq_12 === `Friday`);
+  return handleAnswer(answers.iq_12 === `Friday`, item);
 }
 // ==========================
 
@@ -1253,7 +1253,7 @@ async function question13() {
   if (answers.iq_13 === `promise`) {
     item = answers.iq_13;
   }
-  return handleAnswer(answers.iq_13 === promise);
+  return handleAnswer(answers.iq_13 === promise, item);
 }
 // ==========================
 
@@ -1272,7 +1272,7 @@ async function question14() {
   if (answers.iq_14 === `sponge`) {
     item = answers.iq_14;
   }
-  return handleAnswer(answers.iq_14 === `sponge`);
+  return handleAnswer(answers.iq_14 === `sponge`, item);
 }
 // ==========================
 
@@ -1291,7 +1291,7 @@ async function question15() {
   if (answers.iq_15 === `tomorrow`) {
     item = answers.iq_15;
   }
-  return handleAnswer(answers.iq_15 === `tomorrow`);
+  return handleAnswer(answers.iq_15 === `tomorrow`, item);
 }
 // ==========================
 
@@ -1311,7 +1311,7 @@ async function question16() {
   if (answers.iq_16 == "23") {
     item = answers.iq_16;
   }
-  return handleAnswer(answers.iq_16 == "23");
+  return handleAnswer(answers.iq_16 == 23, item);
 }
 // ==========================
 
@@ -1330,7 +1330,7 @@ async function question17() {
   if (answers.iq_17 == "3") {
     item = answers.iq_17;
   }
-  return handleAnswer(answers.iq_17 == "3");
+  return handleAnswer(answers.iq_17 == 3, item);
 }
 async function countElemCold() {
   const arraySmileyColdHot = [
@@ -1423,7 +1423,7 @@ async function countElemClown() {
                                                     }  "!`
   );
   console.log(`\n\n                                                                                           
-    ``
+    
   )}
   \n\n\n${arraySmileyColdHot}\n`);
   await sleepLong();
