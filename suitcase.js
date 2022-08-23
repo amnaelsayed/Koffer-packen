@@ -402,7 +402,7 @@ async function question1() {
     name: `iq_1`,
     type: `list`,
     message: `\n\n\n                                                                                                                 ${player.livesjoin(
-      ` `
+      14` `
     )}
     \n\n\n\n
                           What starts with "e" and ends with "e" but only has one letter in it?\n\n\n\n\n\n\n`,

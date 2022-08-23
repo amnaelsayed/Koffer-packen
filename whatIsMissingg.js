@@ -7,62 +7,60 @@ import chalkAnimation from "chalk-animation";
 import { createSpinner } from "nanospinner";
 const prompt = promptSync();
 
-const sleepMedium = (ms = 1100) => new Promise((r) => setTimeout(r, ms));
+const sleepMedium = (ms = 10000) => new Promise((r) => setTimeout(r, ms));
 // Change the ms to 4000 or 5000
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 const sleepLong = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 
-const wim1 = ["🧩", "🎮", "🪗", "🎳", "🪘", "🎷", "🚴‍♂️"];
-const wim11 = ["🥎", "🛼", "🪀", "🥊", "🎺", "🚲"];
+const wim1 = ["🧩", "🎮", "🪗", "🪘", "🎷", "🚴‍♂️"];
+const wim11 = ["🛼", "🪀", "🥊", "🎺", "🚲"];
 
-const wim22 = ["🧘‍♂️", "🎻", "🎯", "🎪", "🏂", "🎠"];
-const wim2 = [`📰`, `💣`, `🪞`, `📸`, `🎈`, `📬`, `🧽`];
+const wim22 = ["🧘‍♂️", "🎯", "🎪", "🏂", "🎠"];
+const wim2 = [`💣`, `🪞`, `📸`, `🎈`, `📬`, `🧽`];
 
-const wim3 = ["😂", "😜", "😇", "🥰", "🤓", "😚", "😠"];
-const wim33 = ["🤣", "🤪", "🥸", "😍", "😗", "😣"];
+const wim3 = ["😂", "😜", "🥰", "🤓", "😚", "😠"];
+const wim33 = ["🤣", "🤪", "😍", "😗", "😣"];
 
-const wim4 = ["😸", "🐶", "🐥", "🦄", "🐒", "🐯", "🐷"];
-const wim44 = ["😹", "🦊", "🙉", "🐴", "🐤", "🐣"];
+const wim4 = ["😸", "🐥", "🦄", "🐒", "🐯", "🐷"];
+const wim44 = ["😹", "🦊", "🙉", "🐴", "🐣"];
 
-const wim5 = ["🧆", "🌭", "🥩", "🥐", "🍕", "🍰", "🍨"];
-const wim55 = ["🍔", "🌮", "🥓", "🥖", "🥧", "🍧"];
+const wim5 = ["🧆", "🥩", "🥐", "🍕", "🍰", "🍨"];
+const wim55 = ["🌮", "🥓", "🥖", "🥧", "🍧"];
 
-const wim6 = ["🍸", "🍴", "🍢", "🍲", "🍩", "🥠", "🍮"];
-const wim66 = ["🍹", "🍽", "🍡", "🍜", "🧁", "🥟"];
+const wim6 = ["🍸", "🍴", "🍢", "🍲", "🍩", "🍮"];
+const wim66 = ["🍹", "🍽", "🍡", "🍜", "🧁"];
 
-const wim7 = ["🥎", "🏐", "🏀", "🏸", "🛹", "⛸", "🏑"];
-const wim77 = ["⚾️", "⚽️", "🏉", "🏓", "🛼", "🏒"];
+const wim7 = ["🥎", "🏐", "🏀", "🏸", "⛸", "🏑"];
+const wim77 = ["⚾️", "⚽️", "🏓", "🛼", "🏒"];
 
-const wim8 = ["🎟", "🏅", "🏖", "🏊‍♂️", "🤾‍♂️", "🤽", "🤼‍♀️"];
-const wim88 = ["🎫", "🎖", "⛱", "🤾", "🏌️‍♂️", "🤼"];
+const wim8 = ["🎟", "🏅", "🏖", "🤾‍♂️", "🤽", "🤼‍♀️"];
+const wim88 = ["🎫", "🎖", "⛱", "🤾", , "🤼"];
 
-const wim9 = ["🛠", "🪚", "💣", "🔪", "🔬", "🛌", "🧽"];
-const wim99 = ["🔨", "🪛", "🔫", "🔮", "🔭", "🛏"];
+const wim9 = ["🛠", "🪚", "💣", "🔬", "🛌", "🧽"];
+const wim99 = ["🔨", "🪛", "🔫", "🔮", "🔭"];
 
-const wim10 = ["📪", "🔎", "🔐", "🔓", "📌", "🗂", "📉"];
-const wim1010 = ["📬", "🔍", "🔒", "📍", "📁", "📈"];
+const wim10 = ["📪", "🔐", "🔓", "📌", "🗂", "📉"];
+const wim1010 = ["📬", "🔒", "📍", "📁", "📈"];
 
 const wimAll = [
-  wim1,
-  wim11,
-  wim2,
-  wim22,
-  wim3,
-  wim33,
-  wim4,
-  wim44,
-  wim5,
-  wim55,
-  wim6,
-  wim66,
-  wim7,
-  wim77,
-  wim8,
-  wim88,
-  wim9,
-  wim99,
-  wim10,
-  wim1010,
+  [wim1, wim11],
+  [wim2, wim22],
+
+  [wim3, wim33],
+
+  [wim4, wim44],
+
+  [wim5, wim55],
+
+  [wim6, wim66],
+
+  [wim7, wim77],
+
+  [wim8, wim88],
+
+  [wim9, wim99],
+
+  [wim10, wim1010],
 ];
 
 async function whatIsMissingIntro() {
@@ -81,8 +79,8 @@ async function whatIsMissingIntro() {
 ⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠖⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿ You have 10 seconds to memorise the objects that  
 ⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿ will appear on the screen.
 ⣿⣿⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⡰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀⣠⣾⣿⣿⣿⣿ Then one of the objects will be blended with new
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⠀⠰⣿⣿⣿⣿⣿⣿ items and you will be asked to find the one that you 
-⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⠀⠀⡎⠀⠀⠀⠀⠀⣀⠤⠖⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠊⠈⠉⠉⠐⠒⠒⠺⢦⠀⠀⠙⠿⣿⣿⣿⣿ have seen before.
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⠀⠰⣿⣿⣿⣿⣿⣿ items and you will be asked to find the one that  
+⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⠀⠀⡎⠀⠀⠀⠀⠀⣀⠤⠖⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠊⠈⠉⠉⠐⠒⠒⠺⢦⠀⠀⠙⠿⣿⣿⣿⣿ you have seen before.
 ⣿⣿⣿⡿⠟⠋⠁⠀⠀⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠘⠧⠦⠤⠤⠤⠒⠒⠒⠶⡔⠒⠒⠒⠒⠒⠒⠒⠒⠒⠒⠲⣿⡀⠀⠀⠀⠈⠙⠻⢿
 ⡟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⡄⢠⠋⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⠀⠀⠀⠀⠀⢀⣴ Press Enter when you are ready!
 ⣿⣷⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⣧⠤⠤⢤⣤⡤⠤⠤⠤⠤⠤⠤⣇⣾⠤⠤⠤⣤⡔⠒⠒⠒⠦⠤⢾⠀⠀⢀⣤⣾⣿⣿
@@ -108,8 +106,6 @@ async function whatIsMissingIntro() {
   );
 }
 
-// console.clear();
-
 function whatIsMissing(array, array2) {
   console.clear();
   const i = Math.ceil(Math.random() * array.length - 1);
@@ -120,7 +116,7 @@ function whatIsMissing(array, array2) {
   //======================================================
   async function controlAnswer(isCorrect) {
     const spinner = createSpinner("Checking answer...").start();
-    await sleepShort();
+    await sleepMedium();
     if (isCorrect) {
       spinner.success({
         text: ` That was amazing!`,
@@ -181,9 +177,6 @@ function whatIsMissing(array, array2) {
       }
 
       frage1(array3);
-      // ============================================
-      console.log(array);
-      console.log(array3);
       // ================================================
     } else if (seconds > 20 && seconds <= 30) {
       array3.push(array2.shift());
@@ -210,8 +203,8 @@ function whatIsMissing(array, array2) {
 
       frage1(array3);
 
-      console.log(array);
-      console.log(array3);
+      // console.log(array);
+      // console.log(array3);
 
       // =====================================
     } else if (seconds > 30 && seconds <= 40) {
@@ -238,17 +231,17 @@ function whatIsMissing(array, array2) {
 
       frage1(array3);
 
-      console.log(array);
-      console.log(`Which of these items is the one that you saw before?`);
-      console.log(array3);
+      // console.log(array);
+      // console.log(`Which of these items is the one that you saw before?`);
+      // console.log(array3);
 
       // ============================================================
     } else if (seconds > 40 && seconds <= 50) {
-      array3.push(`a:` + array2.shift());
-      array3.push(`b:` + array2.shift());
-      array3.push(`c:` + array2.shift());
-      array3.push(`d:` + array2.pop());
-      array3.push(`e:` + array2[0]);
+      array3.push(array2.shift());
+      array3.push(array2.shift());
+      array3.push(array2.shift());
+      array3.push(array2.pop());
+      array3.push(array2[0]);
       async function frage1(array3) {
         let item;
 
@@ -266,9 +259,6 @@ function whatIsMissing(array, array2) {
       }
 
       frage1(array3);
-
-      console.log(array);
-      console.log(array3);
     } else {
       array3.push(...array2);
       async function frage1(array3) {
@@ -291,16 +281,19 @@ function whatIsMissing(array, array2) {
 
       console.log(array3);
     }
-  }, 600);
+  }, 10000);
 }
 function chooseArray(array, array2) {
   let i = Math.ceil(Math.random() * 9);
-  whatIsMissing(wimAll[i], wimAll[i + 1]);
+  whatIsMissing(wimAll[i][0], wimAll[i][1]);
 }
 async function whatIsMissingGame(array, array2) {
   // chooseArray()
   await whatIsMissingIntro();
-  chooseArray();
+  for (let i = 0; i <= 2; i++) {
+    chooseArray();
+  }
+  // chooseArray(array, array2);
 }
 
 whatIsMissingGame();
