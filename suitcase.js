@@ -199,7 +199,7 @@ async function nextLevel() {
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
-                                        \n\n\n\n      Congratulation!!!`);
+                                        \n\n\n\n      Congratulations!!!`);
   await sleepLong();
   welcomeText.stop(clear());
   // await spieleOneUP();
@@ -406,7 +406,7 @@ async function kofferAbfrage() {
         ` `` `
       )}
       \n\n\n\n
-                      👊🏼 Well done ${player.userName}. You just reached the ${
+                       Well done ${player.userName}. You just reached the ${
         player.level
       }.`
     );
@@ -429,7 +429,7 @@ async function kofferAbfrage() {
         ` `
       )}
       \n\n\n\n
-                    👊🏼 Well done ${player.userName}. You just reached the ${
+                    Well done ${player.userName}. You just reached the ${
         player.level
       }.`
     );
