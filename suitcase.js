@@ -1423,11 +1423,11 @@ async function countElemClown() {
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join(
-    ` `
+  console.log(`\n\n                                                                                           
+    ``
   )}
   \n\n\n${arraySmileyColdHot}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1477,7 +1477,7 @@ async function countElemHot() {
   );
   console.log(`\n\n                                                                                           ${player.lives.join()}
   \n\n\n${arraySmileyColdHot}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1529,7 +1529,7 @@ async function countElemSmileCat() {
   );
   console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1580,7 +1580,7 @@ async function countElemAngryCat() {
   );
   console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1632,7 +1632,7 @@ async function countElemLoveCat() {
   );
   console.log(`\n\n                                                                                           
   \n\n\n${arrCat}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1732,7 +1732,7 @@ async function countElemMermaid() {
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrMermaid}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1780,7 +1780,7 @@ async function countElemB() {
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrbpq}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
@@ -1826,7 +1826,7 @@ async function countElemP() {
                                                     Count the "  ${filtered[0]}  "!`
   );
   console.log(`\n\n\n\n\n${arrbpq}\n`);
-  await sleepMedium();
+  await sleepLong();
   console.clear();
   let item;
   const answers = await inquirer.prompt({
