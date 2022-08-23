@@ -177,8 +177,6 @@ const arrCat = [
   "  😽   ",
   "  😽   ",
   "  😽   ",
-
-  ,
 ];
 const arraySmileyColdHot = [
   "  🥶  ",
