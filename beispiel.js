@@ -124,7 +124,7 @@ const tomorrow = (array) => {
     if (array.length === 0) {
       console.log(`Game Over`);
     } else return tomorrow(array);
-  }, 3000);
+  },3000);
   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
   prompt5
     .then(
