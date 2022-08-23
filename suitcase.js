@@ -1422,8 +1422,8 @@ async function countElemClown() {
                                                       filtered[0]
                                                     }  "!`
   );
-  console.log(`\n\n                                                                                           ${player.lives.join(
-    ` `
+  console.log(`\n\n                                                                                           
+    ``
   )}
   \n\n\n${arraySmileyColdHot}\n`);
   await sleepLong();
