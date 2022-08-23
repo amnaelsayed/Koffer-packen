@@ -294,7 +294,7 @@ async function handleAnswer(isCorrect, item, answers) {
       text: `\n\n\n                                                                                                          ${player.lives.join(
         ` `
       )}
-      \n\n\n\n\n                                                                      
+      \n\n\n\n\n\n\n\n                                                                       
     👏🏼 Great work ${
       player.userName
     }! You just put a / an ${item} in your $uitca$e and have ${
@@ -355,7 +355,7 @@ async function kofferAbfrage() {
   const answers = await inquirer.prompt({
     name: `levelUp`,
     type: `input`,
-    message: `\n\n\n\n
+    message: `\n\n\n\n\n\n\n
                                     Do you still remember what is inside your $uitca$e? \n \n \n 
                                  Answer correclty this question to travel to the next level 💫`,
     default() {
@@ -1671,24 +1671,17 @@ async function introduction() {
 }
 async function spiele() {
   console.clear();
-  await countElemCold();
-  await countElemAngryCat();
-  await countElemClown();
-  await countElemB();
-  await countElemHot();
-  await countElemLoveCat();
-  await countElemSmileCat();
-  await countElemClown();
-  await countElemP();
-  await countElemQ();
   await mathe1();
+  await trivial1();
+  await countElemCold();
+  await question1();
+  await countElemQ();
   await mathe2();
-  await mathe3();
-  await mathe4();
-  await mathe5();
-  await mathe6();
-  await mathe7();
-  await mathe8();
+  await trivial2();
+  await countElemAngryCat();
+
+  await countElemHot();
+
   await mathe9();
   await mathe10();
   await mathe11();
@@ -1701,22 +1694,7 @@ async function spiele() {
   await mathe18();
   await mathe19();
   await mathe20();
-  await trivial1();
-  await trivial2();
-  await trivial3();
-  await trivial4();
-  await trivial5();
-  await trivial6();
-  await trivial7();
-  await trivial8();
-  await trivial9();
-  await trivial10();
-  await question1();
-  await question2();
-  await question3();
-  await question4();
-  await question5();
-  await question6();
+
   await question7();
   await question8();
   await question9();
@@ -1734,30 +1712,37 @@ async function spiele() {
 
 async function level1() {
   console.clear();
+  await countElemClown();
+  await mathe3();
+  await trivial3();
   await question2();
-  await question2();
-  await question2();
-  await question2();
-  await question2();
-  await question2();
-  await question2();
-  await question2();
-  await question2();
-  await question2();
+  await mathe4();
+  await trivial4();
+  await countElemP();
+  await trivial5();
+  await question3();
+  await mathe5();
+
   // 8spiele minimum
 }
 async function level2() {
   console.clear();
+  await countElemB();
+
+  await mathe6();
+  await trivial6();
+  await countElemLoveCat();
+  await question4();
+  await mathe7();
+  await trivial7();
+  await question5();
+  await trivial8();
+  await mathe8();
+  await countElemSmileCat();
+  await trivial9();
   await question6();
-  await question6();
-  await question6();
-  await question6();
-  await question6();
-  await question6();
-  await question6();
-  await question6();
-  await question6();
-  await question6();
+  await countElemClown();
+  await trivial10();
   // 8spiele minimum
 }
 // async function spieleOneUP() {
