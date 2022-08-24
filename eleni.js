@@ -18,6 +18,7 @@ class Questions {
   }
 }
 
+// ==========Mathe-Fragen=======================
 const mathe1 = new Questions(
   `question`,
   `list`,
@@ -160,7 +161,212 @@ const mathe20 = new Questions(
   [700, 666, 10, 100],
   666
 );
+// ==========Trivial-Fragen=======================
+const trivial1 = new Questions(
+  `question`,
+  `list`,
+  "In what year did the Titanic sink in the Atlantic on her maiden voyage?",
+  ["1912", "1921", "1914", "1916"],
+  "1912"
+);
+const trivial2 = new Questions(
+  `question`,
+  `list`,
+  "What is the smallest bird in the world?",
+  ["owl", "swallow", "pigeon", "Bee Hummingbird"],
+  "Bee Hummingbird"
+);
+const trivial3 = new Questions(
+  `question`,
+  `list`,
+  "In which movie did Hugh Jackman play the rival magician of the character played by Christian Bale?",
+  ["The prestige", "Lord of the Rings", "Assassins", "Dream"],
+  "The prestige"
+);
+const trivial4 = new Questions(
+  `question`,
+  `list`,
+  "What year was The Godfather first published?",
+  [1917, 1972, 1982, 1983],
+  1972
+);
+const trivial5 = new Questions(
+  `question`,
+  `list`,
+  "How many players are there on a water polo team?",
+  [9, 10, 7, 8],
+  8
+);
+const trivial6 = new Questions(
+  `question`,
+  `list`,
+  "How many hearts does an octopus have?",
+  [5, 3, 4, 7],
+  3
+);
+const trivial7 = new Questions(
+  `question`,
+  `list`,
+  "Which singer was known as The King of Pop and The Gloved One among others?",
+  ["Michael Jackson", "Elton John", "Ubo Jürgens", "John Lennon"],
+  "Michael Jackson"
+);
+const trivial8 = new Questions(
+  `question`,
+  `list`,
+  "What nationality was the artist Henri Matisse?",
+  ["German", "Russian", "Arabian", "French"],
+  "French"
+);
+const trivial9 = new Questions(
+  `question`,
+  `list`,
+  "Name the land.Giza Pyramid and the Great Sphinx?",
+  ["Syria", "Egypt", "Italy", "Greece"],
+  "Egypt"
+);
+const trivial10 = new Questions(
+  `question`,
+  `list`,
+  "What year is modern paper first used?",
+  [105, 109, 125, 912],
+  105
+);
+// ======================IQ-Fragen=======================
 
+const iq_1 = new Questions(
+  `questions`,
+  `list`,
+  `What starts with "e" and ends with "e" but only has one letter in it?`,
+  [`envelope`, `e`, `eye`, `elite`],
+  `envelope`,
+  `envelope`
+);
+const iq_2 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should come next in the pattern?
+37, 34, 31, 28`,
+  [23, 25, 17, 26],
+  25
+);
+const iq_3 = new Questions(
+  `questions`,
+  `list`,
+  `Book is to Reading as Fork is to:`,
+  [`drawing`, `writing`, `stirring`, `eating`],
+  `eating`
+);
+const iq_4 = new Questions(
+  `questions`,
+  `list`,
+  `What number best completes the analogy:
+8:4 as 10:`,
+  [3, 7, 24, 5],
+  5
+);
+const iq_5 = new Questions(
+  `questions`,
+  `list`,
+  ` 12593 is to 35291
+and 29684 is to 46982
+therefore 72936 is to ?`,
+  [69237, 62397, 32796, 39762],
+  69237
+);
+const iq_6 = new Questions(
+  `questions`,
+  `list`,
+  ` How many cases do you need if you have to pack 112 pairs
+of shoes into cases that each hold 28 shoes?`,
+  [16, 8, 24, 12],
+  8
+);
+const iq_7 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should come next in the pattern?
+-2 , 5, -4, 3, -6:`,
+  [0, 1, -3, -4],
+  1
+);
+const iq_8 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should come next in the pattern?
+7,21,14,42,28:`,
+  [84, 56, 64, 76],
+  84
+);
+const iq_9 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should replace the questionmark?
+1, 10, 3, 8, ?, 6, 7, 4, 9, 2:`,
+  [8, 5, 9, 11],
+  5
+);
+const iq_10 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should replace the questionmark?
+1, 3, 9, 27, ?, 243:`,
+  [36, 78, 81, 112],
+  81
+);
+const iq_11 = new Questions(
+  `questions`,
+  `list`,
+  `Jack is looking at Anne. Anne is looking at George. Jack is married, George is not, and we don’t know if Anne is married. Is a married person looking at an unmarried person?`,
+  [`yes`, `no`, `we cannot know`],
+  `yes`
+);
+const iq_12 = new Questions(
+  `questions`,
+  `list`,
+  `The day before two days after the day before tomorrow is Saturday. What day is it today?`,
+  [`Sunday`, `Tuesday`, `Monday`, `Friday`],
+  `Friday`
+);
+const iq_13 = new Questions(
+  `questions`,
+  `list`,
+  `What can be broken but never held?`,
+  [`heart`, `vase`, `promise`, `none of this`],
+  `promise`
+);
+const iq_14 = new Questions(
+  `questions`,
+  `list`,
+  `What’s full of holes but can still hold water?`,
+  [`cheese`, `rock`, `sponge`, `shocks`],
+  `sponge`
+);
+const iq_15 = new Questions(
+  `questions`,
+  `list`,
+  `What is always coming but never arrives?`,
+  [`train`, `tomorrow`, `money`, `happines`],
+  `tomorrow`
+);
+const iq_16 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should replace the questionmark?
+2, 3, 5, 7, 11, 13, 17, 19, ?, 29:`,
+  [`23`, `22`, `25`, `30`],
+  23
+);
+const iq_17 = new Questions(
+  `questions`,
+  `list`,
+  `Which number should replace the questionmark?
+2, 3, 5, 7, 11, 13, 17, 19, ?, 29:`,
+  [`23`, `22`, `25`, `30`],
+  23
+);
+
+//========================================================
 async function handleAnswer(isCorrect) {
   const spinner = createSpinner("Checking your answer...").start();
   await sleep();
