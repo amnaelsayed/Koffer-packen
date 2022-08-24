@@ -481,11 +481,11 @@ async function mathe1() {
                                      "Find the sum of 111 + 222 + 333"`,
     choices: [700, 666, 10, 100],
   });
-  if (answers.mathQuestion === 666) {
+  if (answers.mathQuestion == 666) {
     item = answers.mathQuestion;
   }
 
-  return handleAnswer(answers.mathQuestion === 666, item);
+  return handleAnswer(answers.mathQuestion == 666, item);
 }
 async function mathe2() {
   let item;
@@ -527,7 +527,7 @@ async function mathe3() {
 async function mathe4() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -545,7 +545,7 @@ async function mathe4() {
 async function mathe5() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -563,7 +563,7 @@ async function mathe5() {
 async function mathe6() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -581,7 +581,7 @@ async function mathe6() {
 async function mathe7() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -599,7 +599,7 @@ async function mathe7() {
 async function mathe8() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -617,7 +617,7 @@ async function mathe8() {
 async function mathe9() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -635,7 +635,7 @@ async function mathe9() {
 async function mathe10() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -653,7 +653,7 @@ async function mathe10() {
 async function mathe11() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -670,7 +670,7 @@ async function mathe11() {
 async function mathe12() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -688,7 +688,7 @@ async function mathe12() {
 async function mathe13() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -706,7 +706,7 @@ async function mathe13() {
 async function mathe14() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -724,7 +724,7 @@ async function mathe14() {
 async function mathe15() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -742,7 +742,7 @@ async function mathe15() {
 async function mathe16() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -760,7 +760,7 @@ async function mathe16() {
 async function mathe17() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -778,7 +778,7 @@ async function mathe17() {
 async function mathe18() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -796,7 +796,7 @@ async function mathe18() {
 async function mathe19() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `
@@ -814,7 +814,7 @@ async function mathe19() {
 async function mathe20() {
   let item;
   const answers = await inquirer.prompt({
-    name: `mathQuestions`,
+    name: `mathQuestion`,
     type: `list`,
     message: `\n\n                                                                                           ${player.lives.join(
       ` `

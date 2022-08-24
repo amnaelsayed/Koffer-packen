@@ -106,235 +106,205 @@ async function whatIsMissingIntro() {
   );
 }
 
-function whatIsMissing(array1, array2) {
+async function whatIsMissing(array1, array2) {
+  // let i = 0;
+  // let played = 0;
+  // const wimAll = [
+  //   [wim1, wim11],
+  //   [wim2, wim22],
+  //   [wim3, wim33],
+  //   [wim4, wim44],
+  //   [wim5, wim55],
+  //   [wim6, wim66],
+  //   [wim7, wim77],
+  //   [wim8, wim88],
+  //   [wim9, wim99],
+  //   [wim10, wim1010],
+  // ];
+  // i = Math.ceil(Math.random() * 9);
+  // const array1 = wimAll[i][0];
+  // const array2 = wimAll[i][1];
   console.clear();
-  const i = Math.ceil(Math.random() * array1.length - 1);
+  const disappears = Math.ceil(Math.random() * array1.length - 1);
   const array3 = [];
   console.log(`Memorise the objects :`);
   console.log(array1);
 
   //======================================================
   async function controlAnswer(isCorrect) {
-    const spinner = createSpinner("Checking answer...").start();
+    const spinner = createSpinner("Checking your answer...").start();
     await sleepShort();
     if (isCorrect) {
-      spinner.success({
-        text: ` That was amazing!`,
+      return spinner.success({ texr: `That was amazing` });
+    } else {
+      return spinner.error({
+        text: `Hmmm that wasn't the right answer! But let's play the $uitca$se game`,
       });
-    } else
-      spinner.error({
-        text: `Hmmm that wasn't the right answer! Let's try another one`,
-      });
-  }
-  // =======================================================
-  setTimeout(function () {
-    console.clear();
-    const missing = array2.push(array1.splice(i, 1)[0]);
-
-    // let seconds = new Date().getSeconds();
-    // if (seconds <= 10) {
-    array3.push(array2.shift());
-    array3.push(array2.shift());
-    array3.push(array2.pop());
-    array3.push(array2.shift());
-    array3.push(array2[0]);
-    async function frage1(array3) {
-      let item;
-
-      const answers = await inquirer.prompt({
-        name: `objekt1`,
-        type: `list`,
-        message: `Which of these items is the one that you saw before?`,
-        choices: array3,
-      });
-      if (answers.objekt1 === array3[2]) {
-        item = answers.objekt1;
-      }
-      return controlAnswer(answers.objekt1 === item);
     }
-    frage1(array3);
-
-    //   //=======================================0
-    // } else if (seconds > 10 && seconds <= 20) {
-    //   array3.push(array2.pop());
-    //   array3.push(array2.pop());
-    //   array3.push(array2.pop());
-    //   array3.push(array2.pop());
-    //   array3.push(array2[0]);
-    //   async function frage1(array3) {
-    //     let item;
-    //     const answers = await inquirer.prompt({
-    //       name: `objekt1`,
-    //       type: `list`,
-    //       message: `Which of these items is the one that you saw before?`,
-    //       choices: array3,
-    //     });
-    //     if (answers.objekt1 === array3[0]) {
-    //       item = answers.objekt1;
-    //       console.log(`Amazing that was the right answer!!!`);
-    //     }
-    //     return controlAnswer(answers.objekt1 === item);
-    //   }
-
-    //   frage1(array3);
-    //   // ================================================
-    // } else if (seconds > 20 && seconds <= 30) {
-    //   array3.push(array2.shift());
-    //   array3.push(array2.shift());
-    //   array3.push(array2.pop());
-    //   array3.push(array2.pop());
-    //   array3.push(array2[0]);
-
-    //   async function frage1(array3) {
-    //     let item;
-
-    //     const answers = await inquirer.prompt({
-    //       name: `objekt1`,
-    //       type: `list`,
-    //       message: `Which of these items is the one that you saw before?`,
-    //       choices: array3,
-    //     });
-    //     if (answers.objekt1 === array3[2]) {
-    //       item = answers.objekt1;
-    //       console.log(`Amazing that was the right answer!!!`);
-    //     }
-    //     return controlAnswer(answers.objekt1 === item);
-    //   }
-
-    //   frage1(array3);
-
-    //   // console.log(array);
-    //   // console.log(array3);
-
-    //   // =====================================
-    // } else if (seconds > 30 && seconds <= 40) {
-    //   array3.push(array2.shift());
-    //   array3.push(array2.pop());
-    //   array3.push(array2.pop());
-    //   array3.push(array2.pop());
-    //   array3.push(array2[0]);
-    //   async function frage1(array3) {
-    //     let item;
-
-    //     const answers = await inquirer.prompt({
-    //       name: `objekt1`,
-    //       type: `list`,
-    //       message: `Which of these items is the one that you saw before?`,
-    //       choices: array3,
-    //     });
-    //     if (answers.objekt1 === array3[1]) {
-    //       item = answers.objekt1;
-    //       console.log(`Amazing that was the right answer!!!`);
-    //     }
-    //     return controlAnswer(answers.objekt1 === item);
-    //   }
-
-    //   frage1(array3);
-
-    //   // console.log(array);
-    //   // console.log(`Which of these items is the one that you saw before?`);
-    //   // console.log(array3);
-
-    //   // ============================================================
-    // } else if (seconds > 40 && seconds <= 50) {
-    //   array3.push(array2.shift());
-    //   array3.push(array2.shift());
-    //   array3.push(array2.shift());
-    //   array3.push(array2.pop());
-    //   array3.push(array2[0]);
-    //   async function frage1(array3) {
-    //     let item;
-
-    //     const answers = await inquirer.prompt({
-    //       name: `objekt1`,
-    //       type: `list`,
-    //       message: `Which of these items is the one that you saw before?`,
-    //       choices: array3,
-    //     });
-    //     if (answers.objekt1 === array3[3]) {
-    //       item = answers.objekt1;
-    //       console.log(`Amazing that was the right answer!!!`);
-    //     }
-    //     return controlAnswer(answers.objekt1 === item);
-    //   }
-
-    //   frage1(array3);
-    // } else {
-    //   array3.push(...array2);
-    //   async function frage1(array3) {
-    //     let item;
-
-    //     const answers = await inquirer.prompt({
-    //       name: `objekt1`,
-    //       type: `list`,
-    //       message: `Which of these items is the one that you saw before?`,
-    //       choices: array3,
-    //     });
-    //     if (answers.objekt1 === array3[4]) {
-    //       item = answers.objekt1;
-    //       console.log(`Amazing that was the right answer!!!`);
-    //     }
-    //     return controlAnswer(answers.objekt1 === item);
-    //   }
-
-    // frage1(array3);
-
-    // console.log(array3);
-    // }
-  }, 10000);
+  }
 }
-async function chooseArray() {
-  const wimAll = [
-    [wim1, wim11],
-    [wim2, wim22],
-
-    [wim3, wim33],
-
-    [wim4, wim44],
-
-    [wim5, wim55],
-
-    [wim6, wim66],
-
-    [wim7, wim77],
-
-    [wim8, wim88],
-
-    [wim9, wim99],
-
-    [wim10, wim1010],
-  ];
-  let i = Math.ceil(Math.random() * 9);
-  whatIsMissing(wimAll[i][0], wimAll[i][1]);
-}
-async function chooseArray2() {
-  const wimAll = [
-    [wim1, wim11],
-    [wim2, wim22],
-
-    [wim3, wim33],
-
-    [wim4, wim44],
-
-    [wim5, wim55],
-
-    [wim6, wim66],
-
-    [wim7, wim77],
-
-    [wim8, wim88],
-
-    [wim9, wim99],
-
-    [wim10, wim1010],
-  ];
-  let i = Math.ceil(Math.random() * 9);
-  whatIsMissing(wimAll[i][0], wimAll[i][1]);
+// =======================================================
+setTimeout(function () {
   console.clear();
-}
-async function whatIsMissingGame() {
-  whatIsMissingIntro();
-  chooseArray();
-}
+  array2.push(array1.splice(disappears, 1)[0]);
 
-export default whatIsMissingGame;
+  // let seconds = new Date().getSeconds();
+  // if (seconds <= 10) {
+  array3.push(array2.shift());
+  array3.push(array2.shift());
+  array3.push(array2.pop());
+  array3.push(array2.shift());
+  array3.push(array2[0]);
+
+  async function frage1(array3) {
+    let item;
+
+    const answers = await inquirer.prompt({
+      name: `objekt1`,
+      type: `list`,
+      message: `Which of these items is the one that you saw before?`,
+      choices: array3,
+    });
+    if (answers.objekt1 === array3[2]) {
+      item = answers.objekt1;
+    }
+    return controlAnswer(answers.objekt1 === item);
+  }
+  frage1(array3);
+
+  //   //=======================================0
+  // } else if (seconds > 10 && seconds <= 20) {
+  //   array3.push(array2.pop());
+  //   array3.push(array2.pop());
+  //   array3.push(array2.pop());
+  //   array3.push(array2.pop());
+  //   array3.push(array2[0]);
+  //   async function frage1(array3) {
+  //     let item;
+  //     const answers = await inquirer.prompt({
+  //       name: `objekt1`,
+  //       type: `list`,
+  //       message: `Which of these items is the one that you saw before?`,
+  //       choices: array3,
+  //     });
+  //     if (answers.objekt1 === array3[0]) {
+  //       item = answers.objekt1;
+  //       console.log(`Amazing that was the right answer!!!`);
+  //     }
+  //     return controlAnswer(answers.objekt1 === item);
+  //   }
+
+  //   frage1(array3);
+  //   // ================================================
+  // } else if (seconds > 20 && seconds <= 30) {
+  //   array3.push(array2.shift());
+  //   array3.push(array2.shift());
+  //   array3.push(array2.pop());
+  //   array3.push(array2.pop());
+  //   array3.push(array2[0]);
+
+  //   async function frage1(array3) {
+  //     let item;
+
+  //     const answers = await inquirer.prompt({
+  //       name: `objekt1`,
+  //       type: `list`,
+  //       message: `Which of these items is the one that you saw before?`,
+  //       choices: array3,
+  //     });
+  //     if (answers.objekt1 === array3[2]) {
+  //       item = answers.objekt1;
+  //       console.log(`Amazing that was the right answer!!!`);
+  //     }
+  //     return controlAnswer(answers.objekt1 === item);
+  //   }
+
+  //   frage1(array3);
+
+  //   // console.log(array);
+  //   // console.log(array3);
+
+  //   // =====================================
+  // } else if (seconds > 30 && seconds <= 40) {
+  //   array3.push(array2.shift());
+  //   array3.push(array2.pop());
+  //   array3.push(array2.pop());
+  //   array3.push(array2.pop());
+  //   array3.push(array2[0]);
+  //   async function frage1(array3) {
+  //     let item;
+
+  //     const answers = await inquirer.prompt({
+  //       name: `objekt1`,
+  //       type: `list`,
+  //       message: `Which of these items is the one that you saw before?`,
+  //       choices: array3,
+  //     });
+  //     if (answers.objekt1 === array3[1]) {
+  //       item = answers.objekt1;
+  //       console.log(`Amazing that was the right answer!!!`);
+  //     }
+  //     return controlAnswer(answers.objekt1 === item);
+  //   }
+
+  //   frage1(array3);
+
+  //   // console.log(array);
+  //   // console.log(`Which of these items is the one that you saw before?`);
+  //   // console.log(array3);
+
+  //   // ============================================================
+  // } else if (seconds > 40 && seconds <= 50) {
+  //   array3.push(array2.shift());
+  //   array3.push(array2.shift());
+  //   array3.push(array2.shift());
+  //   array3.push(array2.pop());
+  //   array3.push(array2[0]);
+  //   async function frage1(array3) {
+  //     let item;
+
+  //     const answers = await inquirer.prompt({
+  //       name: `objekt1`,
+  //       type: `list`,
+  //       message: `Which of these items is the one that you saw before?`,
+  //       choices: array3,
+  //     });
+  //     if (answers.objekt1 === array3[3]) {
+  //       item = answers.objekt1;
+  //       console.log(`Amazing that was the right answer!!!`);
+  //     }
+  //     return controlAnswer(answers.objekt1 === item);
+  //   }
+
+  //   frage1(array3);
+  // } else {
+  //   array3.push(...array2);
+  //   async function frage1(array3) {
+  //     let item;
+
+  //     const answers = await inquirer.prompt({
+  //       name: `objekt1`,
+  //       type: `list`,
+  //       message: `Which of these items is the one that you saw before?`,
+  //       choices: array3,
+  //     });
+  //     if (answers.objekt1 === array3[4]) {
+  //       item = answers.objekt1;
+  //       console.log(`Amazing that was the right answer!!!`);
+  //     }
+  //     return controlAnswer(answers.objekt1 === item);
+  //   }
+
+  // frage1(array3);
+
+  // console.log(array3);
+  // }
+}, 5000);
+}
+function whatIsMissingGame() {
+  whatIsMissingIntro();
+  whatIsMissing(wimAll[3][0], wimAll[(3)[1]]);
+
+  whatIsMissing(wimAll[4][0], wimAll[4][1]);
+}
+whatIsMissingGame();
