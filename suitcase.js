@@ -52,7 +52,7 @@ const sleepMedium = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 const sleepShort = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 const sleepLong = (ms = 5000) => new Promise((r) => setTimeout(r, ms));
-const sleepExtraLong = (ms = 50000) => new Promise((r) => setTimeout(r, ms));
+const sleepExtraLong = (ms = 8000) => new Promise((r) => setTimeout(r, ms));
 
 const clear = () => {
   console.clear();
@@ -161,7 +161,7 @@ async function gameRules() {
                                    You have 3 lives to complete all the tasks!\n\n`);
   // max.Gewicht 25Kg und bei jeder level kriegt 5 plus
   //  auch in den handleAnswer()
-  await sleepLong();
+  await sleepExtraLong();
 
   explanation.stop();
 }
