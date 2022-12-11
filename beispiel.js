@@ -118,12 +118,13 @@ const tomorrow = (array) => {
     choices: array[0].choices,
     rightAnswer: array[0].rightAnswer,
   });
+
     array.splice(0, 1);
     console.clear();
     if (array.length === 0) {
       console.log(`Game Over`);
     } else return tomorrow(array);
-  }, 3000);
+  },3000);
   // prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
   prompt5
     .then(
@@ -141,7 +142,32 @@ const tomorrow = (array) => {
       // )
     )
     .catch(console.error);
-};
+
+  array.splice(0, 1);
+  console.clear();
+  if (array.length === 0) {
+    console.log(`Game Over`);
+  } else return tomorrow(array);
+
+// prompt5.then((answer) => console.log("Answer:", answer)).catch(console.error);
+prompt5
+  .then(
+    (answer) => {
+      if (prompt5.rightAnswer === answer) {
+        console.log("You are right");
+      } else {
+        console.log(`You lost one life`);
+      }
+    }
+    // console.log(
+    //   gradient.summer(
+    //     prompt5.rightAnswer === answer ? "You are right" : `You lost one life`
+    //   )
+    // )
+  )
+  .catch(console.error);
+
+
 const iqOne = tomorrow(paradeigma);
 console.log(iqOne);
 
@@ -184,7 +210,6 @@ console.log(iqOne);
 // // /* later */
 // // clearInterval(refreshIntervalId);
 
-
 // 2;
 // 3;
 // 4;
@@ -218,7 +243,6 @@ console.log(iqOne);
 // console.log(
 //   "\x1b[4mgetting fancy with underlines \x1b[30m\x1b[3m\x1b[105mand italics\x1b[0m"
 // );
-
 
 // console.log(
 //   "%cStyling is %cfun",

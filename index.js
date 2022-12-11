@@ -1,3 +1,4 @@
+
 // <<<<<<< HEAD
 import promptSync from "prompt-sync";
 const prompt = promptSync();
@@ -20,6 +21,8 @@ const prompt1 = new Select({
 
 const answer1 = await prompt1.run();
 console.log(answer1);
+
+
 const prompt2 = new Select({
   name: 'Frage 1',
   message: `${chalk.bgBlue("In what year did the Titanic sink in the Atlantic on her maiden voyage?")}`,
@@ -38,6 +41,11 @@ else{
 }
 const weiter = prompt(chalk.bgBlue("möschtest du weiter?y/n?"));
 console.log(weiter);
+if(weiter === "y"){
+  console.log(`${chalk.green("Die nächste Frage !")}`);
+}else if(weiter === "n"){
+  console.log(`${chalk.red("GAME      OVER!")}`);
+}
 // =======
 // const lol = `😂`;
 // console.log(lol);
@@ -49,6 +57,7 @@ console.log(weiter);
 //   // ----KofferFrage
 // }
 // >>>>>>> 0f9bc9dd7e9eda9b5e5fc7c139b3386a49c1402f
+
 
 
 

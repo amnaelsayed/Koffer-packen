@@ -5,6 +5,7 @@
   "description": "Koffer-packen Ein Paar Organisatorische Fragen: *Begrüßung-Spielregeln *Mehrere Spieler oder nur gegen den Computer *Wie viele Levels wollen wir haben? ---Bei Jede n Fragen ist ein Level abgeschlossen, nach der Frage muss die Antwort zu einem Array gepushed-(Koffer Array) ---Zwischenergebnis im Koffer Packen z.B. console.log(Du hast in deinem Koffer die \"2\" gepackt) ----clear ---prompt(Was hast du in deinem Koffer gepackt?) ---Abfrage von Array gepushed Koffer ----Wenn richtig nächte Frage *Erstes Level hat 5 Fragen (1 Samen) *Zweites Level hat 5 schwieriegere Fragen(1 Tropfen) *Drittes Level hat 7 Fragen () *Viertes Level hat 7 schwierigere Fragen *Fünftes Level hat 10",
   "main": "kofferPacken.js",
   "scripts": {
+    "quiz": "node nullEinsSpiel.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,15 +20,8 @@
   },
   "homepage": "https://github.com/amnaelsayed/Koffer-packen#readme",
   "dependencies": {
+    "center-align": "^1.0.1",
     "chalk": "^5.0.1",
-<<<<<<< HEAD
-=======
-
-    
-    
-    "gradient": "^0.2.0",
-
->>>>>>> 1ce4065bfda03460dd3dd47008f7a1122ce0b4cf
     "chalk-animation": "^2.0.2",
     "enquirer": "^2.3.6",
     "figlet": "^1.5.2",
@@ -35,12 +29,7 @@
     "gradient-string": "^2.0.1",
     "howler": "^2.2.3",
     "inquirer": "^9.1.0",
-<<<<<<< HEAD
     "prompt-sync": "^4.2.0",
     "require": "^2.4.20"
-=======
-
-    "prompt-sync": "^4.2.0"
->>>>>>> 1ce4065bfda03460dd3dd47008f7a1122ce0b4cf
   }
 }
