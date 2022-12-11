@@ -1905,7 +1905,7 @@ async function continueGame() {
     player.currentBalance = 0;
     player.kofferArray = [];
     player.level = 0;
-    player.lives = 3;
+    player.lives = ["💛", "💛", "💛"];
     await spiele();
   } else {
     process.exit(1);
