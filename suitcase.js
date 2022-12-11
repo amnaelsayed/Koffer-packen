@@ -321,8 +321,8 @@ async function handleAnswer(isCorrect, item, answers) {
     console.clear();
     if (
       (player.kofferArray.length == 5 && player.currentBalance == 200) ||
-      (player.kofferArray.length == 7 && player.currentBalance == 480) ||
-      (player.kofferArray.length == 10 && player.currentBalance == 880)
+      (player.kofferArray.length == 5 && player.currentBalance == 400) ||
+      (player.kofferArray.length == 5 && player.currentBalance == 600)
     ) {
       console.log(player.kofferArray);
       await kofferAbfrage();
@@ -371,8 +371,8 @@ async function kofferAbfrage() {
   // console.log(player.kofferArray.join(` `));
   if (
     player.kofferArray.join(` `) == playerRemembers &&
-    player.kofferArray.length == 10 &&
-    player.currentBalance == 880
+    player.kofferArray.length == 5 &&
+    player.currentBalance == 600
   ) {
     player.kofferArray = [];
     player.level += 1;
@@ -391,22 +391,22 @@ async function kofferAbfrage() {
     await sleepLong();
     console.clear();
     await nextLevel();
-    await level2();
+    await level3();
   }
   if (
     player.kofferArray.join(` `) == playerRemembers &&
-    player.kofferArray.length == 7 &&
-    player.currentBalance == 480
+    player.kofferArray.length == 5 &&
+    player.currentBalance == 400
   ) {
     player.kofferArray = [];
     player.level += 1;
     console.log(player.currentBalance);
     console.log(
-      `\n\n\n                                                                                                                  ${player.lives.join(
-        ` `` `
+      `\n\n\n                                                                                            ${player.lives.join(
+        ` `
       )}
       \n\n\n\n
-                       Well done ${player.userName}. You just reached the ${
+                    Well done ${player.userName}. You just reached the ${
         player.level
       }.`
     );
@@ -1979,6 +1979,26 @@ async function level1() {
   // 8spiele minimum
 }
 async function level2() {
+  console.clear();
+  await countElemB();
+
+  await mathe6();
+  await trivial6();
+  await countElemLoveCat();
+  await question4();
+  await mathe7();
+  await trivial7();
+  await question5();
+  await trivial8();
+  await mathe8();
+  await countElemSmileCat();
+  await trivial9();
+  await question6();
+  await countElemClown();
+  await trivial10();
+  // 8spiele minimum
+}
+async function level3() {
   console.clear();
   await countElemB();
 

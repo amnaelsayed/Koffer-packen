@@ -29,6 +29,7 @@
     "gradient-string": "^2.0.1",
     "howler": "^2.2.3",
     "inquirer": "^9.1.0",
+    "nanospinner": "^1.1.0",
     "prompt-sync": "^4.2.0",
     "require": "^2.4.20"
   }
