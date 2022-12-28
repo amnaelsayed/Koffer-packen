@@ -316,7 +316,8 @@ async function handleAnswer(isCorrect, item, answers) {
     await sleepMedium();
     player.kofferArray.push(item);
 
-    player.rightAnswer += 1;
+    player.ri;
+    ghtAnswer += 1;
 
     console.clear();
     if (
